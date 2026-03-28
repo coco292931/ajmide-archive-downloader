@@ -1,0 +1,175 @@
+name: Build Multi-Platform Releases
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version, e.g. 1.0.0"
+        required: true
+        default: "1.0.0"
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: windows
+            artifact_name: ajmide-windows
+          - os: ubuntu-latest
+            target: linux
+            artifact_name: ajmide-linux
+          - os: macos-latest
+            target: macos
+            artifact_name: ajmide-macos
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Linux Tk Runtime
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk
+
+      - name: Install Python Dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          pip install pyinstaller requests
+
+      - name: Build Windows Binary (with icon)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          python -m PyInstaller -F -w -i "${{ github.workspace }}/favicon.ico.ico" --noconfirm --clean \
+            --distpath "dist/${{ matrix.target }}" \
+            --workpath "build/${{ matrix.target }}/gui" \
+            --specpath "build/spec/${{ matrix.target }}/gui" \
+            "gui.py"
+
+      - name: Build Windows CLI Binary
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          python -m PyInstaller -F --noconfirm --clean \
+            --distpath "dist/${{ matrix.target }}" \
+            --workpath "build/${{ matrix.target }}/cli" \
+            --specpath "build/spec/${{ matrix.target }}/cli" \
+            "downloader.py"
+
+      - name: Build Non-Windows Binary
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          python -m PyInstaller -F -w --noconfirm --clean \
+            --distpath "dist/${{ matrix.target }}" \
+            --workpath "build/${{ matrix.target }}/gui" \
+            --specpath "build/spec/${{ matrix.target }}/gui" \
+            "gui.py"
+
+      - name: Build Non-Windows CLI Binary
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          python -m PyInstaller -F --noconfirm --clean \
+            --distpath "dist/${{ matrix.target }}" \
+            --workpath "build/${{ matrix.target }}/cli" \
+            --specpath "build/spec/${{ matrix.target }}/cli" \
+            "downloader.py"
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: dist/${{ matrix.target }}/
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Resolve Release Meta
+        id: meta
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            raw_tag="${GITHUB_REF#refs/tags/}"
+            version="${raw_tag#v}"
+            tag_name="$raw_tag"
+          else
+            version="${{ github.event.inputs.version }}"
+            tag_name="v${version}"
+          fi
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag_name=$tag_name" >> "$GITHUB_OUTPUT"
+
+      - name: Download All Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Prepare Release Assets
+        shell: bash
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          mkdir -p release_files
+
+          if [ -f artifacts/ajmide-windows/gui.exe ]; then
+            cp artifacts/ajmide-windows/gui.exe "release_files/ajmide-archive-downloader_windows_V${VERSION}.exe"
+          fi
+
+          if [ -f artifacts/ajmide-windows/downloader.exe ]; then
+            cp artifacts/ajmide-windows/downloader.exe "release_files/ajmide-archive-downloader_windows_V${VERSION}_CLI.exe"
+          fi
+
+          if [ -f artifacts/ajmide-linux/gui ]; then
+            tar -C artifacts/ajmide-linux -czf "release_files/ajmide-archive-downloader_linux_V${VERSION}.tar.gz" gui
+          fi
+
+          if [ -f artifacts/ajmide-linux/downloader ]; then
+            tar -C artifacts/ajmide-linux -czf "release_files/ajmide-archive-downloader_linux_V${VERSION}_CLI.tar.gz" downloader
+          fi
+
+          if [ -f artifacts/ajmide-macos/gui ]; then
+            tar -C artifacts/ajmide-macos -czf "release_files/ajmide-archive-downloader_macos_V${VERSION}.tar.gz" gui
+          fi
+
+          if [ -f artifacts/ajmide-macos/downloader ]; then
+            tar -C artifacts/ajmide-macos -czf "release_files/ajmide-archive-downloader_macos_V${VERSION}_CLI.tar.gz" downloader
+          fi
+
+          ls -lh release_files
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag_name }}
+          target_commitish: ${{ github.sha }}
+          name: ajmide-archive-downloader V${{ steps.meta.outputs.version }}
+          files: release_files/*
+          generate_release_notes: true
