@@ -1,0 +1,21 @@
+{
+    "broadcast_id": "662",
+    "output_dir": "downloads",
+    "delay": 1.5,
+    "max_rate_kbps": 0,
+    "api_key": "f0fc4c668392f9f9a447e48584c214ee",
+    "high_bitrate": true,
+    "download_images": true,
+    "name_filter_regex": "",
+    "filename_template": "{date}\\{name}",
+    "ffmpeg_path": "",
+    "convert_out_dir": "downloads_converts",
+    "convert_format": "opus",
+    "convert_bitrate": "80",
+    "convert_sample_rate": "0",
+    "convert_threads": "0",
+    "overwrite_mode": 2,
+    "embed_cover": true,
+    "auto_convert": true,
+    "delete_origin": false
+}
