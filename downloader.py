@@ -1,33 +1,157 @@
 import requests
 import os
+import sys
+import json
 from datetime import datetime, timedelta
 import time
 import hashlib
 import re
+import random
+import uuid
 from urllib.parse import urlparse
 
-def get_sign_and_timestamp(params, api_key="f0fc4c668392f9f9a447e48584c214ee", broadcast_id=None):
-    """
-    根据云听前端JS逻辑生成正确的 sign 和 timestamp
-    """
-    # 云听接口使用毫秒级时间戳参与签名，客户端和服务端必须保持同一轮计算口径。
-    timestamp = str(int(time.time() * 1000))
-    # 使用传入的 key 或者默认的硬编码 key
-    key = api_key
-    
-    if isinstance(params, dict):
-        # 按 key 排序后拼接，保证签名输入稳定（与前端 JS 实现一致）。
-        sorted_keys = sorted(params.keys())
-        sort_params = [f"{k}={params[k]}" for k in sorted_keys]
-        params_str = "&".join(sort_params)
-    else:
-        # Fallback if params is the date string
-        params_str = f"broadcastId={broadcast_id}&date={params}"
-        
-    sign_text = f"{params_str}&timestamp={timestamp}&key={key}"
-    sign = hashlib.md5(sign_text.encode('utf-8')).hexdigest().upper()
-    
-    return sign, timestamp
+_UA_DEVICE_POOL = [
+    "HLK-AL00",
+    "VOG-AL00",
+    "M2007J3SC",
+    "NOH-AN00",
+    "PCT-AL10",
+]
+
+_BASE_HEADERS = {
+    "Accept-Encoding": "gzip",
+    "Authorization": "uauth",
+    "Connection": "Keep-Alive",
+    "Host": "a.ajmide.com",
+    "If-Modified-Since": "Sat, 28 Mar 2026 12:36:07 GMT",
+}
+
+_ROTATE_EVERY = 8
+_header_state = {
+    "count": 0,
+    "headers": None,
+}
+
+_DOWNLOAD_RETRY_MAX = 2
+_DOWNLOAD_RETRY_SLEEP_SECONDS = 1.5
+# 仅设置读取超时 5s，不设置连接超时。
+_REQUEST_TIMEOUT = (None, 5)
+CONFIG_FILE = "config.json"
+
+# Hit FM 节目到 c_{code} 映射及播出时段。
+# day: 1-7 => 周一到周日。
+DEFAULT_PROGRAM_SCHEDULES = [
+    {"name": "Morning Hits阳光音乐早餐", "code": "460", "slots": [{"days": [1, 2, 3, 4, 5], "start": "07:00", "end": "10:00"}]},
+    {"name": "hit morning show", "code": "461", "slots": [{"days": [1, 2, 3, 4, 5], "start": "07:00", "end": "10:00"}]},
+    {"name": "at 40", "code": "462", "slots": [{"days": [6], "start": "08:00", "end": "12:00"}, {"days": [7], "start": "12:00", "end": "16:00"}]},
+    {"name": "Hit FM OST电影原声坊", "code": "465", "slots": [{"days": [7], "start": "16:00", "end": "18:00"}]},
+    {"name": "Hit the Road在路上", "code": "467", "slots": [{"days": [6], "start": "12:00", "end": "14:00"}]},
+    {"name": "Rock DJ摇滚DJ", "code": "470", "slots": [{"days": [6], "start": "16:00", "end": "18:00"}]},
+    {"name": "Big Drive Home开车现场秀", "code": "471", "slots": [{"days": [1, 2, 3, 4, 5], "start": "16:00", "end": "19:00"}]},
+    {"name": "Top 20 Countdown顶尖20排行榜", "code": "472", "slots": [{"days": [6, 7], "start": "18:00", "end": "20:00"}]},
+    {"name": "New Music Express新音乐速递", "code": "473", "slots": [{"days": [1, 2, 3, 4, 5], "start": "19:00", "end": "22:00"}]},
+    {"name": "Hit FM Dance电音", "code": "475", "slots": [{"days": [1, 2, 3, 4, 5, 6, 7], "start": "22:00", "end": "23:59"}]},
+    {"name": "Morning Call音乐叫早", "code": "20276", "slots": [{"days": [1, 2, 3, 4, 5], "start": "06:00", "end": "07:00"}]},
+    {"name": "Weekend Morning Show周末早间音乐", "code": "20277", "slots": [{"days": [6, 7], "start": "08:00", "end": "12:00"}]},
+    {"name": "Soul Make心灵制造", "code": "20278", "slots": [{"days": [6], "start": "14:00", "end": "16:00"}]},
+    {"name": "At work network工作随身听", "code": "20279", "slots": [{"days": [1, 2, 3, 4, 5], "start": "10:00", "end": "13:00"}]},
+    {"name": "Lazy Afternoon慵懒下午茶", "code": "20280", "slots": [{"days": [1, 2, 3, 4, 5], "start": "13:00", "end": "16:00"}]},
+    {"name": "Hit FM Dance Carta & Co.电音-卡塔", "code": "54502", "slots": [{"days": [7], "start": "20:00", "end": "22:00"}]},
+]
+
+
+def _is_valid_program_schedules(value):
+    if not isinstance(value, list) or not value:
+        return False
+    for item in value:
+        if not isinstance(item, dict):
+            return False
+        if "name" not in item or "code" not in item or "slots" not in item:
+            return False
+        if not isinstance(item.get("slots"), list):
+            return False
+    return True
+
+
+def _load_program_schedules(config_path=CONFIG_FILE):
+    if not os.path.exists(config_path):
+        return DEFAULT_PROGRAM_SCHEDULES
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            config = json.load(f)
+        schedules = config.get("program_schedules")
+        if _is_valid_program_schedules(schedules):
+            return schedules
+        print("警告：config.json 中 program_schedules 无效，已回退内置映射。")
+        return DEFAULT_PROGRAM_SCHEDULES
+    except Exception as e:
+        print(f"警告：读取 config.json 的 program_schedules 失败，已回退内置映射: {e}")
+        return DEFAULT_PROGRAM_SCHEDULES
+
+
+def _build_download_url(code, date_obj, start_hhmm):
+    ymd = date_obj.strftime("%Y%m%d")
+    hhmm = start_hhmm.replace(":", "")
+    return f"http://ia-bk-i.ajmide.com/c_{code}/{ymd}/{code}_{ymd}_{hhmm}.m4a"
+
+
+def _build_programs_for_date(date_obj, schedules=None):
+    weekday = date_obj.isoweekday()
+    items = []
+    source = schedules if schedules is not None else DEFAULT_PROGRAM_SCHEDULES
+    for program in source:
+        code = str(program["code"])
+        name = program["name"]
+        for slot in program.get("slots", []):
+            if weekday not in slot.get("days", []):
+                continue
+
+            start_dt = datetime.strptime(
+                f"{date_obj.strftime('%Y-%m-%d')} {slot['start']}:00", "%Y-%m-%d %H:%M:%S"
+            )
+            end_dt = datetime.strptime(
+                f"{date_obj.strftime('%Y-%m-%d')} {slot['end']}:00", "%Y-%m-%d %H:%M:%S"
+            )
+
+            url = _build_download_url(code, date_obj, slot["start"])
+            items.append(
+                {
+                    "programName": name,
+                    "startTime": int(start_dt.timestamp() * 1000),
+                    "endTime": int(end_dt.timestamp() * 1000),
+                    "playUrlHigh": url,
+                    "playUrlLow": url,
+                    "downloadUrl": url,
+                    "image": "",
+                    "imageLong": "",
+                }
+            )
+
+    # 以开始时间排序，保持输出和下载顺序稳定。
+    items.sort(key=lambda x: (x.get("startTime", 0), x.get("programName", "")))
+    return items
+
+
+def _build_ajmide_headers(target_url=""):
+    # 每隔固定请求次数轮换机型与 UUID，尽量贴近真实设备指纹变化。
+    if (
+        _header_state["headers"] is None
+        or _header_state["count"] % _ROTATE_EVERY == 0
+    ):
+        device = random.choice(_UA_DEVICE_POOL)
+        uid = str(uuid.uuid4())
+        headers = dict(_BASE_HEADERS)
+        parsed = urlparse(target_url or "")
+        if parsed.netloc:
+            headers["Host"] = parsed.netloc
+        headers["User-Agent"] = (
+            f"ajmd/4.0.2 (Android 10; {device}; {uid}; ajmd; {uid})"
+        )
+        _header_state["headers"] = headers
+
+    _header_state["count"] += 1
+    return dict(_header_state["headers"])
 
 def _load_downloaded_images(log_file):
     # 图片去重缓存：存储已下载 URL，避免重复请求相同图片地址。
@@ -41,7 +165,7 @@ def _save_downloaded_image(log_file, url):
     with open(log_file, 'a', encoding='utf-8') as f:
         f.write(f"{url}\n")
 
-def download_image(url, img_dir, headers, downloaded_images_log, images_info_log, safe_program_name, suffix=""):
+def download_image(url, img_dir, downloaded_images_log, images_info_log, safe_program_name, suffix=""):
     # 返回值会写入节目清单文本，作为“图片处理结果”提示。
     if not url:
         return ""
@@ -71,7 +195,7 @@ def download_image(url, img_dir, headers, downloaded_images_log, images_info_log
             return f"（跳过：{new_img_name}）"
             
         print(f"正在下载图片: {url} -> {img_path}")
-        img_response = requests.get(url, headers={'User-Agent': headers.get('user-agent', '')}, stream=True)
+        img_response = requests.get(url, headers=_build_ajmide_headers(url), stream=True, timeout=_REQUEST_TIMEOUT)
         img_response.raise_for_status()
         with open(img_path, 'wb') as f:
             for chunk in img_response.iter_content(chunk_size=8192):
@@ -114,6 +238,57 @@ class _TokenBucketLimiter:
                 return
             wait_s = (need - self.tokens) / self.rate_bps
             time.sleep(min(max(wait_s, 0.001), 0.2))
+
+
+def _download_audio_with_retry(download_url, file_path, part_path, state_checker, limiter, download_progress_cb, retry_max=None):
+    last_error = None
+    max_retry = int(retry_max) if retry_max is not None else _DOWNLOAD_RETRY_MAX
+    max_retry = max(max_retry, 1)
+
+    for attempt in range(1, max_retry + 1):
+        try:
+            download_headers = _build_ajmide_headers(download_url)
+            audio_response = requests.get(download_url, headers=download_headers, stream=True, timeout=_REQUEST_TIMEOUT)
+            audio_response.raise_for_status()
+
+            # 每次重试都从头写 .part，保证目标文件完整性。
+            with open(part_path, 'wb') as f:
+                for chunk in audio_response.iter_content(chunk_size=8192):
+                    if state_checker:
+                        state_checker(is_chunk=True)
+                    if chunk:
+                        if limiter:
+                            limiter.consume(len(chunk))
+                        if download_progress_cb:
+                            try:
+                                download_progress_cb(len(chunk))
+                            except Exception:
+                                pass
+                        f.write(chunk)
+
+            os.replace(part_path, file_path)
+            return True, None, attempt
+
+        except Exception as e:
+            if os.path.exists(part_path):
+                try:
+                    os.remove(part_path)
+                except Exception:
+                    pass
+
+            if type(e).__name__ == 'StopDownloadException':
+                raise
+
+            last_error = e
+            if attempt < max_retry:
+                print(f"下载失败，自动重试({attempt}/{max_retry}) -> {download_url}")
+                sleep_steps = int(_DOWNLOAD_RETRY_SLEEP_SECONDS * 10)
+                for _ in range(max(sleep_steps, 1)):
+                    if state_checker:
+                        state_checker(is_chunk=False)
+                    time.sleep(0.1)
+
+    return False, str(last_error), max_retry
 
 
 class _SafeFormatDict(dict):
@@ -214,8 +389,8 @@ def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
     sample_dir = os.path.dirname(sample_file_path)
     return sample_dir if sample_dir else base_downloads_dir
 
-def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads", high_bitrate=True, download_imgs=True,
-                     api_key="f0fc4c668392f9f9a447e48584c214ee", state_checker=None, post_process_cb=None, download_progress_cb=None, name_filter_regex="", filename_template=r"{date}\{name}", max_rate_kbps=0):
+def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True, download_imgs=True,
+                     state_checker=None, post_process_cb=None, download_progress_cb=None, name_filter_regex="", filename_template=r"{date}\{name}", max_rate_kbps=0):
     """
     根据指定日期下载电台回放.
     日期格式应为 "YY-MM-DD", 例如 "25-12-22".
@@ -230,7 +405,16 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
         formatted_date = input_date.strftime("%Y-%m-%d")
     except ValueError:
         print(f"错误：日期格式不正确: {date_str}。请使用 'YY-MM-DD' 格式。")
-        return
+        return {
+            "date": date_str,
+            "generated": 0,
+            "success": 0,
+            "failed": 1,
+            "ignored_complementary": 0,
+            "skipped_existing": 0,
+            "skipped_name_filter": 0,
+            "unresolved_failures": 1,
+        }
 
     name_pattern = None
     if name_filter_regex and name_filter_regex.strip():
@@ -244,60 +428,21 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
     if limiter:
         print(f"下载限速已启用: {max_rate_kbps} KB/s")
 
-    # Hit FM 的 channel_name 是 662
-    # broadcast_id = "662"
-    
-    # 定义API参数
-    api_params = {
-        "date": formatted_date,
-        "broadcastId": broadcast_id
-    }
-    
-    # 构建URL
-    api_url = f"https://ytmsout.radio.cn/web/appProgram/listByDate?date={formatted_date}&broadcastId={broadcast_id}"
-
-    # 生成签名和时间戳
-    sign, timestamp = get_sign_and_timestamp(api_params, api_key, broadcast_id)
-
-    # 该请求头集合来自网页端行为，包含平台标识和签名字段。
-    headers = {
-        'accept': '*/*',
-        'accept-language': 'zh,zh-CN;q=0.9,zh-TW;q=0.8',
-        'content-type': 'application/json',
-        'dnt': '1',
-        'equipmentid': '0000',
-        'origin': 'https://www.radio.cn',
-        'platformcode': 'WEB',
-        'referer': 'https://www.radio.cn/',
-        'sec-ch-ua': '"Not:A-Brand";v="99", "Microsoft Edge";v="145", "Chromium";v="145"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-site',
-        'sec-gpc': '1',
-        'sign': sign,
-        'timestamp': timestamp,
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0',
-    }
-
-    print(f"正在获取 {formatted_date} 的节目列表...")
-    print(f"使用 Timestamp: {timestamp}, Sign: {sign}")
-
-    try:
-        response = requests.get(api_url, headers=headers)
-        response.raise_for_status()  # 如果请求失败则抛出异常
-        program_data = response.json()
-    except requests.exceptions.RequestException as e:
-        print(f"错误：请求节目列表失败: {e}")
-        return
-    except ValueError: # JSONDecodeError
-        print("错误：解析返回的 JSON 数据失败。")
-        return
-
-    if program_data.get("code") != 0 or not program_data.get("data"):
-        print(f"在 {formatted_date} 未找到节目。服务器返回: {program_data.get('message', '无消息')}")
-        return
+    print(f"正在按映射规则拼接 {formatted_date} 的节目URL...")
+    program_schedules = _load_program_schedules()
+    program_list = _build_programs_for_date(input_date, program_schedules)
+    if not program_list:
+        print(f"在 {formatted_date} 未匹配到可下载节目（当前硬编码映射可能不包含该日期时段）。")
+        return {
+            "date": formatted_date,
+            "generated": 0,
+            "success": 0,
+            "failed": 0,
+            "ignored_complementary": 0,
+            "skipped_existing": 0,
+            "skipped_name_filter": 0,
+            "unresolved_failures": 0,
+        }
 
     # 输出结构:
     # - <base>/images/*
@@ -313,14 +458,43 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
         if not os.path.exists(path_to_create):
             os.makedirs(path_to_create)
     
-    print(f"节目列表获取成功，准备下载...")
+    print(f"已生成 {len(program_list)} 条节目URL，准备下载...")
+
+    generated_count = len(program_list)
+    success_count = 0
+    failed_count = 0
+    ignored_complementary_count = 0
+    skipped_existing_count = 0
+    skipped_name_filter_count = 0
 
     # 保存每日节目信息的txt文件
     info_txt_path = os.path.join(day_report_dir, f"{formatted_date}_program_info.txt")
     with open(info_txt_path, 'w', encoding='utf-8') as info_file:
         info_file.write(f"=== {formatted_date} 节目信息 ===\n\n")
+        slot_success = {}
+        failed_items = []
+        slot_total = {}
+        for p in program_list:
+            st = p.get("startTime", 0)
+            et = p.get("endTime", 0)
+            if st:
+                sdt = datetime.fromtimestamp(st / 1000.0)
+                s_date = sdt.strftime('%Y-%m-%d')
+                s_time = sdt.strftime('%H:%M:%S')
+            else:
+                s_date = formatted_date
+                s_time = "00:00:00"
 
-        for program_index, program in enumerate(program_data["data"], start=1):
+            if et:
+                edt = datetime.fromtimestamp(et / 1000.0)
+                e_time = edt.strftime('%H:%M:%S')
+            else:
+                e_time = "00:00:00"
+
+            sk = (s_date, s_time, e_time)
+            slot_total[sk] = slot_total.get(sk, 0) + 1
+
+        for program_index, program in enumerate(program_list, start=1):
             # 在“节目粒度”进行中断检查: 软停止会阻止后续节目继续下载。
             if state_checker:
                 state_checker(is_chunk=False)
@@ -328,6 +502,7 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             program_name = program.get("programName", "unknown_program")
             if name_pattern and not name_pattern.search(program_name):
                 print(f"筛选跳过: {program_name}")
+                skipped_name_filter_count += 1
                 continue
 
             start_time_ms = program.get("startTime", 0)
@@ -351,6 +526,16 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             else:
                 end_time_only = "00:00:00"
                 end_time_full = "未知"
+
+            slot_key = (program_date_str, start_time_only, end_time_only)
+            is_complementary_slot = slot_total.get(slot_key, 0) > 1
+
+            if is_complementary_slot and slot_success.get(slot_key, 0) > 0:
+                print(f"互补跳过：'{program_name}' 与同时间段节目互补，已有成功任务。")
+                info_file.write(f"互补策略: 同时间段已有成功任务，跳过当前节目\n")
+                info_file.write("-" * 40 + "\n")
+                ignored_complementary_count += 1
+                continue
             
             # 获取图片链接
             image_url = program.get("image", "")
@@ -376,11 +561,9 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             # 决定使用哪种码率
             if high_bitrate:
                 download_url = program.get("playUrlHigh")
-                quality_str = "高码率"
             else:
                 # 尝试获取低码率，找不到就用默认
                 download_url = program.get("playUrlLow") or program.get("downloadUrl")
-                quality_str = "低码率"
 
             template_rendered = _render_filename_template(filename_template, format_values)
             file_path = _build_output_file_path(
@@ -398,8 +581,8 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             # 图片下载逻辑与音频下载解耦，失败不会阻断后续音频抓取。
             image_name_base = os.path.splitext(os.path.basename(file_path))[0]
             if download_imgs:
-                img_result = download_image(image_url, images_dir, headers, downloaded_images_log, images_info_log, image_name_base) if image_url else "无"
-                img_long_result = download_image(image_long_url, images_dir, headers, downloaded_images_log, images_info_log, image_name_base, "_long") if image_long_url else "无"
+                img_result = download_image(image_url, images_dir, downloaded_images_log, images_info_log, image_name_base) if image_url else "无"
+                img_long_result = download_image(image_long_url, images_dir, downloaded_images_log, images_info_log, image_name_base, "_long") if image_long_url else "无"
             else:
                 img_result = "跳过"
                 img_long_result = "跳过"
@@ -407,7 +590,6 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             # 将信息写入文本文件
             info_file.write(f"节目名称: {program_name}\n")
             info_file.write(f"节目序号: {program_index}\n")
-            info_file.write(f"音质: {quality_str}\n")
             info_file.write(f"开始时间: {start_time_full}\n")
             info_file.write(f"结束时间: {end_time_full}\n")
             info_file.write(f"下载链接: {download_url}\n")
@@ -418,11 +600,14 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             info_file.write("-" * 40 + "\n")
 
             if not download_url:
-                print(f"警告：节目 '{program_name}' 没有找到{quality_str}下载链接，跳过。")
+                print(f"警告：节目 '{program_name}' 没有找到可用下载链接，跳过。")
                 continue
 
             if os.path.exists(file_path):
                 print(f"文件 '{file_path}' 已存在，跳过下载。")
+                slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
+                success_count += 1
+                skipped_existing_count += 1
                 # 即使是已存在文件，也触发后处理回调，便于 GUI 做统一转换排队。
                 if post_process_cb:
                     post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
@@ -431,34 +616,33 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
             print(f"正在下载 '{program_name}' 到 '{file_path}'...")
 
             try:
-                # 下载文件时也带上部分请求头，尤其是 User-Agent 和 Referer
-                download_headers = {
-                    'User-Agent': headers['user-agent'],
-                    'Referer': headers['referer']
-                }
-                audio_response = requests.get(download_url, headers=download_headers, stream=True)
-                audio_response.raise_for_status()
-                
-                # 采用 .part 临时文件，确保中断时不会留下“看似完整”的坏文件。
-                with open(part_path, 'wb') as f:
-                    for chunk in audio_response.iter_content(chunk_size=8192):
-                        if state_checker:
-                            # 分块检查允许“强停”即时生效，同时“软停”在当前文件内继续写完。
-                            state_checker(is_chunk=True)
-                        if chunk:
-                            if limiter:
-                                limiter.consume(len(chunk))
-                            if download_progress_cb:
-                                try:
-                                    # 统计回调不应影响主流程，异常直接吞掉。
-                                    download_progress_cb(len(chunk))
-                                except Exception:
-                                    pass
-                            f.write(chunk)
-                
-                # 下载完成后重命名，避免不完整文件干扰
-                os.replace(part_path, file_path)
-                print(f"'{program_name}' 下载完成。")
+                ok, err_msg, used_attempt = _download_audio_with_retry(
+                    download_url=download_url,
+                    file_path=file_path,
+                    part_path=part_path,
+                    state_checker=state_checker,
+                    limiter=limiter,
+                    download_progress_cb=download_progress_cb,
+                    retry_max=1 if is_complementary_slot else _DOWNLOAD_RETRY_MAX,
+                )
+
+                if ok:
+                    slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
+                    success_count += 1
+                    if used_attempt > 1:
+                        print(f"'{program_name}' 重试成功（第 {used_attempt} 次）。")
+                    else:
+                        print(f"'{program_name}' 下载完成。")
+                else:
+                    failed_count += 1
+                    failed_items.append({
+                        "program_name": program_name,
+                        "slot_key": slot_key,
+                        "download_url": download_url,
+                        "error": err_msg,
+                    })
+                    print(f"错误：下载 '{program_name}' 失败（已重试 {used_attempt} 次）: {err_msg}")
+                    continue
 
                 if post_process_cb:
                     post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
@@ -476,68 +660,113 @@ def download_by_date(date_str, broadcast_id="662", base_downloads_dir="downloads
                 if type(e).__name__ == 'StopDownloadException':
                     raise
 
+        unresolved_failures = []
+        for item in failed_items:
+            if slot_success.get(item["slot_key"], 0) > 0:
+                print(
+                    f"互补容错：'{item['program_name']}' 下载失败，但同时间段已有成功任务，已忽略。"
+                )
+                ignored_complementary_count += 1
+            else:
+                unresolved_failures.append(item)
+
+        if unresolved_failures:
+            print("以下任务最终失败（无同时间段互补成功）：")
+            for item in unresolved_failures:
+                print(f" - {item['program_name']} | {item['download_url']} | {item['error']}")
+
+    print(
+        f"汇总: 生成 {generated_count} | 成功 {success_count} | 失败 {failed_count} | "
+        f"互补忽略 {ignored_complementary_count} | 已存在跳过 {skipped_existing_count} | 名称筛选跳过 {skipped_name_filter_count}"
+    )
+    unresolved_count = len(unresolved_failures)
+    if unresolved_count > 0:
+        print(f"未解决失败: {unresolved_count}")
+
     print(f"\n{formatted_date} 的所有节目下载任务已完成。信息已保存至 {info_txt_path}\n")
+    return {
+        "date": formatted_date,
+        "generated": generated_count,
+        "success": success_count,
+        "failed": failed_count,
+        "ignored_complementary": ignored_complementary_count,
+        "skipped_existing": skipped_existing_count,
+        "skipped_name_filter": skipped_name_filter_count,
+        "unresolved_failures": unresolved_count,
+    }
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description="云听电台下载器")
-    parser.add_argument("-d", "--date", help="指定单独日期 (如 '25-12-22') 或日期范围 (如 '25-11-22 to 25-12-22')", default="25-12-22")
-    parser.add_argument("-b", "--broadcast", help="电台channel ID，默认是662 (Hit FM)", default="662")
+    parser = argparse.ArgumentParser(description="阿基米德电台下载器")
+    parser.add_argument("-d", "--date", help="指定单独日期 (如 '25-12-22'/'now') 或日期范围 (如 '25-11-22 to 25-12-22'，支持反向)", default="25-12-22")
     parser.add_argument("-o", "--outdir", help="基础输出目录，默认是'downloads'", default="downloads")
     parser.add_argument("--low-bitrate", help="下载低码率音频 (默认下载高码率)", action="store_true")
     parser.add_argument("--no-images", help="不下载封面图片", action="store_true")
-    parser.add_argument("--api-key", help="接口签名鉴权用的固定密钥", default="f0fc4c668392f9f9a447e48584c214ee")
     parser.add_argument("--delay", help="多日持续下载时，每天之间的间隔时间(秒)", type=float, default=1.5)
     parser.add_argument("--name-regex", help="节目名筛选正则（匹配才下载）", default="")
     parser.add_argument("--filename-template", help=r"自定义输出模板，默认 '{date}\\{name}'", default=r"{date}\{name}")
     
     args = parser.parse_args()
     date_arg = args.date.strip()
+
+    def _parse_cli_date_literal(value):
+        v = value.strip().lower()
+        if v in ("now", "today"):
+            return datetime.now()
+        return datetime.strptime(value.strip(), "%y-%m-%d")
     
     high_bit = not args.low_bitrate
     dl_imgs = not args.no_images
     
     # 命令行支持 "YY-MM-DD to YY-MM-DD" 范围写法。
+    total_unresolved_failures = 0
     if " to " in date_arg:
         parts = date_arg.split(" to ")
         if len(parts) == 2:
             start_str, end_str = parts[0].strip(), parts[1].strip()
             try:
-                start_date = datetime.strptime(start_str, "%y-%m-%d")
-                end_date = datetime.strptime(end_str, "%y-%m-%d")
-                
-                if start_date > end_date:
-                    print("错误：开始日期不能晚于结束日期。")
-                else:
-                    curr_date = start_date
-                    while curr_date <= end_date:
-                        download_by_date(
-                            curr_date.strftime("%y-%m-%d"), 
-                            broadcast_id=args.broadcast, 
-                            base_downloads_dir=args.outdir, 
-                            high_bitrate=high_bit, 
-                            download_imgs=dl_imgs, 
-                            api_key=args.api_key,
-                            name_filter_regex=args.name_regex,
-                            filename_template=args.filename_template,
-                        )
-                        curr_date += timedelta(days=1)
-                        if curr_date <= end_date:
-                            time.sleep(args.delay)
+                start_date = _parse_cli_date_literal(start_str)
+                end_date = _parse_cli_date_literal(end_str)
+
+                step_days = 1 if end_date >= start_date else -1
+                curr_date = start_date
+                while (step_days == 1 and curr_date <= end_date) or (step_days == -1 and curr_date >= end_date):
+                    result = download_by_date(
+                        curr_date.strftime("%y-%m-%d"),
+                        base_downloads_dir=args.outdir,
+                        high_bitrate=high_bit,
+                        download_imgs=dl_imgs,
+                        name_filter_regex=args.name_regex,
+                        filename_template=args.filename_template,
+                    )
+                    if isinstance(result, dict):
+                        total_unresolved_failures += int(result.get("unresolved_failures", 0) or 0)
+                    curr_date += timedelta(days=step_days)
+                    should_wait = (step_days == 1 and curr_date <= end_date) or (step_days == -1 and curr_date >= end_date)
+                    if should_wait:
+                        time.sleep(args.delay)
             except ValueError:
-                print("错误：日期范围解析失败，请确保格式如 '25-11-22 to 25-12-22'。")
+                print("错误：日期范围解析失败，请确保格式如 '25-11-22 to 25-12-22' 或 'now to 25-12-22'。")
+                sys.exit(2)
         else:
             print("错误：日期范围格式不正确。")
+            sys.exit(2)
     else:
         # 单独日期下载
-        download_by_date(
-            date_arg, 
-            broadcast_id=args.broadcast, 
+        result = download_by_date(
+            _parse_cli_date_literal(date_arg).strftime("%y-%m-%d"),
             base_downloads_dir=args.outdir, 
             high_bitrate=high_bit, 
             download_imgs=dl_imgs, 
-            api_key=args.api_key,
             name_filter_regex=args.name_regex,
             filename_template=args.filename_template,
         )
+        if isinstance(result, dict):
+            total_unresolved_failures += int(result.get("unresolved_failures", 0) or 0)
+
+    if total_unresolved_failures > 0:
+        print(f"存在未解决失败任务，总计: {total_unresolved_failures}")
+        sys.exit(1)
+
+    sys.exit(0)
 

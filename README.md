@@ -142,27 +142,26 @@ https://a.ajmide.com/v18/get_play_list.php?t=t&phid=60068136
 经过一番操作，终于拿到了代号表格：
 
 
-###电台 ID 对照表参考
-
-节目名称 编号 播出时间
-morning hits 460    07:00-10:00(1-5)
-hit morning show 461    07:00-10:00(1-5)
-at40 462    08:00-12:00(6),12:00-16:00(7)
-ost 465    16:00-18:00(7)
-hit the road 467    12:00-14:00(6)
-Rock dj 470    16:00-18:00(6)
-BDH 471    16:00-19:00(1-5)
-top20 472    18:00-20:00(6-7)
-New Music Express 473    19:00-22:00(1-5)
-hit fm dance 475    22:00-23:59(1-7)
-morning call 20276    06:00-07:00(1-5)
-Weekend morning show 20277    08:00-12:00(6,7)
-soul make 20278    14:00-16:00(6)
-at work network 20279    10:00-13:00(1-5)
-lazy afternoon 20280    13:00-16:00(1-5)
-Hit FM Dance Carta & Co. 电音 - 卡塔 54502    20:00-22:00(7)
-ctdm 未知
-music flow 未知
+| 节目名称 | 编号 | 播出时间 |
+|---------|------|---------|
+| Morning Hits阳光音乐早餐 | 460 | 07:00-10:00(1-5) |
+| hit morning show | 461 | 07:00-10:00(1-5) |
+| at 40 | 462 | 08:00-12:00(6),12:00-16:00(7) |
+| Hit FM OST电影原声坊 | 465 | 16:00-18:00(7) |
+| Hit the Road在路上 | 467 | 12:00-14:00(6) |
+| Rock DJ摇滚DJ | 470 | 16:00-18:00(6) |
+| Big Drive Home开车现场秀 | 471 | 16:00-19:00(1-5) |
+| Top 20 Countdown顶尖20排行榜 | 472 | 18:00-20:00(6-7) |
+| New Music Express新音乐速递 | 473 | 19:00-22:00(1-5) |
+| Hit FM Dance电音 | 475 | 22:00-23:59(1-7) |
+| Morning Call音乐叫早 | 20276 | 06:00-07:00(1-5) |
+| Weekend Morning Show周末早间音乐 | 20277 | 08:00-12:00(6,7) |
+| Soul Make心灵制造 | 20278 | 14:00-16:00(6) |
+| At work network工作随身听 | 20279 | 10:00-13:00(1-5) |
+| Lazy Afternoon慵懒下午茶 | 20280 | 13:00-16:00(1-5) |
+| Hit FM Dance Carta & Co.电音-卡塔 | 54502 | 20:00-22:00(7) |
+| ctdm | 未知 | |
+| music flow | 未知 | |
 
 
 
@@ -182,27 +181,28 @@ http://ia-bk-i.ajmide.com/c_{code}/{YYYYMMDD}/{code}_{YYYYMMDD}_{HHmm(start_time
 
 ```bash
 # 单日下载
-python downloader.py -d "25-12-22" -b 662
+python downloader.py -d "25-12-22"
 
 # 多连日下载（跨度下载），并在每天中间延迟3秒
-python downloader.py -d "22-07-01 to 25-12-22" -b 662 --delay 3
+python downloader.py -d "22-07-01 to 25-12-22" --delay 3
+
+# 反向下载（从现在向过去）
+python downloader.py -d "now to 25-12-22" --delay 2
 
 # 下载低码率音频，且不下载封面图片，同时指定输出目录为 my_radio_folder
-python downloader.py -d "25-12-22" -b 662 -o "my_radio_folder" --low-bitrate --no-images
+python downloader.py -d "25-12-22" -o "my_radio_folder" --low-bitrate --no-images
 
 # 仅下载节目名匹配正则的节目，并用模板自定义输出路径/文件名
-python downloader.py -d "25-12-22" -b 662 --name-regex "Music|Morning" --filename-template "{date}\\{id}_{name_en}"
+python downloader.py -d "25-12-22" --name-regex "Music|Morning" --filename-template "{date}\\{id}_{name_en}"
 ```
 
 **所有支持的命令行参数：**
 
 - `-h`, `--help` : 显示帮助信息。
-- `-d DATE`, `--date DATE` : 指定单独日期 (如 `'25-12-22'`) 或日期范围 (如 `'25-11-22 to 25-12-22'`)。
-- `-b BROADCAST`, `--broadcast BROADCAST` : 电台ID，默认 `662` (Hit FM)。
+- `-d DATE`, `--date DATE` : 指定单独日期 (如 `'25-12-22'` 或 `'now'`) 或日期范围 (如 `'25-11-22 to 25-12-22'`，支持反向如 `'now to 25-12-22'`)。
 - `-o OUTDIR`, `--outdir OUTDIR` : 下载的基础输出目录，默认为 `downloads`。
 - `--low-bitrate` : 选择下载低码率音频 (默认情况为下载高码率，带此参数则切换低码率以节省空间)。
 - `--no-images` : 阻止下载节目封面图片。
-- `--api-key API_KEY` : 用于API鉴权的固定密钥参数（非必要一般无需更改）。
 - `--delay DELAY` : 当执行多日持续下载时，请求日期间隔的睡眠时间(秒)，默认 `1.5`。
 - `--name-regex NAME_REGEX` : 节目名正则筛选，仅下载匹配的节目（默认空，即不过滤）。
 - `--filename-template FILENAME_TEMPLATE` : 自定义输出模板（默认 `{date}\\{name}`，支持 `{id}` `{name}` `{date}` `{name_ch}` `{name_en}` `{bitrate}` `{start_time}` `{end_time}`；其中 `{bitrate}` 输出 `High/Low`）。
@@ -212,15 +212,16 @@ python downloader.py -d "25-12-22" -b 662 --name-regex "Music|Morning" --filenam
 高级配置（仅 `config.json`，不在 UI 暴露）：
 
 - `max_rate_kbps`：下载限速（单位 KB/s）。`0` 表示不限速。
+- `program_schedules`：节目映射列表。下载器会按该映射在本地拼接 URL；若缺失或格式错误，会回退到内置默认映射。
 
 ### 2. GUI 界面操作 (推荐)
 
 直接运行 `python gui.py` 唤出界面。
 **核心特性：**
 
-- **可视化参数调整**：在界面输入日期范围（支持单日或多日）、电台 ID，或是更改保存目录、控制防封禁请求延迟，并支持节目名正则筛选和文件名模板（含自定义子目录）。相关的配置会自动保存到同目录下的 `config.json` 内作为默认预设。
+- **可视化参数调整**：在界面输入日期范围（支持单日或多日），或是更改保存目录、控制防封禁请求延迟，并支持节目名正则筛选和文件名模板（含自定义子目录）。节目映射固定从 `config.json` 的 `program_schedules` 读取。相关的配置会自动保存到同目录下的 `config.json` 内作为默认预设。
 - **模板预览区**：下载页新增“文件名模板预览”，固定以 `Morning Call 音乐叫早` 作为示例，实时展示模板渲染后的完整输出路径。
-- **自定义下载项**：可以选择获取默认的高码率音频或是节省空间的低码率；可以选择是否连带下载音频的封面图资源。
+- **下载开关精简**：下载页面仅保留“下载后自动转换音频格式”开关。其余下载项采用固定基础策略。
 - **防止重复与元数据映射**：图片只下载一次（以 `downloaded_images.txt` 缓存），并且按对应节目的名字被重命名，源链接信息保存在 `images_info.txt` 中。下载目录会以日期按规则分类，并在文件夹内生成当天的抓取记录报告 `YYYY-MM-DD_program_info.txt`，包含实际下载的高/低音质标识。
 - **二段停止模式 (防烂尾机制)**：
   - 下载过程所有的文件采用 `.part` 缓存形式写入；连接意外中断或主动终止后不会污染目录。
@@ -231,7 +232,7 @@ python downloader.py -d "25-12-22" -b 662 --name-regex "Music|Morning" --filenam
 
 ## 自动化后处理 (格式转换管线)
 
-//这个是yunting-downloader留下的自动转换管线，对于阿基米德的低码率而言其实完全没有必要使用 （
+//这个是阿基米德-downloader留下的自动转换管线，对于阿基米德的低码率而言其实完全没有必要使用 （
 
 虽然 m4a 已经比较高效，但是如果全部按高码率保存节目，对储存依然是一笔不小的开销。
 通过指定本地 FFmpeg（内置环境检测），图形界面原生支持了**异步多线程自动转换管线**功能：
@@ -257,7 +258,7 @@ python downloader.py -d "25-12-22" -b 662 --name-regex "Music|Morning" --filenam
 
 为了便于后续接手，本项目可按下面的分层理解：
 
-- `downloader.py`：负责接口签名、节目列表请求、音频/图片下载与落盘。
+- `downloader.py`：负责读取 `program_schedules`、本地拼接节目 URL、音频/图片下载与落盘。
 - `converter.py`：只负责 FFmpeg 检测和命令拼装，不直接执行子进程。
 - `gui.py`：负责 UI、状态机（暂停/软停/强停）、任务调度与下载/转码串联。
 

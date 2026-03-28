@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import json
+import copy
 import subprocess
 import concurrent.futures
 import queue
@@ -13,6 +14,7 @@ from ctypes import wintypes
 from datetime import datetime, timedelta
 from downloader import (
     download_by_date,
+    DEFAULT_PROGRAM_SCHEDULES,
     _split_program_name,
     _sanitize_component_for_path,
     _render_filename_template,
@@ -96,21 +98,17 @@ class CpuSampler:
             return min(100.0, max(0.0, os.getloadavg()[0] * 100.0 / os.cpu_count()))
         return 0.0
 
-class YunTingDownloaderGUI:
+class 阿基米德DownloaderGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("云听电台下载器")
+        self.root.title("阿基米德电台下载器")
         self.root.geometry("850x700")
         
         self.mode_var = tk.StringVar(value="single")
         self.start_date_var = tk.StringVar(value=datetime.now().strftime("%y-%m-%d"))
         self.end_date_var = tk.StringVar(value=datetime.now().strftime("%y-%m-%d"))
-        self.broadcast_id_var = tk.StringVar(value="662")
         self.output_dir_var = tk.StringVar(value="downloads")
         self.delay_var = tk.StringVar(value="1.5")
-        self.api_key_var = tk.StringVar(value="f0fc4c668392f9f9a447e48584c214ee")
-        self.high_bitrate_var = tk.BooleanVar(value=True)
-        self.download_images_var = tk.BooleanVar(value=True)
         self.name_filter_regex_var = tk.StringVar(value="")
         self.filename_template_var = tk.StringVar(value=r"{date}\{name}")
         self.filename_preview_var = tk.StringVar(value="")
@@ -127,6 +125,7 @@ class YunTingDownloaderGUI:
         self.embed_cover_var = tk.BooleanVar(value=True)
         self.auto_convert_var = tk.BooleanVar(value=False)
         self.delete_origin_var = tk.BooleanVar(value=False)
+        self.program_schedules = copy.deepcopy(DEFAULT_PROGRAM_SCHEDULES)
         
         self.manual_convert_mode = tk.StringVar(value="auto")
         self.manual_convert_path = tk.StringVar(value="")
@@ -177,15 +176,12 @@ class YunTingDownloaderGUI:
             ow_mode = 0
             
         return {
-            "broadcast_id": self.broadcast_id_var.get().strip(),
             "output_dir": self.output_dir_var.get().strip(),
             "delay": float(self.delay_var.get().strip() or 1.5),
             "max_rate_kbps": int(self.max_rate_kbps),
-            "api_key": self.api_key_var.get().strip(),
-            "high_bitrate": self.high_bitrate_var.get(),
-            "download_images": self.download_images_var.get(),
             "name_filter_regex": self.name_filter_regex_var.get(),
             "filename_template": self.filename_template_var.get(),
+            "program_schedules": self.program_schedules,
             "ffmpeg_path": self.ffmpeg_path_var.get().strip(),
             "convert_out_dir": self.convert_out_dir_var.get().strip(),
             "convert_format": self.convert_format_var.get().strip(),
@@ -197,6 +193,19 @@ class YunTingDownloaderGUI:
             "auto_convert": self.auto_convert_var.get(),
             "delete_origin": self.delete_origin_var.get()
         }
+
+    @staticmethod
+    def _is_valid_program_schedules(value):
+        if not isinstance(value, list) or not value:
+            return False
+        for item in value:
+            if not isinstance(item, dict):
+                return False
+            if "name" not in item or "code" not in item or "slots" not in item:
+                return False
+            if not isinstance(item.get("slots"), list):
+                return False
+        return True
 
     def on_closing(self):
         # 停止指标定时器，避免窗口销毁后仍有 after 回调。
@@ -224,7 +233,11 @@ class YunTingDownloaderGUI:
             try:
                 with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
                     config = json.load(f)
-                    self.broadcast_id_var.set(config.get("broadcast_id", "662"))
+                    raw_schedules = config.get("program_schedules")
+                    if self._is_valid_program_schedules(raw_schedules):
+                        self.program_schedules = raw_schedules
+                    else:
+                        self.program_schedules = copy.deepcopy(DEFAULT_PROGRAM_SCHEDULES)
                     
                     # 尝试保留相对路径
                     out_dir = config.get("output_dir", "downloads")
@@ -235,9 +248,6 @@ class YunTingDownloaderGUI:
                         self.max_rate_kbps = int(config.get("max_rate_kbps", 0) or 0)
                     except Exception:
                         self.max_rate_kbps = 0
-                    self.api_key_var.set(config.get("api_key", "f0fc4c668392f9f9a447e48584c214ee"))
-                    self.high_bitrate_var.set(config.get("high_bitrate", True))
-                    self.download_images_var.set(config.get("download_images", True))
                     self.name_filter_regex_var.set(config.get("name_filter_regex", ""))
                     self.filename_template_var.set(config.get("filename_template", r"{date}\{name}"))
                     self.ffmpeg_path_var.set(config.get("ffmpeg_path", ""))
@@ -262,6 +272,7 @@ class YunTingDownloaderGUI:
             except Exception as e:
                 print(f"读取配置文件失败: {e}")
         else:
+            self.program_schedules = copy.deepcopy(DEFAULT_PROGRAM_SCHEDULES)
             self.output_dir_var.set("downloads")
             self.max_rate_kbps = 0
 
@@ -328,32 +339,27 @@ class YunTingDownloaderGUI:
         self.end_date_entry = ttk.Entry(dl_params_frame, textvariable=self.end_date_var, width=15, state="disabled")
         self.end_date_entry.grid(row=1, column=3, sticky=tk.W, pady=2)
         
-        ttk.Label(dl_params_frame, text="电台ID:").grid(row=2, column=0, sticky=tk.W, pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.broadcast_id_var, width=15).grid(row=2, column=1, sticky=tk.W, pady=2)
-        ttk.Label(dl_params_frame, text="下载延迟(秒):").grid(row=2, column=2, sticky=tk.W, padx=(10,0), pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.delay_var, width=15).grid(row=2, column=3, sticky=tk.W, pady=2)
+        ttk.Label(dl_params_frame, text="下载延迟(秒):").grid(row=2, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(dl_params_frame, textvariable=self.delay_var, width=15).grid(row=2, column=1, sticky=tk.W, pady=2)
+        ttk.Label(dl_params_frame, text="节目映射来源:").grid(row=2, column=2, sticky=tk.W, padx=(10,0), pady=2)
+        ttk.Label(dl_params_frame, text="config.json -> program_schedules").grid(row=2, column=3, sticky=tk.W, pady=2)
         
-        ttk.Label(dl_params_frame, text="API Key(不建议修改):").grid(row=3, column=0, sticky=tk.W, pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.api_key_var, width=42).grid(row=3, column=1, columnspan=3, sticky=tk.W, pady=2)
-        
-        ttk.Label(dl_params_frame, text="下载保存目录:").grid(row=4, column=0, sticky=tk.W, pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.output_dir_var, width=33).grid(row=4, column=1, columnspan=2, sticky=tk.W, pady=2)
-        ttk.Button(dl_params_frame, text="浏览...", command=self.browse_output_dir).grid(row=4, column=3, sticky=tk.W, padx=5)
+        ttk.Label(dl_params_frame, text="下载保存目录:").grid(row=3, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(dl_params_frame, textvariable=self.output_dir_var, width=33).grid(row=3, column=1, columnspan=2, sticky=tk.W, pady=2)
+        ttk.Button(dl_params_frame, text="浏览...", command=self.browse_output_dir).grid(row=3, column=3, sticky=tk.W, padx=5)
 
-        ttk.Label(dl_params_frame, text="节目筛选正则:").grid(row=5, column=0, sticky=tk.W, pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.name_filter_regex_var, width=42).grid(row=5, column=1, columnspan=3, sticky=tk.W, pady=2)
+        ttk.Label(dl_params_frame, text="节目筛选正则:").grid(row=4, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(dl_params_frame, textvariable=self.name_filter_regex_var, width=42).grid(row=4, column=1, columnspan=3, sticky=tk.W, pady=2)
 
-        ttk.Label(dl_params_frame, text="文件名模板:").grid(row=6, column=0, sticky=tk.W, pady=2)
-        ttk.Entry(dl_params_frame, textvariable=self.filename_template_var, width=42).grid(row=6, column=1, columnspan=3, sticky=tk.W, pady=2)
+        ttk.Label(dl_params_frame, text="文件名模板:").grid(row=5, column=0, sticky=tk.W, pady=2)
+        ttk.Entry(dl_params_frame, textvariable=self.filename_template_var, width=42).grid(row=5, column=1, columnspan=3, sticky=tk.W, pady=2)
 
-        ttk.Label(dl_params_frame, text="预览示例:").grid(row=7, column=0, sticky=tk.W, pady=2)
+        ttk.Label(dl_params_frame, text="预览示例:").grid(row=6, column=0, sticky=tk.W, pady=2)
         preview_entry = ttk.Entry(dl_params_frame, textvariable=self.filename_preview_var, width=42, state="readonly")
-        preview_entry.grid(row=7, column=1, columnspan=3, sticky=tk.W, pady=2)
+        preview_entry.grid(row=6, column=1, columnspan=3, sticky=tk.W, pady=2)
 
         options_frame = ttk.Frame(dl_params_frame)
-        options_frame.grid(row=8, column=0, columnspan=4, sticky=tk.W, pady=(5,0))
-        ttk.Checkbutton(options_frame, text="下载高码率", variable=self.high_bitrate_var).pack(side=tk.LEFT, padx=(0,15))
-        ttk.Checkbutton(options_frame, text="下载封面图", variable=self.download_images_var).pack(side=tk.LEFT, padx=(0,15))
+        options_frame.grid(row=7, column=0, columnspan=4, sticky=tk.W, pady=(5,0))
         ttk.Checkbutton(options_frame, text="下载后自动转换音频格式(需配置FFmpeg)", variable=self.auto_convert_var).pack(side=tk.LEFT)
         
         control_frame = ttk.Frame(tab_download)
@@ -365,6 +371,8 @@ class YunTingDownloaderGUI:
         self.pause_btn.pack(side=tk.LEFT, padx=5)
         self.stop_btn = ttk.Button(control_frame, text="⏹ 停止", command=self.stop_download, state="disabled")
         self.stop_btn.pack(side=tk.LEFT, padx=5)
+        self.reset_cfg_btn = ttk.Button(control_frame, text="↺ 重置配置", command=self.reset_config_to_defaults)
+        self.reset_cfg_btn.pack(side=tk.RIGHT, padx=5)
         self.save_btn = ttk.Button(control_frame, text="💾 保存所有配置", command=self.save_config_manual)
         self.save_btn.pack(side=tk.RIGHT, padx=5)
         
@@ -497,7 +505,7 @@ class YunTingDownloaderGUI:
             self.mc_browse_btn.config(state="normal")
 
     def bind_preview_traces(self):
-        for var in [self.output_dir_var, self.start_date_var, self.filename_template_var, self.high_bitrate_var]:
+        for var in [self.output_dir_var, self.start_date_var, self.filename_template_var]:
             var.trace_add("write", lambda *_: self.update_filename_preview())
 
     def update_filename_preview(self):
@@ -517,7 +525,7 @@ class YunTingDownloaderGUI:
                 "date": _sanitize_component_for_path(formatted_date),
                 "name_ch": _sanitize_component_for_path(sample_ch),
                 "name_en": _sanitize_component_for_path(sample_en),
-                "bitrate": "High" if self.high_bitrate_var.get() else "Low",
+                "bitrate": "High",
                 "start_time": _sanitize_component_for_path("06:00:00"),
                 "end_time": _sanitize_component_for_path("07:00:00"),
             }
@@ -563,6 +571,36 @@ class YunTingDownloaderGUI:
     def save_config_manual(self):
         self.save_config()
         print("======> 配置已全量保存至 config.json <======")
+
+    def reset_config_to_defaults(self):
+        # 重置为内置默认值，并立即写入 config.json，包含内嵌 program_schedules。
+        self.mode_var.set("single")
+        now_yy = datetime.now().strftime("%y-%m-%d")
+        self.start_date_var.set(now_yy)
+        self.end_date_var.set(now_yy)
+        self.output_dir_var.set("downloads")
+        self.delay_var.set("1.5")
+        self.max_rate_kbps = 0
+        self.name_filter_regex_var.set("")
+        self.filename_template_var.set(r"{date}\{name}")
+        self.program_schedules = copy.deepcopy(DEFAULT_PROGRAM_SCHEDULES)
+
+        self.ffmpeg_path_var.set("")
+        self.convert_out_dir_var.set("")
+        self.convert_format_var.set("opus")
+        self.convert_bitrate_var.set("96")
+        self.convert_sample_rate_var.set("0")
+        self.convert_threads_var.set("0")
+        self.overwrite_mode_var.set("跳过现有")
+        self.embed_cover_var.set(True)
+        self.auto_convert_var.set(False)
+        self.delete_origin_var.set(False)
+
+        self.update_ui_state()
+        self.update_manual_ui()
+        self.update_filename_preview()
+        self.save_config()
+        messagebox.showinfo("重置完成", "配置已重置并写入 config.json（含内嵌节目映射）。")
 
     # ---------------- 状态与中断处理 -----------------
     def check_state(self, is_chunk=False):
@@ -698,12 +736,10 @@ class YunTingDownloaderGUI:
         try:
             mode = self.mode_var.get()
             start_date_str = self.start_date_var.get().strip()
-            broadcast_id = self.broadcast_id_var.get().strip()
             base_dir = self.output_dir_var.get().strip()
             delay = float(self.delay_var.get().strip())
-            api_key = self.api_key_var.get().strip()
-            is_high_bitrate = self.high_bitrate_var.get()
-            is_download_imgs = self.download_images_var.get()
+            is_high_bitrate = True
+            is_download_imgs = True
             name_filter_regex = self.name_filter_regex_var.get().strip()
             filename_template = self.filename_template_var.get().strip() or r"{date}\{name}"
             max_rate_kbps = self.max_rate_kbps
@@ -715,18 +751,20 @@ class YunTingDownloaderGUI:
                 
             if mode == "single":
                 self.check_state(is_chunk=False)
-                self._run_downloader_wrapper(start_date_str, broadcast_id, base_dir, is_high_bitrate, is_download_imgs, api_key, post_cb, name_filter_regex, filename_template, max_rate_kbps)
+                self._run_downloader_wrapper(start_date_str, base_dir, is_high_bitrate, is_download_imgs, post_cb, name_filter_regex, filename_template, max_rate_kbps)
             else:
                 end_date_str = self.end_date_var.get().strip()
                 start_date = datetime.strptime(start_date_str, "%y-%m-%d")
                 end_date = datetime.strptime(end_date_str, "%y-%m-%d")
-                
+
+                step_days = 1 if end_date >= start_date else -1
                 curr = start_date
-                while curr <= end_date:
+                while (step_days == 1 and curr <= end_date) or (step_days == -1 and curr >= end_date):
                     self.check_state(is_chunk=False)
-                    self._run_downloader_wrapper(curr.strftime("%y-%m-%d"), broadcast_id, base_dir, is_high_bitrate, is_download_imgs, api_key, post_cb, name_filter_regex, filename_template, max_rate_kbps)
-                    curr += timedelta(days=1)
-                    if curr <= end_date:
+                    self._run_downloader_wrapper(curr.strftime("%y-%m-%d"), base_dir, is_high_bitrate, is_download_imgs, post_cb, name_filter_regex, filename_template, max_rate_kbps)
+                    curr += timedelta(days=step_days)
+                    should_wait = (step_days == 1 and curr <= end_date) or (step_days == -1 and curr >= end_date)
+                    if should_wait:
                         for _ in range(int(delay * 10)):
                             self.check_state(is_chunk=False)
                             time.sleep(0.1)
@@ -752,10 +790,10 @@ class YunTingDownloaderGUI:
             self.is_downloading = False
             self.root.after(0, self.reset_buttons)
             
-    def _run_downloader_wrapper(self, d_str, b_id, b_dir, h_bit, d_img, api, post_cb, name_filter_regex, filename_template, max_rate_kbps):
+    def _run_downloader_wrapper(self, d_str, b_dir, h_bit, d_img, post_cb, name_filter_regex, filename_template, max_rate_kbps):
         download_by_date(
-            date_str=d_str, broadcast_id=b_id, base_downloads_dir=b_dir, 
-            high_bitrate=h_bit, download_imgs=d_img, api_key=api, 
+            date_str=d_str, base_downloads_dir=b_dir,
+            high_bitrate=h_bit, download_imgs=d_img,
             state_checker=self.check_state, post_process_cb=post_cb,
             download_progress_cb=self.on_download_progress,
             name_filter_regex=name_filter_regex,
@@ -1167,5 +1205,5 @@ class YunTingDownloaderGUI:
 
 if __name__ == '__main__':
     root = tk.Tk()
-    app = YunTingDownloaderGUI(root)
+    app = 阿基米德DownloaderGUI(root)
     root.mainloop()
