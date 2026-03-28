@@ -63,7 +63,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: bash
         run: |
-          python -m PyInstaller -F -w -i "${{ github.workspace }}/favicon.ico.ico" --noconfirm --clean \
+          python -m PyInstaller -F -w -i "${{ github.workspace }}/favicon.ico" --noconfirm --clean \
             --distpath "dist/${{ matrix.target }}" \
             --workpath "build/${{ matrix.target }}/gui" \
             --specpath "build/spec/${{ matrix.target }}/gui" \
