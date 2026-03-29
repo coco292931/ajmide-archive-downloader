@@ -593,10 +593,10 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
             info_file.write(f"开始时间: {start_time_full}\n")
             info_file.write(f"结束时间: {end_time_full}\n")
             info_file.write(f"下载链接: {download_url}\n")
-            info_file.write(f"模板结果: {template_rendered}\n")
+            #info_file.write(f"模板结果: {template_rendered}\n")
             info_file.write(f"输出路径: {file_path}\n")
-            info_file.write(f"展示图片: {image_url} {img_result}\n")
-            info_file.write(f"长版图片: {image_long_url} {img_long_result}\n")
+            #info_file.write(f"展示图片: {image_url} {img_result}\n")
+            #info_file.write(f"长版图片: {image_long_url} {img_long_result}\n")
             info_file.write("-" * 40 + "\n")
 
             if not download_url:

@@ -83,13 +83,16 @@
 ```
 
 但不幸的是，在我写这个代码的前两天（大概是25/3/22左右），阿基米德的hitfm内容全面隐藏，无法直接通过访问网站得到，例如：[阿基米德 - New Music Express新音乐速递](https://m.ajmide.com/m/brand?id=10607663) ，现在打开时已经是空白，访问上述接口也只传空值，只能另辟蹊径。
-偶然间，我发现节目下面由用户发布的“前刀”节目依然保留，进入后有剪辑节目的链接。点击链接后虽然跳转到空白页面，但是阿基米德仍然在后台播放了对应节目。通过http toolkit手机抓包分析，指向了一个重要接口：
+
+偶然间，我发现节目下面由用户发布的“前刀”节目依然保留，进入后有能点击跳转被剪辑的节目，虽然跳转到空白页面，但是阿基米德app仍然成功解析了音频并开始播放。
+
+通过http toolkit手机抓包分析，指向了一个重要接口：
 
 ```bash
 https://a.ajmide.com/v18/get_play_list.php?t=t&phid=60068136
 ```
 
-其中，phid是对应节目的连接（这和上面节目列表的不是一个东西），我推测是按照一定规则生成的流水号码，以此为例，60068136这串数字很可能代表22.3.30当晚的NME节目。
+其中，phid是对应节目的连接（这和上面的brand?id不是一个东西），我推测是按照一定规则生成的流水号码，例如60068136这串数字很可能代表22.3.30当晚的NME节目。
 
 访问这个链接后，我们就得到了对应节目的数据如下（精简版，已转义）：
 
@@ -137,10 +140,40 @@ https://a.ajmide.com/v18/get_play_list.php?t=t&phid=60068136
 "shareUrl": "http://ia-bk-i.ajmide.com/c_473/20220330/473_20220330_1900.m4a""
 ```
 
-不过事情还没结束，因为473这个代号，似乎只对应New Music Express这一个节目，要想找齐其他所有节目，就要对每一个板块重复上述流程。不过对于一串phid，相邻的几个很有可能是同一个电台的，这样可以减少筛选难度。例如 53570312~53570316 就都是hitfm的。不过就像刚才说的，phid是一个流水代号，所以很有可能重复，且相邻的间隔极大，并不推荐暴力破解，而优先考虑从相邻入手。
+不过事情还没结束，因为473这个代号，似乎只对应New Music Express这一个节目，要想找齐其他所有节目，就要对每一个板块重复上述流程。不过好在对于一串phid，相邻的几个很有可能是同一个电台的，这样大幅降低了搜索难度。例如 53570312~53570316 就都是hitfm的。不过就像刚才说的，phid是一个流水代号，所以很有可能获取到重复的节目，并且不同日期的间隔可能极大，并不推荐暴力破解，而优先考虑从相邻入手。
+
+精简版代码如下：
+
+```python
+import requests, json, time, os
+
+TARGET = "CRI\u52b2\u66f2\u8c03\u9891"  #指定搜索的producer名，在这里是 CRI劲曲调频 
+HEADERS = {
+    "Accept-Encoding": "gzip", "Authorization": "uauth", "Connection": "Keep-Alive",
+    "Host": "a.ajmide.com", "If-Modified-Since": "Sat, 28 Mar 2026 12:36:07 GMT",
+    "User-Agent": "ajmd/4.0.2 (Android 10; HLK-AL00; 7820948e-f866-3e84-abbd-abxxxxb30ae6; ajmd; 7820948e-f866-3e84-abbd-abxxxxb30ae6)"  #设备UA定义，模拟阿基米德app
+}
+SAVE_DIR = r"C:\cri_output"  #在这里选择json文件保存目录
+os.makedirs(SAVE_DIR, exist_ok=True)
+
+idx = 1
+for phid in range(60068136, 60069137):  #指定搜索范围 （从60068136到60069136）
+    try:
+        data = requests.get(f"https://a.ajmide.com/v18/get_play_list.php?t=t&phid={phid}", headers=HEADERS, timeout=10).json()
+        matched = [x for x in data.get("data", []) if x.get("producer") == TARGET]  #如果你想搜索其他字段，修改这里的producer
+        if matched:
+            with open(os.path.join(SAVE_DIR, f"{idx:04d}.json"), "w", encoding="utf-8") as f:
+                json.dump({"phid": phid, "matched_items": matched}, f, ensure_ascii=False, indent=2)
+            print(f"phid={phid} ✓ → {idx:04d}.json")
+            idx += 1
+        else:
+            print(f"phid={phid} -")
+    except Exception as e:
+        print(f"phid={phid} 失败: {e}")
+    time.sleep(0.3)
+```
 
 经过一番操作，终于拿到了代号表格：
-
 
 | 节目名称 | 编号 | 播出时间 |
 |---------|------|---------|
@@ -160,17 +193,20 @@ https://a.ajmide.com/v18/get_play_list.php?t=t&phid=60068136
 | At work network工作随身听 | 20279 | 10:00-13:00(1-5) |
 | Lazy Afternoon慵懒下午茶 | 20280 | 13:00-16:00(1-5) |
 | Hit FM Dance Carta & Co.电音-卡塔 | 54502 | 20:00-22:00(7) |
-| ctdm | 未知 | |
+| ctdm | 未知 | 在周日at 40时间段播出 |
 | music flow | 未知 | |
 
 
-
-可惜的是，中国电子音乐巅峰榜和music flow没有对应前刀节目，相应的代号经粗略爆破并未获得，希望有uu能获取到。
+可惜的是，中国电子音乐巅峰榜（被部分合并）和music flow没有对应前刀节目，相应的代号经粗略爆破并未获得，希望有uu能获取到。
+并且由于阿基米德本身的原因，有可能出现节目名称与实际对不上的情况，暂时无法解决（例如at40在周日有12:00-16:00这个播出时间段，但是当我们查看22/7/3的节目单会发现，下载到的音频其实是由rock DJ和CTDM组成的“合并节目”。推测是阿基米德没有更新节目单所致，不过由于rock DJ和CTDM的解析结果本身没有周日这个时间段的节目，所以即使手动配置了也是解析失败，唯一的解决方案时下载后手动切分）
 
 最后，我们使用下方链接下载对应节目即可
 
 ```bash
-http://ia-bk-i.ajmide.com/c_{code}/{YYYYMMDD}/{code}_{YYYYMMDD}_{HHmm(start_time).m4a
+http://ia-bk-i.ajmide.com/c_{code}/{YYYYMMDD}/{code}_{YYYYMMDD}_{HHmm(start_time)}.m4a
+
+例如：
+http://ia-bk-i.ajmide.com/c_20276/20220330/20276_20220330_0600.m4a
 ```
 
 ## 功能与使用说明
@@ -201,8 +237,6 @@ python downloader.py -d "25-12-22" --name-regex "Music|Morning" --filename-templ
 - `-h`, `--help` : 显示帮助信息。
 - `-d DATE`, `--date DATE` : 指定单独日期 (如 `'25-12-22'` 或 `'now'`) 或日期范围 (如 `'25-11-22 to 25-12-22'`，支持反向如 `'now to 25-12-22'`)。
 - `-o OUTDIR`, `--outdir OUTDIR` : 下载的基础输出目录，默认为 `downloads`。
-- `--low-bitrate` : 选择下载低码率音频 (默认情况为下载高码率，带此参数则切换低码率以节省空间)。
-- `--no-images` : 阻止下载节目封面图片。
 - `--delay DELAY` : 当执行多日持续下载时，请求日期间隔的睡眠时间(秒)，默认 `1.5`。
 - `--name-regex NAME_REGEX` : 节目名正则筛选，仅下载匹配的节目（默认空，即不过滤）。
 - `--filename-template FILENAME_TEMPLATE` : 自定义输出模板（默认 `{date}\\{name}`，支持 `{id}` `{name}` `{date}` `{name_ch}` `{name_en}` `{bitrate}` `{start_time}` `{end_time}`；其中 `{bitrate}` 输出 `High/Low`）。
@@ -211,7 +245,7 @@ python downloader.py -d "25-12-22" --name-regex "Music|Morning" --filename-templ
 
 高级配置（仅 `config.json`，不在 UI 暴露）：
 
-- `max_rate_kbps`：下载限速（单位 KB/s）。`0` 表示不限速。
+- `max_rate_kbps`：下载限速（单位 KB/s）。`0` 表示不限速。实际上阿基米德本身限速约2~3MB/s，但似乎没有封禁策略
 - `program_schedules`：节目映射列表。下载器会按该映射在本地拼接 URL；若缺失或格式错误，会回退到内置默认映射。
 
 ### 2. GUI 界面操作 (推荐)
@@ -232,7 +266,7 @@ python downloader.py -d "25-12-22" --name-regex "Music|Morning" --filename-templ
 
 ## 自动化后处理 (格式转换管线)
 
-//这个是阿基米德-downloader留下的自动转换管线，对于阿基米德的低码率而言其实完全没有必要使用 （
+//这个是 [云听下载器](https://github.com/coco292931/yunting-archive-downloader) 留下的自动转换管线，对于阿基米德的22k低码率而言其实完全没有必要使用 （
 
 虽然 m4a 已经比较高效，但是如果全部按高码率保存节目，对储存依然是一笔不小的开销。
 通过指定本地 FFmpeg（内置环境检测），图形界面原生支持了**异步多线程自动转换管线**功能：
@@ -318,10 +352,8 @@ git push origin v1.0.1
 注意：
 
 - 若仓库未允许工作流写入 Release，请到仓库 Settings -> Actions -> General，将 Workflow permissions 设为 `Read and write permissions`。
-- 当前仅 Windows 使用 `vtfts-knkbe-001.ico` 图标；macOS 如需图标请准备 `.icns` 并在工作流里单独加参数。
+- 当前仅 Windows 使用 `favicon.ico` 图标；macOS 如需图标请准备 `.icns` 并在工作流里单独加参数。
 
 ## 注意事项
-
-
 
 本工具仅供学习使用，请勿用作非法用途
