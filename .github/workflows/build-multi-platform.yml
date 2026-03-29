@@ -170,6 +170,6 @@ jobs:
         with:
           tag_name: ${{ steps.meta.outputs.tag_name }}
           target_commitish: ${{ github.sha }}
-          name: ajmide-archive-downloader V${{ steps.meta.outputs.version }}
+          name: downloader V${{ steps.meta.outputs.version }}
           files: release_files/*
           generate_release_notes: true
