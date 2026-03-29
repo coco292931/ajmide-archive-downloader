@@ -4,7 +4,6 @@ import sys
 import json
 from datetime import datetime, timedelta
 import time
-import hashlib
 import re
 import random
 import uuid
@@ -120,11 +119,7 @@ def _build_programs_for_date(date_obj, schedules=None):
                     "programName": name,
                     "startTime": int(start_dt.timestamp() * 1000),
                     "endTime": int(end_dt.timestamp() * 1000),
-                    "playUrlHigh": url,
-                    "playUrlLow": url,
                     "downloadUrl": url,
-                    "image": "",
-                    "imageLong": "",
                 }
             )
 
@@ -152,69 +147,6 @@ def _build_ajmide_headers(target_url=""):
 
     _header_state["count"] += 1
     return dict(_header_state["headers"])
-
-def _load_downloaded_images(log_file):
-    # 图片去重缓存：存储已下载 URL，避免重复请求相同图片地址。
-    if not os.path.exists(log_file):
-        return set()
-    with open(log_file, 'r', encoding='utf-8') as f:
-        return set(line.strip() for line in f if line.strip())
-
-def _save_downloaded_image(log_file, url):
-    # 追加写入，保持历史记录，便于跨天任务复用缓存。
-    with open(log_file, 'a', encoding='utf-8') as f:
-        f.write(f"{url}\n")
-
-def download_image(url, img_dir, downloaded_images_log, images_info_log, safe_program_name, suffix=""):
-    # 返回值会写入节目清单文本，作为“图片处理结果”提示。
-    if not url:
-        return ""
-    
-    images_cache = _load_downloaded_images(downloaded_images_log)
-        
-    try:
-        parsed_url = urlparse(url)
-        # 用图片URL的最后一段作为文件名，如果有特殊字符这里暂且忽略，通常是随机字符串.jpg
-        original_name = os.path.basename(parsed_url.path)
-        if not original_name:
-            original_name = hashlib.md5(url.encode('utf-8')).hexdigest() + ".jpg"
-
-        _, ext = os.path.splitext(original_name)
-        if not ext:
-            ext = ".jpg"
-
-        # 使用节目名称命名
-        new_img_name = f"{safe_program_name}{suffix}{ext}"
-        img_path = os.path.join(img_dir, new_img_name)
-        
-        # 双重去重：URL 命中缓存或目标文件已存在，都视为可跳过。
-        is_cached = url in images_cache
-        if os.path.exists(img_path) or is_cached:
-            if not is_cached:
-                _save_downloaded_image(downloaded_images_log, url)
-            return f"（跳过：{new_img_name}）"
-            
-        print(f"正在下载图片: {url} -> {img_path}")
-        img_response = requests.get(url, headers=_build_ajmide_headers(url), stream=True, timeout=_REQUEST_TIMEOUT)
-        img_response.raise_for_status()
-        with open(img_path, 'wb') as f:
-            for chunk in img_response.iter_content(chunk_size=8192):
-                f.write(chunk)
-                
-        # 记录到已下载列表
-        _save_downloaded_image(downloaded_images_log, url)
-
-        # 写入图片详情txt
-        with open(images_info_log, 'a', encoding='utf-8') as info_f:
-            info_f.write(f"本地命名: {new_img_name}\n")
-            info_f.write(f"原始文件: {original_name}\n")
-            info_f.write(f"来源地址: {url}\n")
-            info_f.write("-" * 40 + "\n")
-
-        return f"（新保存：{new_img_name}）"
-    except Exception as e:
-        print(f"下载图片失败 {url}: {e}")
-        return "（下载失败）"
 
 
 class _TokenBucketLimiter:
@@ -374,7 +306,7 @@ def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
         "date": _sanitize_component_for_path(date_str),
         "name_ch": _sanitize_component_for_path(sample_ch),
         "name_en": _sanitize_component_for_path(sample_en),
-        "bitrate": "High",
+        "bitrate": "Default",
         "start_time": _sanitize_component_for_path("06:00:00"),
         "end_time": _sanitize_component_for_path("07:00:00"),
     }
@@ -389,7 +321,7 @@ def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
     sample_dir = os.path.dirname(sample_file_path)
     return sample_dir if sample_dir else base_downloads_dir
 
-def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True, download_imgs=True,
+def download_by_date(date_str, base_downloads_dir="downloads",
                      state_checker=None, post_process_cb=None, download_progress_cb=None, name_filter_regex="", filename_template=r"{date}\{name}", max_rate_kbps=0):
     """
     根据指定日期下载电台回放.
@@ -445,16 +377,11 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
         }
 
     # 输出结构:
-    # - <base>/images/*
-    # - <base>/downloaded_images.txt
     # - program_info 目录与 filename_template 对应（同规则推导）
     # - 音频文件路径由 filename_template 动态决定，可包含子目录
     day_report_dir = _resolve_program_info_dir(base_downloads_dir, filename_template, formatted_date)
-    images_dir = os.path.join(base_downloads_dir, "images")
-    downloaded_images_log = os.path.join(base_downloads_dir, "downloaded_images.txt")
-    images_info_log = os.path.join(images_dir, "images_info.txt")
 
-    for path_to_create in [base_downloads_dir, day_report_dir, images_dir]:
+    for path_to_create in [base_downloads_dir, day_report_dir]:
         if not os.path.exists(path_to_create):
             os.makedirs(path_to_create)
     
@@ -469,11 +396,22 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
 
     # 保存每日节目信息的txt文件
     info_txt_path = os.path.join(day_report_dir, f"{formatted_date}_program_info.txt")
+
+    def _write_success_info(info_file, program_name, program_index, start_time_full, end_time_full, download_url, file_path):
+        info_file.write(f"节目名称: {program_name}\n")
+        info_file.write(f"节目序号: {program_index}\n")
+        info_file.write(f"开始时间: {start_time_full}\n")
+        info_file.write(f"结束时间: {end_time_full}\n")
+        info_file.write(f"下载链接: {download_url}\n")
+        info_file.write(f"输出路径: {file_path}\n")
+        info_file.write("-" * 40 + "\n")
+
     with open(info_txt_path, 'w', encoding='utf-8') as info_file:
         info_file.write(f"=== {formatted_date} 节目信息 ===\n\n")
         slot_success = {}
         failed_items = []
         slot_total = {}
+        slot_index = {}
         for p in program_list:
             st = p.get("startTime", 0)
             et = p.get("endTime", 0)
@@ -493,6 +431,8 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
 
             sk = (s_date, s_time, e_time)
             slot_total[sk] = slot_total.get(sk, 0) + 1
+            if sk not in slot_index:
+                slot_index[sk] = len(slot_index) + 1
 
         for program_index, program in enumerate(program_list, start=1):
             # 在“节目粒度”进行中断检查: 软停止会阻止后续节目继续下载。
@@ -528,42 +468,30 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
                 end_time_full = "未知"
 
             slot_key = (program_date_str, start_time_only, end_time_only)
+            program_slot_index = slot_index.get(slot_key, program_index)
             is_complementary_slot = slot_total.get(slot_key, 0) > 1
 
             if is_complementary_slot and slot_success.get(slot_key, 0) > 0:
                 print(f"互补跳过：'{program_name}' 与同时间段节目互补，已有成功任务。")
-                info_file.write(f"互补策略: 同时间段已有成功任务，跳过当前节目\n")
-                info_file.write("-" * 40 + "\n")
                 ignored_complementary_count += 1
                 continue
             
-            # 获取图片链接
-            image_url = program.get("image", "")
-            image_long_url = program.get("imageLong", "")
-
             # 拆分英文/中文节目名
             name_en_raw, name_ch_raw = _split_program_name(program_name)
 
-            bitrate_tag = "High" if high_bitrate else "Low"
-
             # 自定义命名模板变量
             format_values = {
-                "id": str(program_index),
+                "id": str(program_slot_index),
                 "name": _sanitize_component_for_path(program_name),
                 "date": _sanitize_component_for_path(program_date_str),
                 "name_ch": _sanitize_component_for_path(name_ch_raw),
                 "name_en": _sanitize_component_for_path(name_en_raw),
-                "bitrate": bitrate_tag,
+                "bitrate": "Default",
                 "start_time": _sanitize_component_for_path(start_time_only),
                 "end_time": _sanitize_component_for_path(end_time_only),
             }
-            
-            # 决定使用哪种码率
-            if high_bitrate:
-                download_url = program.get("playUrlHigh")
-            else:
-                # 尝试获取低码率，找不到就用默认
-                download_url = program.get("playUrlLow") or program.get("downloadUrl")
+
+            download_url = program.get("downloadUrl") or program.get("playUrlHigh")
 
             template_rendered = _render_filename_template(filename_template, format_values)
             file_path = _build_output_file_path(
@@ -578,27 +506,6 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
                 os.makedirs(file_dir, exist_ok=True)
             part_path = file_path + ".part"
 
-            # 图片下载逻辑与音频下载解耦，失败不会阻断后续音频抓取。
-            image_name_base = os.path.splitext(os.path.basename(file_path))[0]
-            if download_imgs:
-                img_result = download_image(image_url, images_dir, downloaded_images_log, images_info_log, image_name_base) if image_url else "无"
-                img_long_result = download_image(image_long_url, images_dir, downloaded_images_log, images_info_log, image_name_base, "_long") if image_long_url else "无"
-            else:
-                img_result = "跳过"
-                img_long_result = "跳过"
-
-            # 将信息写入文本文件
-            info_file.write(f"节目名称: {program_name}\n")
-            info_file.write(f"节目序号: {program_index}\n")
-            info_file.write(f"开始时间: {start_time_full}\n")
-            info_file.write(f"结束时间: {end_time_full}\n")
-            info_file.write(f"下载链接: {download_url}\n")
-            #info_file.write(f"模板结果: {template_rendered}\n")
-            info_file.write(f"输出路径: {file_path}\n")
-            #info_file.write(f"展示图片: {image_url} {img_result}\n")
-            #info_file.write(f"长版图片: {image_long_url} {img_long_result}\n")
-            info_file.write("-" * 40 + "\n")
-
             if not download_url:
                 print(f"警告：节目 '{program_name}' 没有找到可用下载链接，跳过。")
                 continue
@@ -608,6 +515,15 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
                 slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
                 success_count += 1
                 skipped_existing_count += 1
+                _write_success_info(
+                    info_file,
+                    program_name,
+                    program_slot_index,
+                    start_time_full,
+                    end_time_full,
+                    download_url,
+                    file_path,
+                )
                 # 即使是已存在文件，也触发后处理回调，便于 GUI 做统一转换排队。
                 if post_process_cb:
                     post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
@@ -629,6 +545,15 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
                 if ok:
                     slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
                     success_count += 1
+                    _write_success_info(
+                        info_file,
+                        program_name,
+                        program_slot_index,
+                        start_time_full,
+                        end_time_full,
+                        download_url,
+                        file_path,
+                    )
                     if used_attempt > 1:
                         print(f"'{program_name}' 重试成功（第 {used_attempt} 次）。")
                     else:
@@ -675,15 +600,37 @@ def download_by_date(date_str, base_downloads_dir="downloads", high_bitrate=True
             for item in unresolved_failures:
                 print(f" - {item['program_name']} | {item['download_url']} | {item['error']}")
 
+    if success_count == 0:
+        if os.path.exists(info_txt_path):
+            try:
+                os.remove(info_txt_path)
+                print(f"当日无成功下载，已删除信息文件: {info_txt_path}")
+            except Exception as e:
+                print(f"警告：删除信息文件失败: {info_txt_path} | {e}")
+
+        # 仅在目录为空且不是基础目录时尝试删除，避免误删 downloads 根目录。
+        base_dir_norm = os.path.abspath(os.path.normpath(base_downloads_dir))
+        report_dir_norm = os.path.abspath(os.path.normpath(day_report_dir))
+        if report_dir_norm != base_dir_norm and os.path.isdir(day_report_dir):
+            try:
+                if not os.listdir(day_report_dir):
+                    os.rmdir(day_report_dir)
+                    print(f"当日无成功下载，已删除空目录: {day_report_dir}")
+            except Exception as e:
+                print(f"警告：删除空目录失败: {day_report_dir} | {e}")
+
     print(
         f"汇总: 生成 {generated_count} | 成功 {success_count} | 失败 {failed_count} | "
-        f"互补忽略 {ignored_complementary_count} | 已存在跳过 {skipped_existing_count} | 名称筛选跳过 {skipped_name_filter_count}"
+        f"互补忽略 {ignored_complementary_count} | 已存在跳过 {skipped_existing_count} | 筛选跳过 {skipped_name_filter_count}"
     )
     unresolved_count = len(unresolved_failures)
     if unresolved_count > 0:
         print(f"未解决失败: {unresolved_count}")
 
-    print(f"\n{formatted_date} 的所有节目下载任务已完成。信息已保存至 {info_txt_path}\n")
+    if success_count > 0 and os.path.exists(info_txt_path):
+        print(f"\n{formatted_date} 的所有节目下载任务已完成。信息已保存至 {info_txt_path}\n")
+    else:
+        print(f"\n{formatted_date} 的所有节目下载任务已完成。当日无成功下载，未保留 info 文件。\n")
     return {
         "date": formatted_date,
         "generated": generated_count,
@@ -700,8 +647,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="阿基米德电台下载器")
     parser.add_argument("-d", "--date", help="指定单独日期 (如 '25-12-22'/'now') 或日期范围 (如 '25-11-22 to 25-12-22'，支持反向)", default="25-12-22")
     parser.add_argument("-o", "--outdir", help="基础输出目录，默认是'downloads'", default="downloads")
-    parser.add_argument("--low-bitrate", help="下载低码率音频 (默认下载高码率)", action="store_true")
-    parser.add_argument("--no-images", help="不下载封面图片", action="store_true")
     parser.add_argument("--delay", help="多日持续下载时，每天之间的间隔时间(秒)", type=float, default=1.5)
     parser.add_argument("--name-regex", help="节目名筛选正则（匹配才下载）", default="")
     parser.add_argument("--filename-template", help=r"自定义输出模板，默认 '{date}\\{name}'", default=r"{date}\{name}")
@@ -714,9 +659,6 @@ if __name__ == '__main__':
         if v in ("now", "today"):
             return datetime.now()
         return datetime.strptime(value.strip(), "%y-%m-%d")
-    
-    high_bit = not args.low_bitrate
-    dl_imgs = not args.no_images
     
     # 命令行支持 "YY-MM-DD to YY-MM-DD" 范围写法。
     total_unresolved_failures = 0
@@ -734,8 +676,6 @@ if __name__ == '__main__':
                     result = download_by_date(
                         curr_date.strftime("%y-%m-%d"),
                         base_downloads_dir=args.outdir,
-                        high_bitrate=high_bit,
-                        download_imgs=dl_imgs,
                         name_filter_regex=args.name_regex,
                         filename_template=args.filename_template,
                     )
@@ -756,8 +696,6 @@ if __name__ == '__main__':
         result = download_by_date(
             _parse_cli_date_literal(date_arg).strftime("%y-%m-%d"),
             base_downloads_dir=args.outdir, 
-            high_bitrate=high_bit, 
-            download_imgs=dl_imgs, 
             name_filter_regex=args.name_regex,
             filename_template=args.filename_template,
         )

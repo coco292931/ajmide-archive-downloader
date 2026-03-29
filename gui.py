@@ -738,8 +738,6 @@ class 阿基米德DownloaderGUI:
             start_date_str = self.start_date_var.get().strip()
             base_dir = self.output_dir_var.get().strip()
             delay = float(self.delay_var.get().strip())
-            is_high_bitrate = True
-            is_download_imgs = True
             name_filter_regex = self.name_filter_regex_var.get().strip()
             filename_template = self.filename_template_var.get().strip() or r"{date}\{name}"
             max_rate_kbps = self.max_rate_kbps
@@ -751,7 +749,7 @@ class 阿基米德DownloaderGUI:
                 
             if mode == "single":
                 self.check_state(is_chunk=False)
-                self._run_downloader_wrapper(start_date_str, base_dir, is_high_bitrate, is_download_imgs, post_cb, name_filter_regex, filename_template, max_rate_kbps)
+                self._run_downloader_wrapper(start_date_str, base_dir, post_cb, name_filter_regex, filename_template, max_rate_kbps)
             else:
                 end_date_str = self.end_date_var.get().strip()
                 start_date = datetime.strptime(start_date_str, "%y-%m-%d")
@@ -761,7 +759,7 @@ class 阿基米德DownloaderGUI:
                 curr = start_date
                 while (step_days == 1 and curr <= end_date) or (step_days == -1 and curr >= end_date):
                     self.check_state(is_chunk=False)
-                    self._run_downloader_wrapper(curr.strftime("%y-%m-%d"), base_dir, is_high_bitrate, is_download_imgs, post_cb, name_filter_regex, filename_template, max_rate_kbps)
+                    self._run_downloader_wrapper(curr.strftime("%y-%m-%d"), base_dir, post_cb, name_filter_regex, filename_template, max_rate_kbps)
                     curr += timedelta(days=step_days)
                     should_wait = (step_days == 1 and curr <= end_date) or (step_days == -1 and curr >= end_date)
                     if should_wait:
@@ -790,10 +788,9 @@ class 阿基米德DownloaderGUI:
             self.is_downloading = False
             self.root.after(0, self.reset_buttons)
             
-    def _run_downloader_wrapper(self, d_str, b_dir, h_bit, d_img, post_cb, name_filter_regex, filename_template, max_rate_kbps):
+    def _run_downloader_wrapper(self, d_str, b_dir, post_cb, name_filter_regex, filename_template, max_rate_kbps):
         download_by_date(
             date_str=d_str, base_downloads_dir=b_dir,
-            high_bitrate=h_bit, download_imgs=d_img,
             state_checker=self.check_state, post_process_cb=post_cb,
             download_progress_cb=self.on_download_progress,
             name_filter_regex=name_filter_regex,
