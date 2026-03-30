@@ -49,7 +49,7 @@ DEFAULT_PROGRAM_SCHEDULES = [
     {"name": "Big Drive Home开车现场秀", "code": "471", "slots": [{"days": [1, 2, 3, 4, 5], "start": "16:00", "end": "19:00"}]},
     {"name": "Top 20 Countdown顶尖20排行榜", "code": "472", "slots": [{"days": [6, 7], "start": "18:00", "end": "20:00"}]},
     {"name": "New Music Express新音乐速递", "code": "473", "slots": [{"days": [1, 2, 3, 4, 5], "start": "19:00", "end": "22:00"}]},
-    {"name": "Hit FM Dance电音", "code": "475", "slots": [{"days": [1, 2, 3, 4, 5, 6, 7], "start": "22:00", "end": "23:59"}, {"days": [7], "start": "20:00", "end": "23:59"}]},
+    {"name": "Hit FM Dance电音", "code": "475", "slots": [{"days": [1, 2, 3, 4, 5, 6, 7], "start": "22:00", "end": "23:59"},{"days": [7], "start": "20:00", "end": "23:59"}]},
     {"name": "Morning Call音乐叫早", "code": "20276", "slots": [{"days": [1, 2, 3, 4, 5], "start": "06:00", "end": "07:00"}]},
     {"name": "Weekend Morning Show周末早间音乐", "code": "20277", "slots": [{"days": [6, 7], "start": "08:00", "end": "12:00"}]},
     {"name": "Soul Make心灵制造", "code": "20278", "slots": [{"days": [6], "start": "14:00", "end": "16:00"}]},
@@ -296,6 +296,13 @@ def _build_output_file_path(base_downloads_dir, template_rendered, download_url,
     return path_no_ext + _extract_audio_extension(download_url)
 
 
+def _append_suffix_before_extension(file_path, suffix):
+    if not suffix:
+        return file_path
+    root, ext = os.path.splitext(file_path)
+    return f"{root}{suffix}{ext}"
+
+
 def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
     # 与 GUI 预览保持一致：使用固定示例节目生成“对应目录”。
     sample_name = "Morning Call 音乐叫早"
@@ -306,7 +313,7 @@ def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
         "date": _sanitize_component_for_path(date_str),
         "name_ch": _sanitize_component_for_path(sample_ch),
         "name_en": _sanitize_component_for_path(sample_en),
-        "bitrate": "High",
+        "bitrate": "Default",
         "start_time": _sanitize_component_for_path("06:00:00"),
         "end_time": _sanitize_component_for_path("07:00:00"),
     }
@@ -381,7 +388,7 @@ def download_by_date(date_str, base_downloads_dir="downloads",
     # - 音频文件路径由 filename_template 动态决定，可包含子目录
     day_report_dir = _resolve_program_info_dir(base_downloads_dir, filename_template, formatted_date)
 
-    for path_to_create in [base_downloads_dir]:
+    for path_to_create in [base_downloads_dir, day_report_dir]:
         if not os.path.exists(path_to_create):
             os.makedirs(path_to_create)
     
@@ -396,212 +403,235 @@ def download_by_date(date_str, base_downloads_dir="downloads",
 
     # 保存每日节目信息的txt文件
     info_txt_path = os.path.join(day_report_dir, f"{formatted_date}_program_info.txt")
-    downloaded_success_records = []
 
-    def _build_success_info_block(program_name, program_index, start_time_full, end_time_full, download_url, file_path):
-        return (
-            f"节目名称: {program_name}\n"
-            f"节目序号: {program_index}\n"
-            f"开始时间: {start_time_full}\n"
-            f"结束时间: {end_time_full}\n"
-            f"下载链接: {download_url}\n"
-            f"输出路径: {file_path}\n"
-            + "-" * 40
-            + "\n"
-        )
+    def _write_success_info(info_file, program_name, program_index, start_time_full, end_time_full, download_url, file_path):
+        info_file.write(f"节目名称: {program_name}\n")
+        info_file.write(f"节目序号: {program_index}\n")
+        info_file.write(f"开始时间: {start_time_full}\n")
+        info_file.write(f"结束时间: {end_time_full}\n")
+        info_file.write(f"下载链接: {download_url}\n")
+        info_file.write(f"输出路径: {file_path}\n")
+        info_file.write("-" * 40 + "\n")
 
-    slot_success = {}
-    failed_items = []
-    slot_total = {}
-    for p in program_list:
-        st = p.get("startTime", 0)
-        et = p.get("endTime", 0)
-        if st:
-            sdt = datetime.fromtimestamp(st / 1000.0)
-            s_date = sdt.strftime('%Y-%m-%d')
-            s_time = sdt.strftime('%H:%M:%S')
-        else:
-            s_date = formatted_date
-            s_time = "00:00:00"
+    with open(info_txt_path, 'w', encoding='utf-8') as info_file:
+        info_file.write(f"=== {formatted_date} 节目信息 ===\n\n")
+        slot_success = {}
+        failed_items = []
+        slot_total = {}
+        slot_index = {}
+        same_day_name_counter = {}
+        for p in program_list:
+            st = p.get("startTime", 0)
+            et = p.get("endTime", 0)
+            if st:
+                sdt = datetime.fromtimestamp(st / 1000.0)
+                s_date = sdt.strftime('%Y-%m-%d')
+                s_time = sdt.strftime('%H:%M:%S')
+            else:
+                s_date = formatted_date
+                s_time = "00:00:00"
 
-        if et:
-            edt = datetime.fromtimestamp(et / 1000.0)
-            e_time = edt.strftime('%H:%M:%S')
-        else:
-            e_time = "00:00:00"
+            if et:
+                edt = datetime.fromtimestamp(et / 1000.0)
+                e_time = edt.strftime('%H:%M:%S')
+            else:
+                e_time = "00:00:00"
 
-        sk = (s_date, s_time, e_time)
-        slot_total[sk] = slot_total.get(sk, 0) + 1
+            sk = (s_date, s_time, e_time)
+            slot_total[sk] = slot_total.get(sk, 0) + 1
+            if sk not in slot_index:
+                slot_index[sk] = len(slot_index) + 1
 
-    for program_index, program in enumerate(program_list, start=1):
-        # 在“节目粒度”进行中断检查: 软停止会阻止后续节目继续下载。
-        if state_checker:
-            state_checker(is_chunk=False)
+        for program_index, program in enumerate(program_list, start=1):
+            # 在“节目粒度”进行中断检查: 软停止会阻止后续节目继续下载。
+            if state_checker:
+                state_checker(is_chunk=False)
+                
+            program_name = program.get("programName", "unknown_program")
+            if name_pattern and not name_pattern.search(program_name):
+                print(f"筛选跳过: {program_name}")
+                skipped_name_filter_count += 1
+                continue
 
-        program_name = program.get("programName", "unknown_program")
-        if name_pattern and not name_pattern.search(program_name):
-            print(f"筛选跳过: {program_name}")
-            skipped_name_filter_count += 1
-            continue
+            start_time_ms = program.get("startTime", 0)
+            end_time_ms = program.get("endTime", 0)
+            
+            # 格式化时间
+            if start_time_ms:
+                start_dt = datetime.fromtimestamp(start_time_ms / 1000.0)
+                program_date_str = start_dt.strftime('%Y-%m-%d')
+                start_time_only = start_dt.strftime('%H:%M:%S')
+                start_time_full = start_dt.strftime('%Y-%m-%d %H:%M:%S')
+            else:
+                program_date_str = formatted_date
+                start_time_only = "00:00:00"
+                start_time_full = "未知"
 
-        start_time_ms = program.get("startTime", 0)
-        end_time_ms = program.get("endTime", 0)
+            if end_time_ms:
+                end_dt = datetime.fromtimestamp(end_time_ms / 1000.0)
+                end_time_only = end_dt.strftime('%H:%M:%S')
+                end_time_full = end_dt.strftime('%Y-%m-%d %H:%M:%S')
+            else:
+                end_time_only = "00:00:00"
+                end_time_full = "未知"
 
-        # 格式化时间
-        if start_time_ms:
-            start_dt = datetime.fromtimestamp(start_time_ms / 1000.0)
-            program_date_str = start_dt.strftime('%Y-%m-%d')
-            start_time_only = start_dt.strftime('%H:%M:%S')
-            start_time_full = start_dt.strftime('%Y-%m-%d %H:%M:%S')
-        else:
-            program_date_str = formatted_date
-            start_time_only = "00:00:00"
-            start_time_full = "未知"
+            slot_key = (program_date_str, start_time_only, end_time_only)
+            program_slot_index = slot_index.get(slot_key, program_index)
+            is_complementary_slot = slot_total.get(slot_key, 0) > 1
 
-        if end_time_ms:
-            end_dt = datetime.fromtimestamp(end_time_ms / 1000.0)
-            end_time_only = end_dt.strftime('%H:%M:%S')
-            end_time_full = end_dt.strftime('%Y-%m-%d %H:%M:%S')
-        else:
-            end_time_only = "00:00:00"
-            end_time_full = "未知"
+            if is_complementary_slot and slot_success.get(slot_key, 0) > 0:
+                print(f"互补跳过：'{program_name}' 与同时间段节目互补，已有成功任务。")
+                ignored_complementary_count += 1
+                continue
+            
+            # 拆分英文/中文节目名
+            name_en_raw, name_ch_raw = _split_program_name(program_name)
 
-        slot_key = (program_date_str, start_time_only, end_time_only)
-        is_complementary_slot = slot_total.get(slot_key, 0) > 1
+            same_name_key = (program_date_str, program_name)
+            same_day_name_counter[same_name_key] = same_day_name_counter.get(same_name_key, 0) + 1
+            same_name_index = same_day_name_counter[same_name_key]
+            same_name_suffix = "" if same_name_index <= 1 else f"_({same_name_index - 1})"
 
-        if is_complementary_slot and slot_success.get(slot_key, 0) > 0:
-            print(f"互补跳过：'{program_name}' 与同时间段节目互补，已有成功任务。")
-            ignored_complementary_count += 1
-            continue
+            # 自定义命名模板变量
+            format_values = {
+                "id": str(program_slot_index),
+                "name": _sanitize_component_for_path(program_name),
+                "date": _sanitize_component_for_path(program_date_str),
+                "name_ch": _sanitize_component_for_path(name_ch_raw),
+                "name_en": _sanitize_component_for_path(name_en_raw),
+                "bitrate": "Default",
+                "start_time": _sanitize_component_for_path(start_time_only),
+                "end_time": _sanitize_component_for_path(end_time_only),
+            }
 
-        # 拆分英文/中文节目名
-        name_en_raw, name_ch_raw = _split_program_name(program_name)
+            download_url = program.get("downloadUrl") or program.get("playUrlHigh")
 
-        # 自定义命名模板变量
-        format_values = {
-            "id": str(program_index),
-            "name": _sanitize_component_for_path(program_name),
-            "date": _sanitize_component_for_path(program_date_str),
-            "name_ch": _sanitize_component_for_path(name_ch_raw),
-            "name_en": _sanitize_component_for_path(name_en_raw),
-            "bitrate": "Default",
-            "start_time": _sanitize_component_for_path(start_time_only),
-            "end_time": _sanitize_component_for_path(end_time_only),
-        }
-
-        download_url = program.get("downloadUrl") or program.get("playUrlHigh")
-
-        template_rendered = _render_filename_template(filename_template, format_values)
-        file_path = _build_output_file_path(
-            base_downloads_dir=base_downloads_dir,
-            template_rendered=template_rendered,
-            download_url=download_url or "",
-            fallback_date=program_date_str,
-            fallback_name=_sanitize_component_for_path(program_name),
-        )
-        file_dir = os.path.dirname(file_path)
-        if file_dir and not os.path.exists(file_dir):
-            os.makedirs(file_dir, exist_ok=True)
-        part_path = file_path + ".part"
-
-        if not download_url:
-            print(f"警告：节目 '{program_name}' 没有找到可用下载链接，跳过。")
-            continue
-
-        if os.path.exists(file_path):
-            print(f"文件 '{file_path}' 已存在，跳过下载。")
-            slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
-            success_count += 1
-            skipped_existing_count += 1
-            # 即使是已存在文件，也触发后处理回调，便于 GUI 做统一转换排队。
-            if post_process_cb:
-                post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
-            continue
-
-        print(f"正在下载 '{program_name}' 到 '{file_path}'...")
-
-        try:
-            ok, err_msg, used_attempt = _download_audio_with_retry(
-                download_url=download_url,
-                file_path=file_path,
-                part_path=part_path,
-                state_checker=state_checker,
-                limiter=limiter,
-                download_progress_cb=download_progress_cb,
-                retry_max=1 if is_complementary_slot else _DOWNLOAD_RETRY_MAX,
+            template_rendered = _render_filename_template(filename_template, format_values)
+            file_path = _build_output_file_path(
+                base_downloads_dir=base_downloads_dir,
+                template_rendered=template_rendered,
+                download_url=download_url or "",
+                fallback_date=program_date_str,
+                fallback_name=_sanitize_component_for_path(program_name),
             )
+            file_path = _append_suffix_before_extension(file_path, same_name_suffix)
+            file_dir = os.path.dirname(file_path)
+            if file_dir and not os.path.exists(file_dir):
+                os.makedirs(file_dir, exist_ok=True)
+            part_path = file_path + ".part"
 
-            if ok:
+            if not download_url:
+                print(f"警告：节目 '{program_name}' 没有找到可用下载链接，跳过。")
+                continue
+
+            if os.path.exists(file_path):
+                print(f"文件 '{file_path}' 已存在，跳过下载。")
                 slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
                 success_count += 1
-                downloaded_success_records.append(
-                    _build_success_info_block(
+                skipped_existing_count += 1
+                _write_success_info(
+                    info_file,
+                    program_name,
+                    program_slot_index,
+                    start_time_full,
+                    end_time_full,
+                    download_url,
+                    file_path,
+                )
+                # 即使是已存在文件，也触发后处理回调，便于 GUI 做统一转换排队。
+                if post_process_cb:
+                    post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
+                continue
+
+            print(f"正在下载 '{program_name}' 到 '{file_path}'...")
+
+            try:
+                ok, err_msg, used_attempt = _download_audio_with_retry(
+                    download_url=download_url,
+                    file_path=file_path,
+                    part_path=part_path,
+                    state_checker=state_checker,
+                    limiter=limiter,
+                    download_progress_cb=download_progress_cb,
+                    retry_max=1 if is_complementary_slot else _DOWNLOAD_RETRY_MAX,
+                )
+
+                if ok:
+                    slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
+                    success_count += 1
+                    _write_success_info(
+                        info_file,
                         program_name,
-                        program_index,
+                        program_slot_index,
                         start_time_full,
                         end_time_full,
                         download_url,
                         file_path,
                     )
-                )
-                if used_attempt > 1:
-                    print(f"'{program_name}' 重试成功（第 {used_attempt} 次）。")
+                    if used_attempt > 1:
+                        print(f"'{program_name}' 重试成功（第 {used_attempt} 次）。")
+                    else:
+                        print(f"'{program_name}' 下载完成。")
                 else:
-                    print(f"'{program_name}' 下载完成。")
+                    failed_count += 1
+                    failed_items.append({
+                        "program_name": program_name,
+                        "slot_key": slot_key,
+                        "download_url": download_url,
+                        "error": err_msg,
+                    })
+                    print(f"错误：下载 '{program_name}' 失败（已重试 {used_attempt} 次）: {err_msg}")
+                    continue
+
+                if post_process_cb:
+                    post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
+
+            except Exception as e:
+                # 无论发生什么异常，清理可能存在的 .part 文件
+                if os.path.exists(part_path):
+                    try:
+                        os.remove(part_path)
+                    except:
+                        pass
+                print(f"错误：下载 '{program_name}' 失败或被中断: {e}")
+                # StopDownloadException 可能来自 GUI 模块，不同模块类身份不一致，
+                # 这里按异常名识别并继续上抛，确保可中断整个日期循环。
+                if type(e).__name__ == 'StopDownloadException':
+                    raise
+
+        unresolved_failures = []
+        for item in failed_items:
+            if slot_success.get(item["slot_key"], 0) > 0:
+                print(
+                    f"互补容错：'{item['program_name']}' 下载失败，但同时间段已有成功任务，已忽略。"
+                )
+                ignored_complementary_count += 1
             else:
-                failed_count += 1
-                failed_items.append({
-                    "program_name": program_name,
-                    "slot_key": slot_key,
-                    "download_url": download_url,
-                    "error": err_msg,
-                })
-                print(f"错误：下载 '{program_name}' 失败（已重试 {used_attempt} 次）: {err_msg}")
-                continue
+                unresolved_failures.append(item)
 
-            if post_process_cb:
-                post_process_cb(os.path.splitext(os.path.basename(file_path))[0], file_path, formatted_date)
+        if unresolved_failures:
+            print("以下任务最终失败（无同时间段互补成功）：")
+            for item in unresolved_failures:
+                print(f" - {item['program_name']} | {item['download_url']} | {item['error']}")
 
-        except Exception as e:
-            # 无论发生什么异常，清理可能存在的 .part 文件
-            if os.path.exists(part_path):
-                try:
-                    os.remove(part_path)
-                except:
-                    pass
-            print(f"错误：下载 '{program_name}' 失败或被中断: {e}")
-            # StopDownloadException 可能来自 GUI 模块，不同模块类身份不一致，
-            # 这里按异常名识别并继续上抛，确保可中断整个日期循环。
-            if type(e).__name__ == 'StopDownloadException':
-                raise
+    if success_count == 0:
+        if os.path.exists(info_txt_path):
+            try:
+                os.remove(info_txt_path)
+                print(f"当日无成功下载，已删除信息文件: {info_txt_path}")
+            except Exception as e:
+                print(f"警告：删除信息文件失败: {info_txt_path} | {e}")
 
-    unresolved_failures = []
-    for item in failed_items:
-        if slot_success.get(item["slot_key"], 0) > 0:
-            print(
-                f"互补容错：'{item['program_name']}' 下载失败，但同时间段已有成功任务，已忽略。"
-            )
-            ignored_complementary_count += 1
-        else:
-            unresolved_failures.append(item)
-
-    if unresolved_failures:
-        print("以下任务最终失败（无同时间段互补成功）：")
-        for item in unresolved_failures:
-            print(f" - {item['program_name']} | {item['download_url']} | {item['error']}")
-
-    info_written = False
-    if downloaded_success_records:
-        os.makedirs(day_report_dir, exist_ok=True)
-        file_exists = os.path.exists(info_txt_path)
-        with open(info_txt_path, "a", encoding='utf-8') as info_file:
-            if (not file_exists) or os.path.getsize(info_txt_path) == 0:
-                info_file.write(f"=== {formatted_date} 节目信息 ===\n\n")
-            else:
-                #info_file.write("\n")
-                pass
-            info_file.writelines(downloaded_success_records)
-        info_written = True
+        # 仅在目录为空且不是基础目录时尝试删除，避免误删 downloads 根目录。
+        base_dir_norm = os.path.abspath(os.path.normpath(base_downloads_dir))
+        report_dir_norm = os.path.abspath(os.path.normpath(day_report_dir))
+        if report_dir_norm != base_dir_norm and os.path.isdir(day_report_dir):
+            try:
+                if not os.listdir(day_report_dir):
+                    os.rmdir(day_report_dir)
+                    print(f"当日无成功下载，已删除空目录: {day_report_dir}")
+            except Exception as e:
+                print(f"警告：删除空目录失败: {day_report_dir} | {e}")
 
     print(
         f"汇总: 生成 {generated_count} | 成功 {success_count} | 失败 {failed_count} | "
@@ -611,10 +641,10 @@ def download_by_date(date_str, base_downloads_dir="downloads",
     if unresolved_count > 0:
         print(f"未解决失败: {unresolved_count}")
 
-    if info_written:
-        print(f"\n{formatted_date} 的所有节目下载任务已完成。信息已追加写入 {info_txt_path}\n")
+    if success_count > 0 and os.path.exists(info_txt_path):
+        print(f"\n{formatted_date} 的所有节目下载任务已完成。信息已保存至 {info_txt_path}\n")
     else:
-        print(f"\n{formatted_date} 的所有节目下载任务已完成。当日无新下载成功项目，未写入 info 文件。\n")
+        print(f"\n{formatted_date} 的所有节目下载任务已完成。当日无成功下载，未保留 info 文件。\n")
     return {
         "date": formatted_date,
         "generated": generated_count,
