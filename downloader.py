@@ -10,12 +10,21 @@ import uuid
 from urllib.parse import urlparse
 
 _UA_DEVICE_POOL = [
+    "HLK-A100",
+    "VOG-AL00",
+    "M2007J3SC",
+    "NOH-AN00",
+    "PCT-AL10",
     "HLK-AL00",
     "VOG-AL00",
     "M2007J3SC",
     "NOH-AN00",
     "PCT-AL10",
-]
+    "ELE-AL00",
+    "YAL-AL00",
+    "ELS-AN00",
+    "2201123C",
+    "NTH-AN00"]
 
 _BASE_HEADERS = {
     "Accept-Encoding": "gzip",
@@ -24,6 +33,16 @@ _BASE_HEADERS = {
     "Host": "a.ajmide.com",
     "If-Modified-Since": "Sat, 28 Mar 2026 12:36:07 GMT",
 }
+'''
+Accept-Encoding:
+gzip
+Connection:
+Keep-Alive
+Host:
+ia-bk-i.ajmide.com
+User-Agent:
+Dalvik/2.1.0 (Linux; U; Android 10; HLK-AL00 Build/HONORHLK-AL00)
+'''
 
 _ROTATE_EVERY = 8
 _header_state = {
@@ -31,8 +50,8 @@ _header_state = {
     "headers": None,
 }
 
-_DOWNLOAD_RETRY_MAX = 2
-_DOWNLOAD_RETRY_SLEEP_SECONDS = 1.5
+_DOWNLOAD_MAX_REQUESTS = 4
+_DOWNLOAD_403_RETRY_SLEEP_SECONDS = 5
 # 仅设置读取超时 5s，不设置连接超时。
 _REQUEST_TIMEOUT = (None, 5)
 CONFIG_FILE = "config.json"
@@ -201,12 +220,10 @@ class _TokenBucketLimiter:
             time.sleep(min(max(wait_s, 0.001), 0.2))
 
 
-def _download_audio_with_retry(download_url, file_path, part_path, state_checker, limiter, download_progress_cb, retry_max=None):
+def _download_audio_with_retry(download_url, file_path, part_path, state_checker, limiter, download_progress_cb):
     last_error = None
-    max_retry = int(retry_max) if retry_max is not None else _DOWNLOAD_RETRY_MAX
-    max_retry = max(max_retry, 1)
 
-    for attempt in range(1, max_retry + 1):
+    for attempt in range(1, _DOWNLOAD_MAX_REQUESTS + 1):
         try:
             download_headers = _build_ajmide_headers(download_url)
             audio_response = requests.get(download_url, headers=download_headers, stream=True, timeout=_REQUEST_TIMEOUT)
@@ -230,6 +247,33 @@ def _download_audio_with_retry(download_url, file_path, part_path, state_checker
             os.replace(part_path, file_path)
             return True, None, attempt
 
+        except requests.exceptions.HTTPError as e:
+            if os.path.exists(part_path):
+                try:
+                    os.remove(part_path)
+                except Exception:
+                    pass
+
+            status = getattr(getattr(e, "response", None), "status_code", None)
+            last_error = e
+
+            # 404 资源不存在，直接结束，不进行重试。
+            if status == 404:
+                return False, str(last_error), attempt
+
+            # 仅 403 执行重试，最多总共请求 _DOWNLOAD_MAX_REQUESTS 次。
+            if status == 403 and attempt < _DOWNLOAD_MAX_REQUESTS:
+                continue
+                print(f"403 禁止访问，等待 {_DOWNLOAD_403_RETRY_SLEEP_SECONDS} 秒后重试({attempt}/{_DOWNLOAD_MAX_REQUESTS}) -> {download_url}")
+                sleep_steps = int(_DOWNLOAD_403_RETRY_SLEEP_SECONDS * 10)
+                for _ in range(max(sleep_steps, 1)):
+                    if state_checker:
+                        state_checker(is_chunk=False)
+                    time.sleep(0.1)
+                continue
+
+            return False, str(last_error), attempt
+
         except Exception as e:
             if os.path.exists(part_path):
                 try:
@@ -241,15 +285,10 @@ def _download_audio_with_retry(download_url, file_path, part_path, state_checker
                 raise
 
             last_error = e
-            if attempt < max_retry:
-                print(f"下载失败，自动重试({attempt}/{max_retry}) -> {download_url}")
-                sleep_steps = int(_DOWNLOAD_RETRY_SLEEP_SECONDS * 10)
-                for _ in range(max(sleep_steps, 1)):
-                    if state_checker:
-                        state_checker(is_chunk=False)
-                    time.sleep(0.1)
+            # 非 HTTPError 异常不做自动重试。
+            return False, str(last_error), attempt
 
-    return False, str(last_error), max_retry
+    return False, str(last_error), _DOWNLOAD_MAX_REQUESTS
 
 
 class _SafeFormatDict(dict):
@@ -330,6 +369,18 @@ def _append_suffix_before_extension(file_path, suffix):
         return file_path
     root, ext = os.path.splitext(file_path)
     return f"{root}{suffix}{ext}"
+
+
+def _resolve_nonconflicting_file_path(file_path):
+    if not os.path.exists(file_path):
+        return file_path
+
+    idx = 1
+    while True:
+        candidate = _append_suffix_before_extension(file_path, f"_{idx}")
+        if not os.path.exists(candidate):
+            return candidate
+        idx += 1
 
 
 def _resolve_program_info_dir(base_downloads_dir, filename_template, date_str):
@@ -448,7 +499,6 @@ def download_by_date(date_str, base_downloads_dir="downloads",
         failed_items = []
         slot_total = {}
         slot_index = {}
-        same_day_name_counter = {}
         for p in program_list:
             st = p.get("startTime", 0)
             et = p.get("endTime", 0)
@@ -516,11 +566,6 @@ def download_by_date(date_str, base_downloads_dir="downloads",
             # 拆分英文/中文节目名
             name_en_raw, name_ch_raw = _split_program_name(program_name)
 
-            same_name_key = (program_date_str, program_name)
-            same_day_name_counter[same_name_key] = same_day_name_counter.get(same_name_key, 0) + 1
-            same_name_index = same_day_name_counter[same_name_key]
-            same_name_suffix = "" if same_name_index <= 1 else f"_({same_name_index - 1})"
-
             # 自定义命名模板变量
             format_values = {
                 "id": str(program_slot_index),
@@ -543,7 +588,7 @@ def download_by_date(date_str, base_downloads_dir="downloads",
                 fallback_date=program_date_str,
                 fallback_name=_sanitize_component_for_path(program_name),
             )
-            file_path = _append_suffix_before_extension(file_path, same_name_suffix)
+            file_path = _resolve_nonconflicting_file_path(file_path)
             file_dir = os.path.dirname(file_path)
             if file_dir and not os.path.exists(file_dir):
                 os.makedirs(file_dir, exist_ok=True)
@@ -582,7 +627,6 @@ def download_by_date(date_str, base_downloads_dir="downloads",
                     state_checker=state_checker,
                     limiter=limiter,
                     download_progress_cb=download_progress_cb,
-                    retry_max=1 if is_complementary_slot else _DOWNLOAD_RETRY_MAX,
                 )
 
                 if ok:
@@ -609,7 +653,7 @@ def download_by_date(date_str, base_downloads_dir="downloads",
                         "download_url": download_url,
                         "error": err_msg,
                     })
-                    print(f"错误：下载 '{program_name}' 失败（已重试 {used_attempt} 次）: {err_msg}")
+                    print(f"错误：下载 '{program_name}' 失败（共请求 {used_attempt} 次）: {err_msg}")
                     continue
 
                 if post_process_cb:
