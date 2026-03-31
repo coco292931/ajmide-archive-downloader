@@ -47,7 +47,7 @@ DEFAULT_PROGRAM_SCHEDULES = [
         {"days": [6], "start": "08:00", "end": "12:00"},
         {"days": [7], "start": "12:00", "end": "16:00"},
         {"days": [6], "start": "09:00", "end": "13:00"},
-        {"days": [7], "start": "20:00", "end": "24:00"}
+        {"days": [7], "start": "20:00", "end": "23:59"}
     ]},
     {"name": "At work network工作随身听", "code": "463", "slots": [{"days": [1, 2, 3, 4, 5], "start": "10:00", "end": "13:00"}]},
     {"name": "weekend ride", "code": "464", "slots": [{"days": [6], "start": "13:00", "end": "15:00"}]},
