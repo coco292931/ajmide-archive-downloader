@@ -1,0 +1,315 @@
+# 2019-12 成功解析记录
+
+=== 2019-12-01 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20277_20191201_0800.m4a | 2019-12-01 08:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20277/20191201/20277_20191201_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 3287803a-d444-4091-b186-f7fd67589335; ajmd; 3287803a-d444-4091-b186-f7fd67589335)
+465_20191201_1600.m4a | 2019-12-01 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_465/20191201/465_20191201_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 4d43179d-5bf1-4019-8d8c-9e3dad192527; ajmd; 4d43179d-5bf1-4019-8d8c-9e3dad192527)
+475_20191201_2000.m4a | 2019-12-01 20:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191201/475_20191201_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 4d43179d-5bf1-4019-8d8c-9e3dad192527; ajmd; 4d43179d-5bf1-4019-8d8c-9e3dad192527)
+
+=== 2019-12-02 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191202_0600.m4a | 2019-12-02 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191202/20276_20191202_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 8e2ca76a-76dd-460e-98ac-bc111d2359f0; ajmd; 8e2ca76a-76dd-460e-98ac-bc111d2359f0)
+461_20191202_0700.m4a | 2019-12-02 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191202/461_20191202_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 8e2ca76a-76dd-460e-98ac-bc111d2359f0; ajmd; 8e2ca76a-76dd-460e-98ac-bc111d2359f0)
+20279_20191202_1000.m4a | 2019-12-02 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191202/20279_20191202_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 8e2ca76a-76dd-460e-98ac-bc111d2359f0; ajmd; 8e2ca76a-76dd-460e-98ac-bc111d2359f0)
+20280_20191202_1300.m4a | 2019-12-02 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191202/20280_20191202_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 8e2ca76a-76dd-460e-98ac-bc111d2359f0; ajmd; 8e2ca76a-76dd-460e-98ac-bc111d2359f0)
+471_20191202_1600.m4a | 2019-12-02 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191202/471_20191202_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; d54fda64-7468-4ecd-a5e2-3babd4d98658; ajmd; d54fda64-7468-4ecd-a5e2-3babd4d98658)
+473_20191202_1900.m4a | 2019-12-02 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191202/473_20191202_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; d54fda64-7468-4ecd-a5e2-3babd4d98658; ajmd; d54fda64-7468-4ecd-a5e2-3babd4d98658)
+475_20191202_2200.m4a | 2019-12-02 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191202/475_20191202_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; d54fda64-7468-4ecd-a5e2-3babd4d98658; ajmd; d54fda64-7468-4ecd-a5e2-3babd4d98658)
+
+=== 2019-12-03 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191203_0600.m4a | 2019-12-03 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191203/20276_20191203_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; d54fda64-7468-4ecd-a5e2-3babd4d98658; ajmd; d54fda64-7468-4ecd-a5e2-3babd4d98658)
+461_20191203_0700.m4a | 2019-12-03 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191203/461_20191203_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; d54fda64-7468-4ecd-a5e2-3babd4d98658; ajmd; d54fda64-7468-4ecd-a5e2-3babd4d98658)
+20279_20191203_1000.m4a | 2019-12-03 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191203/20279_20191203_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 1f38678a-097b-47a3-b4b1-713395013f13; ajmd; 1f38678a-097b-47a3-b4b1-713395013f13)
+20280_20191203_1300.m4a | 2019-12-03 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191203/20280_20191203_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 1f38678a-097b-47a3-b4b1-713395013f13; ajmd; 1f38678a-097b-47a3-b4b1-713395013f13)
+471_20191203_1600.m4a | 2019-12-03 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191203/471_20191203_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 1f38678a-097b-47a3-b4b1-713395013f13; ajmd; 1f38678a-097b-47a3-b4b1-713395013f13)
+473_20191203_1900.m4a | 2019-12-03 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191203/473_20191203_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 1f38678a-097b-47a3-b4b1-713395013f13; ajmd; 1f38678a-097b-47a3-b4b1-713395013f13)
+475_20191203_2200.m4a | 2019-12-03 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191203/475_20191203_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 1f38678a-097b-47a3-b4b1-713395013f13; ajmd; 1f38678a-097b-47a3-b4b1-713395013f13)
+
+=== 2019-12-04 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191204_0600.m4a | 2019-12-04 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191204/20276_20191204_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d5e3fd76-bf82-4078-afe9-67b15ac373cc; ajmd; d5e3fd76-bf82-4078-afe9-67b15ac373cc)
+461_20191204_0700.m4a | 2019-12-04 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191204/461_20191204_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d5e3fd76-bf82-4078-afe9-67b15ac373cc; ajmd; d5e3fd76-bf82-4078-afe9-67b15ac373cc)
+20279_20191204_1000.m4a | 2019-12-04 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191204/20279_20191204_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d5e3fd76-bf82-4078-afe9-67b15ac373cc; ajmd; d5e3fd76-bf82-4078-afe9-67b15ac373cc)
+20280_20191204_1300.m4a | 2019-12-04 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191204/20280_20191204_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d5e3fd76-bf82-4078-afe9-67b15ac373cc; ajmd; d5e3fd76-bf82-4078-afe9-67b15ac373cc)
+471_20191204_1600.m4a | 2019-12-04 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191204/471_20191204_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 6b295a79-0399-4f6a-8764-4b12361f034f; ajmd; 6b295a79-0399-4f6a-8764-4b12361f034f)
+473_20191204_1900.m4a | 2019-12-04 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191204/473_20191204_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 6b295a79-0399-4f6a-8764-4b12361f034f; ajmd; 6b295a79-0399-4f6a-8764-4b12361f034f)
+475_20191204_2200.m4a | 2019-12-04 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191204/475_20191204_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 6b295a79-0399-4f6a-8764-4b12361f034f; ajmd; 6b295a79-0399-4f6a-8764-4b12361f034f)
+
+=== 2019-12-05 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191205_0600.m4a | 2019-12-05 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191205/20276_20191205_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 6b295a79-0399-4f6a-8764-4b12361f034f; ajmd; 6b295a79-0399-4f6a-8764-4b12361f034f)
+461_20191205_0700.m4a | 2019-12-05 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191205/461_20191205_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 6b295a79-0399-4f6a-8764-4b12361f034f; ajmd; 6b295a79-0399-4f6a-8764-4b12361f034f)
+20279_20191205_1000.m4a | 2019-12-05 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191205/20279_20191205_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 113c7b20-601c-49f8-b2d8-d85fcf03ee68; ajmd; 113c7b20-601c-49f8-b2d8-d85fcf03ee68)
+20280_20191205_1300.m4a | 2019-12-05 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191205/20280_20191205_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 113c7b20-601c-49f8-b2d8-d85fcf03ee68; ajmd; 113c7b20-601c-49f8-b2d8-d85fcf03ee68)
+471_20191205_1600.m4a | 2019-12-05 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191205/471_20191205_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 113c7b20-601c-49f8-b2d8-d85fcf03ee68; ajmd; 113c7b20-601c-49f8-b2d8-d85fcf03ee68)
+473_20191205_1900.m4a | 2019-12-05 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191205/473_20191205_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 113c7b20-601c-49f8-b2d8-d85fcf03ee68; ajmd; 113c7b20-601c-49f8-b2d8-d85fcf03ee68)
+475_20191205_2200.m4a | 2019-12-05 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191205/475_20191205_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 113c7b20-601c-49f8-b2d8-d85fcf03ee68; ajmd; 113c7b20-601c-49f8-b2d8-d85fcf03ee68)
+
+=== 2019-12-06 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191206_0600.m4a | 2019-12-06 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191206/20276_20191206_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08; ajmd; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08)
+461_20191206_0700.m4a | 2019-12-06 07:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_461/20191206/461_20191206_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08; ajmd; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08)
+20279_20191206_1000.m4a | 2019-12-06 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191206/20279_20191206_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08; ajmd; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08)
+20280_20191206_1300.m4a | 2019-12-06 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191206/20280_20191206_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08; ajmd; 6a00aaba-bd84-4c4f-8733-2f5bc5200c08)
+471_20191206_1600.m4a | 2019-12-06 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191206/471_20191206_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; e64cf93d-500c-4eb8-875c-d122bcf79562; ajmd; e64cf93d-500c-4eb8-875c-d122bcf79562)
+473_20191206_1900.m4a | 2019-12-06 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191206/473_20191206_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; e64cf93d-500c-4eb8-875c-d122bcf79562; ajmd; e64cf93d-500c-4eb8-875c-d122bcf79562)
+475_20191206_2200.m4a | 2019-12-06 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191206/475_20191206_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; e64cf93d-500c-4eb8-875c-d122bcf79562; ajmd; e64cf93d-500c-4eb8-875c-d122bcf79562)
+
+=== 2019-12-07 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+462_20191207_0800.m4a | 2019-12-07 08:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_462/20191207/462_20191207_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; e64cf93d-500c-4eb8-875c-d122bcf79562; ajmd; e64cf93d-500c-4eb8-875c-d122bcf79562)
+467_20191207_1200.m4a | 2019-12-07 12:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_467/20191207/467_20191207_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d90240c5-872e-40a3-8f36-3f9f67bdb0d7; ajmd; d90240c5-872e-40a3-8f36-3f9f67bdb0d7)
+20278_20191207_1400.m4a | 2019-12-07 14:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20278/20191207/20278_20191207_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d90240c5-872e-40a3-8f36-3f9f67bdb0d7; ajmd; d90240c5-872e-40a3-8f36-3f9f67bdb0d7)
+470_20191207_1600.m4a | 2019-12-07 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_470/20191207/470_20191207_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d90240c5-872e-40a3-8f36-3f9f67bdb0d7; ajmd; d90240c5-872e-40a3-8f36-3f9f67bdb0d7)
+472_20191207_1800.m4a | 2019-12-07 18:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_472/20191207/472_20191207_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d90240c5-872e-40a3-8f36-3f9f67bdb0d7; ajmd; d90240c5-872e-40a3-8f36-3f9f67bdb0d7)
+
+=== 2019-12-08 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20277_20191208_0800.m4a | 2019-12-08 08:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20277/20191208/20277_20191208_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 3af855c1-6959-4583-bfe2-3ce9b0b3c106; ajmd; 3af855c1-6959-4583-bfe2-3ce9b0b3c106)
+465_20191208_1600.m4a | 2019-12-08 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_465/20191208/465_20191208_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; a05045f8-2276-4b33-aec6-62d2fae705ce; ajmd; a05045f8-2276-4b33-aec6-62d2fae705ce)
+475_20191208_2000.m4a | 2019-12-08 20:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191208/475_20191208_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; a05045f8-2276-4b33-aec6-62d2fae705ce; ajmd; a05045f8-2276-4b33-aec6-62d2fae705ce)
+
+=== 2019-12-09 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191209_0600.m4a | 2019-12-09 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191209/20276_20191209_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 55c9000b-9397-4709-9c12-ba363633cf37; ajmd; 55c9000b-9397-4709-9c12-ba363633cf37)
+461_20191209_0700.m4a | 2019-12-09 07:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_461/20191209/461_20191209_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 55c9000b-9397-4709-9c12-ba363633cf37; ajmd; 55c9000b-9397-4709-9c12-ba363633cf37)
+20279_20191209_1000.m4a | 2019-12-09 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191209/20279_20191209_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 55c9000b-9397-4709-9c12-ba363633cf37; ajmd; 55c9000b-9397-4709-9c12-ba363633cf37)
+20280_20191209_1300.m4a | 2019-12-09 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191209/20280_20191209_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 258c24c6-5cf5-4168-8ad8-faa7c36231b1; ajmd; 258c24c6-5cf5-4168-8ad8-faa7c36231b1)
+471_20191209_1600.m4a | 2019-12-09 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191209/471_20191209_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 258c24c6-5cf5-4168-8ad8-faa7c36231b1; ajmd; 258c24c6-5cf5-4168-8ad8-faa7c36231b1)
+473_20191209_1900.m4a | 2019-12-09 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191209/473_20191209_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 258c24c6-5cf5-4168-8ad8-faa7c36231b1; ajmd; 258c24c6-5cf5-4168-8ad8-faa7c36231b1)
+475_20191209_2200.m4a | 2019-12-09 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191209/475_20191209_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 258c24c6-5cf5-4168-8ad8-faa7c36231b1; ajmd; 258c24c6-5cf5-4168-8ad8-faa7c36231b1)
+
+=== 2019-12-10 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191210_0600.m4a | 2019-12-10 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191210/20276_20191210_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 258c24c6-5cf5-4168-8ad8-faa7c36231b1; ajmd; 258c24c6-5cf5-4168-8ad8-faa7c36231b1)
+461_20191210_0700.m4a | 2019-12-10 07:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_461/20191210/461_20191210_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+20279_20191210_1000.m4a | 2019-12-10 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191210/20279_20191210_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+20280_20191210_1300.m4a | 2019-12-10 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191210/20280_20191210_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+471_20191210_1600.m4a | 2019-12-10 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191210/471_20191210_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+473_20191210_1900.m4a | 2019-12-10 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191210/473_20191210_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+475_20191210_2200.m4a | 2019-12-10 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191210/475_20191210_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 34d01b88-3e77-4693-b6bc-7a91df3f851d; ajmd; 34d01b88-3e77-4693-b6bc-7a91df3f851d)
+
+=== 2019-12-11 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191211_0600.m4a | 2019-12-11 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191211/20276_20191211_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 10f7bf3c-adc0-457f-9187-7aeef48d9a12; ajmd; 10f7bf3c-adc0-457f-9187-7aeef48d9a12)
+461_20191211_0700.m4a | 2019-12-11 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191211/461_20191211_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 10f7bf3c-adc0-457f-9187-7aeef48d9a12; ajmd; 10f7bf3c-adc0-457f-9187-7aeef48d9a12)
+20279_20191211_1000.m4a | 2019-12-11 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191211/20279_20191211_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 10f7bf3c-adc0-457f-9187-7aeef48d9a12; ajmd; 10f7bf3c-adc0-457f-9187-7aeef48d9a12)
+20280_20191211_1300.m4a | 2019-12-11 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191211/20280_20191211_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 2e03aaec-7084-4d56-8a2d-3bd74673cc65; ajmd; 2e03aaec-7084-4d56-8a2d-3bd74673cc65)
+471_20191211_1600.m4a | 2019-12-11 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_471/20191211/471_20191211_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 2e03aaec-7084-4d56-8a2d-3bd74673cc65; ajmd; 2e03aaec-7084-4d56-8a2d-3bd74673cc65)
+473_20191211_1900.m4a | 2019-12-11 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191211/473_20191211_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 2e03aaec-7084-4d56-8a2d-3bd74673cc65; ajmd; 2e03aaec-7084-4d56-8a2d-3bd74673cc65)
+475_20191211_2200.m4a | 2019-12-11 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191211/475_20191211_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 2e03aaec-7084-4d56-8a2d-3bd74673cc65; ajmd; 2e03aaec-7084-4d56-8a2d-3bd74673cc65)
+
+=== 2019-12-12 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191212_0600.m4a | 2019-12-12 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191212/20276_20191212_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 2e03aaec-7084-4d56-8a2d-3bd74673cc65; ajmd; 2e03aaec-7084-4d56-8a2d-3bd74673cc65)
+461_20191212_0700.m4a | 2019-12-12 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191212/461_20191212_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+20279_20191212_1000.m4a | 2019-12-12 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191212/20279_20191212_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+20280_20191212_1300.m4a | 2019-12-12 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191212/20280_20191212_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+471_20191212_1600.m4a | 2019-12-12 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191212/471_20191212_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+473_20191212_1900.m4a | 2019-12-12 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191212/473_20191212_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+475_20191212_2200.m4a | 2019-12-12 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191212/475_20191212_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 84923792-6a7b-43db-9694-3db3cef347db; ajmd; 84923792-6a7b-43db-9694-3db3cef347db)
+
+=== 2019-12-13 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191213_0600.m4a | 2019-12-13 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191213/20276_20191213_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9381ee62-e631-474f-b08d-48dbac54643c; ajmd; 9381ee62-e631-474f-b08d-48dbac54643c)
+461_20191213_0700.m4a | 2019-12-13 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191213/461_20191213_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9381ee62-e631-474f-b08d-48dbac54643c; ajmd; 9381ee62-e631-474f-b08d-48dbac54643c)
+20279_20191213_1000.m4a | 2019-12-13 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191213/20279_20191213_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9381ee62-e631-474f-b08d-48dbac54643c; ajmd; 9381ee62-e631-474f-b08d-48dbac54643c)
+20280_20191213_1300.m4a | 2019-12-13 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191213/20280_20191213_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; a58d8656-82bc-4382-a5ae-166331078e08; ajmd; a58d8656-82bc-4382-a5ae-166331078e08)
+471_20191213_1600.m4a | 2019-12-13 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191213/471_20191213_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; a58d8656-82bc-4382-a5ae-166331078e08; ajmd; a58d8656-82bc-4382-a5ae-166331078e08)
+473_20191213_1900.m4a | 2019-12-13 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191213/473_20191213_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; a58d8656-82bc-4382-a5ae-166331078e08; ajmd; a58d8656-82bc-4382-a5ae-166331078e08)
+475_20191213_2200.m4a | 2019-12-13 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191213/475_20191213_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; a58d8656-82bc-4382-a5ae-166331078e08; ajmd; a58d8656-82bc-4382-a5ae-166331078e08)
+
+=== 2019-12-14 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+462_20191214_0800.m4a | 2019-12-14 08:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_462/20191214/462_20191214_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; a58d8656-82bc-4382-a5ae-166331078e08; ajmd; a58d8656-82bc-4382-a5ae-166331078e08)
+467_20191214_1200.m4a | 2019-12-14 12:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_467/20191214/467_20191214_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0ac997c8-5ada-4e5d-a771-c71437d67187; ajmd; 0ac997c8-5ada-4e5d-a771-c71437d67187)
+20278_20191214_1400.m4a | 2019-12-14 14:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20278/20191214/20278_20191214_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0ac997c8-5ada-4e5d-a771-c71437d67187; ajmd; 0ac997c8-5ada-4e5d-a771-c71437d67187)
+470_20191214_1600.m4a | 2019-12-14 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_470/20191214/470_20191214_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0ac997c8-5ada-4e5d-a771-c71437d67187; ajmd; 0ac997c8-5ada-4e5d-a771-c71437d67187)
+472_20191214_1800.m4a | 2019-12-14 18:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_472/20191214/472_20191214_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0ac997c8-5ada-4e5d-a771-c71437d67187; ajmd; 0ac997c8-5ada-4e5d-a771-c71437d67187)
+
+=== 2019-12-15 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20277_20191215_0800.m4a | 2019-12-15 08:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20277/20191215/20277_20191215_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 60f675cf-469b-4a48-8569-107aa9b92cf8; ajmd; 60f675cf-469b-4a48-8569-107aa9b92cf8)
+465_20191215_1600.m4a | 2019-12-15 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_465/20191215/465_20191215_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 9afc5d42-1cc9-4d59-9f12-4638f30f874f; ajmd; 9afc5d42-1cc9-4d59-9f12-4638f30f874f)
+475_20191215_2000.m4a | 2019-12-15 20:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191215/475_20191215_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 9afc5d42-1cc9-4d59-9f12-4638f30f874f; ajmd; 9afc5d42-1cc9-4d59-9f12-4638f30f874f)
+
+=== 2019-12-16 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191216_0600.m4a | 2019-12-16 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191216/20276_20191216_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 767a77bd-9804-46b7-9964-5eaaf507ba2d; ajmd; 767a77bd-9804-46b7-9964-5eaaf507ba2d)
+461_20191216_0700.m4a | 2019-12-16 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191216/461_20191216_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 767a77bd-9804-46b7-9964-5eaaf507ba2d; ajmd; 767a77bd-9804-46b7-9964-5eaaf507ba2d)
+20279_20191216_1000.m4a | 2019-12-16 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191216/20279_20191216_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 767a77bd-9804-46b7-9964-5eaaf507ba2d; ajmd; 767a77bd-9804-46b7-9964-5eaaf507ba2d)
+20280_20191216_1300.m4a | 2019-12-16 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191216/20280_20191216_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 654e8537-45d1-48a8-8c58-d626b926fd49; ajmd; 654e8537-45d1-48a8-8c58-d626b926fd49)
+471_20191216_1600.m4a | 2019-12-16 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_471/20191216/471_20191216_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 654e8537-45d1-48a8-8c58-d626b926fd49; ajmd; 654e8537-45d1-48a8-8c58-d626b926fd49)
+473_20191216_1900.m4a | 2019-12-16 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191216/473_20191216_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 654e8537-45d1-48a8-8c58-d626b926fd49; ajmd; 654e8537-45d1-48a8-8c58-d626b926fd49)
+475_20191216_2200.m4a | 2019-12-16 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191216/475_20191216_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 654e8537-45d1-48a8-8c58-d626b926fd49; ajmd; 654e8537-45d1-48a8-8c58-d626b926fd49)
+
+=== 2019-12-17 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191217_0600.m4a | 2019-12-17 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191217/20276_20191217_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 654e8537-45d1-48a8-8c58-d626b926fd49; ajmd; 654e8537-45d1-48a8-8c58-d626b926fd49)
+461_20191217_0700.m4a | 2019-12-17 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191217/461_20191217_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 759dc31c-3ec9-44be-a4db-95f88794ce05; ajmd; 759dc31c-3ec9-44be-a4db-95f88794ce05)
+20279_20191217_1000.m4a | 2019-12-17 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191217/20279_20191217_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 759dc31c-3ec9-44be-a4db-95f88794ce05; ajmd; 759dc31c-3ec9-44be-a4db-95f88794ce05)
+20280_20191217_1300.m4a | 2019-12-17 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191217/20280_20191217_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 759dc31c-3ec9-44be-a4db-95f88794ce05; ajmd; 759dc31c-3ec9-44be-a4db-95f88794ce05)
+471_20191217_1600.m4a | 2019-12-17 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191217/471_20191217_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 759dc31c-3ec9-44be-a4db-95f88794ce05; ajmd; 759dc31c-3ec9-44be-a4db-95f88794ce05)
+473_20191217_1900.m4a | 2019-12-17 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191217/473_20191217_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 759dc31c-3ec9-44be-a4db-95f88794ce05; ajmd; 759dc31c-3ec9-44be-a4db-95f88794ce05)
+475_20191217_2200.m4a | 2019-12-17 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191217/475_20191217_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc; ajmd; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc)
+
+=== 2019-12-18 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191218_0600.m4a | 2019-12-18 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191218/20276_20191218_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc; ajmd; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc)
+461_20191218_0700.m4a | 2019-12-18 07:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_461/20191218/461_20191218_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc; ajmd; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc)
+20279_20191218_1000.m4a | 2019-12-18 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191218/20279_20191218_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc; ajmd; ca3314bc-5cc3-48d0-b71b-57806b2ae0fc)
+20280_20191218_1300.m4a | 2019-12-18 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191218/20280_20191218_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; e1bbb8a4-6443-4477-bff7-773796a23bef; ajmd; e1bbb8a4-6443-4477-bff7-773796a23bef)
+471_20191218_1600.m4a | 2019-12-18 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191218/471_20191218_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; e1bbb8a4-6443-4477-bff7-773796a23bef; ajmd; e1bbb8a4-6443-4477-bff7-773796a23bef)
+473_20191218_1900.m4a | 2019-12-18 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191218/473_20191218_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; e1bbb8a4-6443-4477-bff7-773796a23bef; ajmd; e1bbb8a4-6443-4477-bff7-773796a23bef)
+475_20191218_2200.m4a | 2019-12-18 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191218/475_20191218_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; e1bbb8a4-6443-4477-bff7-773796a23bef; ajmd; e1bbb8a4-6443-4477-bff7-773796a23bef)
+
+=== 2019-12-19 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191219_0600.m4a | 2019-12-19 06:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20276/20191219/20276_20191219_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; e1bbb8a4-6443-4477-bff7-773796a23bef; ajmd; e1bbb8a4-6443-4477-bff7-773796a23bef)
+461_20191219_0700.m4a | 2019-12-19 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191219/461_20191219_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa; ajmd; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa)
+20279_20191219_1000.m4a | 2019-12-19 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191219/20279_20191219_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa; ajmd; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa)
+20280_20191219_1300.m4a | 2019-12-19 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191219/20280_20191219_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa; ajmd; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa)
+471_20191219_1600.m4a | 2019-12-19 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_471/20191219/471_20191219_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa; ajmd; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa)
+473_20191219_1900.m4a | 2019-12-19 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191219/473_20191219_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa; ajmd; 155ef81a-11c9-4d4c-b5c0-1d3fd4ee73aa)
+475_20191219_2200.m4a | 2019-12-19 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191219/475_20191219_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c; ajmd; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c)
+
+=== 2019-12-20 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191220_0600.m4a | 2019-12-20 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191220/20276_20191220_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c; ajmd; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c)
+461_20191220_0700.m4a | 2019-12-20 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191220/461_20191220_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c; ajmd; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c)
+20279_20191220_1000.m4a | 2019-12-20 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191220/20279_20191220_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c; ajmd; e5e7411f-9f79-4ac5-bfa0-728fb7ed823c)
+20280_20191220_1300.m4a | 2019-12-20 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191220/20280_20191220_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; b59a7fc6-a582-4c35-8755-c444505cdce3; ajmd; b59a7fc6-a582-4c35-8755-c444505cdce3)
+471_20191220_1600.m4a | 2019-12-20 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_471/20191220/471_20191220_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; b59a7fc6-a582-4c35-8755-c444505cdce3; ajmd; b59a7fc6-a582-4c35-8755-c444505cdce3)
+473_20191220_1900.m4a | 2019-12-20 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191220/473_20191220_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; b59a7fc6-a582-4c35-8755-c444505cdce3; ajmd; b59a7fc6-a582-4c35-8755-c444505cdce3)
+475_20191220_2200.m4a | 2019-12-20 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191220/475_20191220_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; b59a7fc6-a582-4c35-8755-c444505cdce3; ajmd; b59a7fc6-a582-4c35-8755-c444505cdce3)
+
+=== 2019-12-21 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+462_20191221_0800.m4a | 2019-12-21 08:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_462/20191221/462_20191221_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7; ajmd; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7)
+467_20191221_1200.m4a | 2019-12-21 12:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_467/20191221/467_20191221_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7; ajmd; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7)
+20278_20191221_1400.m4a | 2019-12-21 14:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20278/20191221/20278_20191221_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7; ajmd; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7)
+470_20191221_1600.m4a | 2019-12-21 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_470/20191221/470_20191221_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7; ajmd; 0c37b392-a56c-4dfa-ad69-9df4e3fce9e7)
+472_20191221_1800.m4a | 2019-12-21 18:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_472/20191221/472_20191221_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4e513b06-d126-4d8e-b821-4f937a1f030a; ajmd; 4e513b06-d126-4d8e-b821-4f937a1f030a)
+
+=== 2019-12-22 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20277_20191222_0800.m4a | 2019-12-22 08:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20277/20191222/20277_20191222_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4e513b06-d126-4d8e-b821-4f937a1f030a; ajmd; 4e513b06-d126-4d8e-b821-4f937a1f030a)
+465_20191222_1600.m4a | 2019-12-22 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_465/20191222/465_20191222_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d83a5ebe-328a-4318-8d89-993574cd03b6; ajmd; d83a5ebe-328a-4318-8d89-993574cd03b6)
+475_20191222_2000.m4a | 2019-12-22 20:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191222/475_20191222_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; d83a5ebe-328a-4318-8d89-993574cd03b6; ajmd; d83a5ebe-328a-4318-8d89-993574cd03b6)
+
+=== 2019-12-23 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191223_0600.m4a | 2019-12-23 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191223/20276_20191223_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 30ff9924-1ff0-48a1-83ae-f4fd363b1976; ajmd; 30ff9924-1ff0-48a1-83ae-f4fd363b1976)
+461_20191223_0700.m4a | 2019-12-23 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191223/461_20191223_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 30ff9924-1ff0-48a1-83ae-f4fd363b1976; ajmd; 30ff9924-1ff0-48a1-83ae-f4fd363b1976)
+20279_20191223_1000.m4a | 2019-12-23 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191223/20279_20191223_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c37cf342-cefc-40d4-b890-801d8159eec4; ajmd; c37cf342-cefc-40d4-b890-801d8159eec4)
+20280_20191223_1300.m4a | 2019-12-23 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191223/20280_20191223_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c37cf342-cefc-40d4-b890-801d8159eec4; ajmd; c37cf342-cefc-40d4-b890-801d8159eec4)
+471_20191223_1600.m4a | 2019-12-23 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191223/471_20191223_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c37cf342-cefc-40d4-b890-801d8159eec4; ajmd; c37cf342-cefc-40d4-b890-801d8159eec4)
+473_20191223_1900.m4a | 2019-12-23 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191223/473_20191223_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c37cf342-cefc-40d4-b890-801d8159eec4; ajmd; c37cf342-cefc-40d4-b890-801d8159eec4)
+475_20191223_2200.m4a | 2019-12-23 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191223/475_20191223_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c37cf342-cefc-40d4-b890-801d8159eec4; ajmd; c37cf342-cefc-40d4-b890-801d8159eec4)
+
+=== 2019-12-24 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191224_0600.m4a | 2019-12-24 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191224/20276_20191224_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 81bda1ab-e318-4b97-b4ba-1e84373e41ea; ajmd; 81bda1ab-e318-4b97-b4ba-1e84373e41ea)
+461_20191224_0700.m4a | 2019-12-24 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191224/461_20191224_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 81bda1ab-e318-4b97-b4ba-1e84373e41ea; ajmd; 81bda1ab-e318-4b97-b4ba-1e84373e41ea)
+20279_20191224_1000.m4a | 2019-12-24 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191224/20279_20191224_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 81bda1ab-e318-4b97-b4ba-1e84373e41ea; ajmd; 81bda1ab-e318-4b97-b4ba-1e84373e41ea)
+20280_20191224_1300.m4a | 2019-12-24 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191224/20280_20191224_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 81bda1ab-e318-4b97-b4ba-1e84373e41ea; ajmd; 81bda1ab-e318-4b97-b4ba-1e84373e41ea)
+471_20191224_1600.m4a | 2019-12-24 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191224/471_20191224_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 81bda1ab-e318-4b97-b4ba-1e84373e41ea; ajmd; 81bda1ab-e318-4b97-b4ba-1e84373e41ea)
+473_20191224_1900.m4a | 2019-12-24 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191224/473_20191224_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 6ad87204-01e1-498b-b7e0-3213716539fc; ajmd; 6ad87204-01e1-498b-b7e0-3213716539fc)
+475_20191224_2200.m4a | 2019-12-24 22:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_475/20191224/475_20191224_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 6ad87204-01e1-498b-b7e0-3213716539fc; ajmd; 6ad87204-01e1-498b-b7e0-3213716539fc)
+
+=== 2019-12-25 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191225_0600.m4a | 2019-12-25 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191225/20276_20191225_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 6ad87204-01e1-498b-b7e0-3213716539fc; ajmd; 6ad87204-01e1-498b-b7e0-3213716539fc)
+461_20191225_0700.m4a | 2019-12-25 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191225/461_20191225_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 6ad87204-01e1-498b-b7e0-3213716539fc; ajmd; 6ad87204-01e1-498b-b7e0-3213716539fc)
+20279_20191225_1000.m4a | 2019-12-25 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191225/20279_20191225_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4675ffcd-a3a4-4214-8097-8e24bfa56288; ajmd; 4675ffcd-a3a4-4214-8097-8e24bfa56288)
+20280_20191225_1300.m4a | 2019-12-25 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191225/20280_20191225_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4675ffcd-a3a4-4214-8097-8e24bfa56288; ajmd; 4675ffcd-a3a4-4214-8097-8e24bfa56288)
+471_20191225_1600.m4a | 2019-12-25 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191225/471_20191225_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4675ffcd-a3a4-4214-8097-8e24bfa56288; ajmd; 4675ffcd-a3a4-4214-8097-8e24bfa56288)
+473_20191225_1900.m4a | 2019-12-25 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191225/473_20191225_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4675ffcd-a3a4-4214-8097-8e24bfa56288; ajmd; 4675ffcd-a3a4-4214-8097-8e24bfa56288)
+475_20191225_2200.m4a | 2019-12-25 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191225/475_20191225_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 4675ffcd-a3a4-4214-8097-8e24bfa56288; ajmd; 4675ffcd-a3a4-4214-8097-8e24bfa56288)
+
+=== 2019-12-26 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191226_0600.m4a | 2019-12-26 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191226/20276_20191226_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 53719386-b1b7-4ee7-9c09-a74e59230a95; ajmd; 53719386-b1b7-4ee7-9c09-a74e59230a95)
+461_20191226_0700.m4a | 2019-12-26 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191226/461_20191226_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 53719386-b1b7-4ee7-9c09-a74e59230a95; ajmd; 53719386-b1b7-4ee7-9c09-a74e59230a95)
+20279_20191226_1000.m4a | 2019-12-26 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191226/20279_20191226_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 53719386-b1b7-4ee7-9c09-a74e59230a95; ajmd; 53719386-b1b7-4ee7-9c09-a74e59230a95)
+20280_20191226_1300.m4a | 2019-12-26 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191226/20280_20191226_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 53719386-b1b7-4ee7-9c09-a74e59230a95; ajmd; 53719386-b1b7-4ee7-9c09-a74e59230a95)
+471_20191226_1600.m4a | 2019-12-26 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191226/471_20191226_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 53719386-b1b7-4ee7-9c09-a74e59230a95; ajmd; 53719386-b1b7-4ee7-9c09-a74e59230a95)
+473_20191226_1900.m4a | 2019-12-26 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191226/473_20191226_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de; ajmd; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de)
+475_20191226_2200.m4a | 2019-12-26 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191226/475_20191226_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de; ajmd; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de)
+
+=== 2019-12-27 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191227_0600.m4a | 2019-12-27 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191227/20276_20191227_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de; ajmd; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de)
+461_20191227_0700.m4a | 2019-12-27 07:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_461/20191227/461_20191227_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de; ajmd; 25a9c9ef-dad9-400b-88a9-c9ae4a4893de)
+20279_20191227_1000.m4a | 2019-12-27 10:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20279/20191227/20279_20191227_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c00c5e8c-3d74-49c2-9f70-92400b34e96a; ajmd; c00c5e8c-3d74-49c2-9f70-92400b34e96a)
+20280_20191227_1300.m4a | 2019-12-27 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191227/20280_20191227_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c00c5e8c-3d74-49c2-9f70-92400b34e96a; ajmd; c00c5e8c-3d74-49c2-9f70-92400b34e96a)
+471_20191227_1600.m4a | 2019-12-27 16:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_471/20191227/471_20191227_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c00c5e8c-3d74-49c2-9f70-92400b34e96a; ajmd; c00c5e8c-3d74-49c2-9f70-92400b34e96a)
+473_20191227_1900.m4a | 2019-12-27 19:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_473/20191227/473_20191227_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c00c5e8c-3d74-49c2-9f70-92400b34e96a; ajmd; c00c5e8c-3d74-49c2-9f70-92400b34e96a)
+475_20191227_2200.m4a | 2019-12-27 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191227/475_20191227_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c00c5e8c-3d74-49c2-9f70-92400b34e96a; ajmd; c00c5e8c-3d74-49c2-9f70-92400b34e96a)
+
+=== 2019-12-28 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+462_20191228_0800.m4a | 2019-12-28 08:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_462/20191228/462_20191228_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 533d664d-260d-4ef6-b1f1-072b6eb8bea3; ajmd; 533d664d-260d-4ef6-b1f1-072b6eb8bea3)
+467_20191228_1200.m4a | 2019-12-28 12:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_467/20191228/467_20191228_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 533d664d-260d-4ef6-b1f1-072b6eb8bea3; ajmd; 533d664d-260d-4ef6-b1f1-072b6eb8bea3)
+20278_20191228_1400.m4a | 2019-12-28 14:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20278/20191228/20278_20191228_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 533d664d-260d-4ef6-b1f1-072b6eb8bea3; ajmd; 533d664d-260d-4ef6-b1f1-072b6eb8bea3)
+470_20191228_1600.m4a | 2019-12-28 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_470/20191228/470_20191228_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 533d664d-260d-4ef6-b1f1-072b6eb8bea3; ajmd; 533d664d-260d-4ef6-b1f1-072b6eb8bea3)
+472_20191228_1800.m4a | 2019-12-28 18:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_472/20191228/472_20191228_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; d6b2f538-deae-4950-8d18-8c88db3946b0; ajmd; d6b2f538-deae-4950-8d18-8c88db3946b0)
+
+=== 2019-12-29 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20277_20191229_0800.m4a | 2019-12-29 08:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20277/20191229/20277_20191229_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; d6b2f538-deae-4950-8d18-8c88db3946b0; ajmd; d6b2f538-deae-4950-8d18-8c88db3946b0)
+465_20191229_1600.m4a | 2019-12-29 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_465/20191229/465_20191229_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 372bf14f-62f7-456f-b54f-8797c980df0a; ajmd; 372bf14f-62f7-456f-b54f-8797c980df0a)
+475_20191229_2000.m4a | 2019-12-29 20:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191229/475_20191229_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 1756b863-6c54-4921-a933-fe0f48e1cf07; ajmd; 1756b863-6c54-4921-a933-fe0f48e1cf07)
+
+=== 2019-12-30 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191230_0600.m4a | 2019-12-30 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191230/20276_20191230_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 1756b863-6c54-4921-a933-fe0f48e1cf07; ajmd; 1756b863-6c54-4921-a933-fe0f48e1cf07)
+461_20191230_0700.m4a | 2019-12-30 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191230/461_20191230_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 1756b863-6c54-4921-a933-fe0f48e1cf07; ajmd; 1756b863-6c54-4921-a933-fe0f48e1cf07)
+20279_20191230_1000.m4a | 2019-12-30 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191230/20279_20191230_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 928c8122-0c15-4b73-834e-62da0c71a788; ajmd; 928c8122-0c15-4b73-834e-62da0c71a788)
+20280_20191230_1300.m4a | 2019-12-30 13:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20280/20191230/20280_20191230_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 928c8122-0c15-4b73-834e-62da0c71a788; ajmd; 928c8122-0c15-4b73-834e-62da0c71a788)
+471_20191230_1600.m4a | 2019-12-30 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191230/471_20191230_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 928c8122-0c15-4b73-834e-62da0c71a788; ajmd; 928c8122-0c15-4b73-834e-62da0c71a788)
+473_20191230_1900.m4a | 2019-12-30 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191230/473_20191230_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 928c8122-0c15-4b73-834e-62da0c71a788; ajmd; 928c8122-0c15-4b73-834e-62da0c71a788)
+475_20191230_2200.m4a | 2019-12-30 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191230/475_20191230_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 928c8122-0c15-4b73-834e-62da0c71a788; ajmd; 928c8122-0c15-4b73-834e-62da0c71a788)
+
+=== 2019-12-31 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+20276_20191231_0600.m4a | 2019-12-31 06:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20276/20191231/20276_20191231_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 419ea066-11ac-4d90-b302-510889ce6c36; ajmd; 419ea066-11ac-4d90-b302-510889ce6c36)
+461_20191231_0700.m4a | 2019-12-31 07:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_461/20191231/461_20191231_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 419ea066-11ac-4d90-b302-510889ce6c36; ajmd; 419ea066-11ac-4d90-b302-510889ce6c36)
+20279_20191231_1000.m4a | 2019-12-31 10:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_20279/20191231/20279_20191231_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 419ea066-11ac-4d90-b302-510889ce6c36; ajmd; 419ea066-11ac-4d90-b302-510889ce6c36)
+20280_20191231_1300.m4a | 2019-12-31 13:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_20280/20191231/20280_20191231_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 419ea066-11ac-4d90-b302-510889ce6c36; ajmd; 419ea066-11ac-4d90-b302-510889ce6c36)
+471_20191231_1600.m4a | 2019-12-31 16:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_471/20191231/471_20191231_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; bf432126-f674-4d12-af15-bcb984b8cebc; ajmd; bf432126-f674-4d12-af15-bcb984b8cebc)
+473_20191231_1900.m4a | 2019-12-31 19:00:00 | 成功(200) | http://ia-bk-i.ajmide.com/c_473/20191231/473_20191231_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; bf432126-f674-4d12-af15-bcb984b8cebc; ajmd; bf432126-f674-4d12-af15-bcb984b8cebc)
+475_20191231_2200.m4a | 2019-12-31 22:00:00 | 成功(403-禁止访问，按成功记录) | http://ia-bk-i.ajmide.com/c_475/20191231/475_20191231_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; bf432126-f674-4d12-af15-bcb984b8cebc; ajmd; bf432126-f674-4d12-af15-bcb984b8cebc)
+
