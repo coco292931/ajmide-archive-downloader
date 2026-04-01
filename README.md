@@ -88,6 +88,18 @@ Clone 本项目后，运行以下命令，优先下载杭州地区已 403、其�
 python ./download_from_logs.py --403-first true
 ```
 
+如遇 403，可启用内嵌 DNS 轮询（脚本内已预置一组 IP），如果不太懂，推荐直接使用下面这一条↓：
+
+```bash
+python ./download_from_logs.py --403-first true --enable-resolve true
+```
+
+也可以手动追加解析地址（`host:port:ip`，可重复传入 `--resolve`）：
+
+```bash
+python ./download_from_logs.py --403-first true --enable-resolve true --resolve ia-bk-i.ajmide.com:80:42.202.165.200
+```
+
 也可以增加 `-d` 参数指定时间范围（但是受logs范围限制），支持反向下载，如`2026-03-31 to 2016-03-31`优先从26年开始获取
 
 ```bash
