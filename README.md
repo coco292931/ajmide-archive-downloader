@@ -55,7 +55,7 @@
 
 ### OSS 源站层
 
-- 响应头 `x-oss-storage-class: DeepColdArchive` 确认文件已被转入**深度冷归档**状态
+- 响应头 `x-oss-storage-class: DeepColdArchive` 确认文件已被转入[**深度冷归档**](https://help.aliyun.com/zh/oss/user-guide/overview-53/)状态
 - `x-oss-transition-time: Tue, 31 Mar 2026 05:33:13 GMT` 显示转储发生于**北京时间03月31日 13:33:13**，系平台方主动执行的生命周期策略，而非随机触发，也并非风控所致的临时封锁
 - 深度冷归档文件**不可直接读取**，解冻须由 bucket 权限方（即阿基米德）发起，成功解冻后预估耗时 12～24 小时以上才能恢复访问
 
@@ -99,7 +99,7 @@ python ./download_from_logs.py --403-first true -d "2016-03-3 to 2026-03-31"
 
 **方法二：联系平台方（关键）**
 
-如果你——或者你认识的人——能够联系到**阿基米德平台对应的技术或运营负责人**，请求其将 HitFM 相关文件**临时取消 DeepColdArchive 状态**，哪怕只有3天，也足以完整保存全部历史节目。
+如果你——或者你认识的人——能够联系到**阿基米德平台对应的技术或运营负责人**，请求其将 HitFM 相关文件[**临时取消 DeepColdArchive 状态**](https://help.aliyun.com/zh/oss/user-guide/restore-objects-for-access)，哪怕只有3天，也足以完整保存全部历史节目。
 
 这是目前唯一能够彻底解决问题的途径。
 
