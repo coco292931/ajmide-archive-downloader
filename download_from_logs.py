@@ -3,7 +3,20 @@ import json
 import os
 import re
 import time
+from urllib.parse import urlparse, urlunparse
 import requests
+
+DEFAULT_RESOLVE_RULES = [
+    "ia-bk-i.ajmide.com:80:58.42.59.184",
+    "ia-bk-i.ajmide.com:80:42.202.165.200",
+    "ia-bk-i.ajmide.com:80:123.54.203.56",
+    "ia-bk-i.ajmide.com:80:113.142.216.120",
+    "ia-bk-i.ajmide.com:80:113.142.216.125",
+    "ia-bk-i.ajmide.com:80:113.142.215.168",
+    "ia-bk-i.ajmide.com:80:1.81.2.203",
+    "ia-bk-i.ajmide.com:80:36.99.200.7",
+    "ia-bk-i.ajmide.com:80:42.202.165.210",
+]
 
 def load_config(config_path="config_example.json"):
     if os.path.exists("config.json"):
@@ -24,7 +37,116 @@ def parse_headers_string(header_str):
             headers[k.strip()] = v.strip()
     return headers
 
-def download_file(url, target_path, headers):
+def parse_resolve_rules(resolve_args):
+    resolve_rules = {}
+    if not resolve_args:
+        return resolve_rules
+
+    for raw_arg in resolve_args:
+        for token in raw_arg.split(","):
+            token = token.strip().strip('"').strip("'")
+            if not token:
+                continue
+
+            parts = token.split(":")
+            if len(parts) != 3:
+                print(f"Invalid --resolve format: {token}. Expected host:port:ip")
+                continue
+
+            host = parts[0].strip().lower()
+            port_str = parts[1].strip()
+            ip = parts[2].strip()
+
+            if not host or not port_str or not ip:
+                print(f"Invalid --resolve format: {token}. Expected host:port:ip")
+                continue
+
+            try:
+                port = int(port_str)
+            except ValueError:
+                print(f"Invalid port in --resolve: {token}")
+                continue
+
+            key = (host, port)
+            resolve_rules.setdefault(key, [])
+            if ip not in resolve_rules[key]:
+                resolve_rules[key].append(ip)
+
+    return resolve_rules
+
+def get_url_host_port(url):
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    return parsed, host, port
+
+def build_resolved_request(url, ip):
+    parsed, host, port = get_url_host_port(url)
+    original_port = parsed.port
+    default_port = 443 if parsed.scheme == "https" else 80
+
+    if original_port and original_port != default_port:
+        host_header = f"{host}:{original_port}"
+    else:
+        host_header = host
+
+    resolved_netloc = f"{ip}:{port}"
+    resolved_url = urlunparse(parsed._replace(netloc=resolved_netloc))
+    return resolved_url, host_header, parsed.scheme
+
+def save_response_to_file(response, target_path):
+    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+    with open(target_path, "wb") as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                f.write(chunk)
+
+def download_file(url, target_path, headers, enable_resolve=False, resolve_rules=None):
+    resolve_rules = resolve_rules or {}
+
+    def try_resolved_dns_fallback():
+        parsed, host, port = get_url_host_port(url)
+        candidate_ips = resolve_rules.get((host, port), [])
+        if not candidate_ips:
+            return False
+
+        print(f"  403 detected. Trying --resolve IP list for {host}:{port} ...")
+        for ip in candidate_ips:
+            resolved_url, host_header, scheme = build_resolved_request(url, ip)
+            resolved_headers = dict(headers)
+            resolved_headers["Host"] = host_header
+
+            try:
+                print(f"  Trying resolved IP: {ip} -> {resolved_url}")
+                response = requests.get(
+                    resolved_url,
+                    headers=resolved_headers,
+                    stream=True,
+                    timeout=30,
+                    verify=(scheme != "https")
+                )
+                status_code = response.status_code
+
+                if status_code == 200:
+                    save_response_to_file(response, target_path)
+                    print(f"  Successfully saved via resolved IP {ip} to {target_path}")
+                    return True
+
+                if status_code == 403:
+                    print(f"  Resolved IP {ip} still returns 403. Trying next DNS.")
+                    continue
+
+                if status_code == 404:
+                    print(f"  Resolved IP {ip} returns 404. Skipping this file.")
+                    return False
+
+                print(f"  Resolved IP {ip} returns {status_code}. Trying next DNS.")
+            except requests.RequestException as e:
+                print(f"  Resolved IP {ip} request error: {e}. Trying next DNS.")
+
+        print("  All provided --resolve IPs have been tried and failed.")
+        return False
+
     max_retries = 1
     for attempt in range(max_retries + 1):
         try:
@@ -32,6 +154,8 @@ def download_file(url, target_path, headers):
             response = requests.get(url, headers=headers, stream=True, timeout=30)
             status_code = response.status_code
             if status_code == 403:
+                if enable_resolve and try_resolved_dns_fallback():
+                    return True
                 print(f"  Got 403 Forbidden. Skipping.  403错误,跳过")
                 return False
             elif status_code == 404:
@@ -47,10 +171,7 @@ def download_file(url, target_path, headers):
                     return False
             
             # 200 OK
-            os.makedirs(os.path.dirname(target_path), exist_ok=True)
-            with open(target_path, "wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    f.write(chunk)
+            save_response_to_file(response, target_path)
             print(f"  Successfully saved to {target_path} \n成功保存到 {target_path}")
             return True
         except requests.RequestException as e:
@@ -65,9 +186,21 @@ def main():
     parser.add_argument("--403-first", type=str, default="false", help="Set to true to only download files marked as 403 in logs\n设置为true只下载日志中标记为403的文件")
     parser.add_argument("-d", "--date", type=str, help="Date range, e.g. '2026-03-31 to 2010-01-01'")
     parser.add_argument("-o", "--output", type=str, default="downloads", help="Custom save directory / 自定义保存目录")
+    parser.add_argument(
+        "--enable-resolve",
+        type=str,
+        default="false",
+        help="Enable DNS fallback on 403. true/false"
+    )
+    parser.add_argument(
+        "--resolve",
+        action="append",
+        help="Manual DNS resolve rule(s), curl-style host:port:ip. Can be repeated or comma-separated. e.g. --resolve ia-bk-i.ajmide.com:80:42.202.165.200"
+    )
     args = parser.parse_args()
 
     only_403 = args.__dict__.get("403_first", "false").lower() == "true"
+    enable_resolve = args.enable_resolve.lower() == "true"
     
     start_dt = None
     end_dt = None
@@ -93,6 +226,23 @@ def main():
             return
 
     code_to_name = load_config()
+    embedded_rules = parse_resolve_rules(DEFAULT_RESOLVE_RULES)
+    custom_rules = parse_resolve_rules(args.resolve)
+
+    # Use embedded rules first, then append user-provided rules for each host:port.
+    resolve_rules = dict(embedded_rules)
+    for key, ip_list in custom_rules.items():
+        resolve_rules.setdefault(key, [])
+        for ip in ip_list:
+            if ip not in resolve_rules[key]:
+                resolve_rules[key].append(ip)
+
+    if enable_resolve:
+        print("DNS fallback enabled (--enable-resolve=true).")
+        if args.resolve:
+            print("Custom --resolve rules loaded and appended.")
+        else:
+            print("Using embedded resolve IP list.")
     logs_dir = "logs"
     downloads_dir = args.output
 
@@ -165,7 +315,13 @@ def main():
             continue
 
         headers = parse_headers_string(task['header_part'])
-        download_file(task['url_part'], target_path, headers)
+        download_file(
+            task['url_part'],
+            target_path,
+            headers,
+            enable_resolve=enable_resolve,
+            resolve_rules=resolve_rules
+        )
 
 if __name__ == "__main__":
     main()
