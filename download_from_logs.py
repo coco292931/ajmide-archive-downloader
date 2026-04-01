@@ -63,9 +63,33 @@ def download_file(url, target_path, headers):
 def main():
     parser = argparse.ArgumentParser(description="Download from logs")
     parser.add_argument("--403-first", type=str, default="false", help="Set to true to only download files marked as 403 in logs/n设置为true只下载日志中标记为403的文件")
+    parser.add_argument("-d", "--date", type=str, help="Date range, e.g. '2026-03-31 to 2010-01-01'")
     args = parser.parse_args()
 
     only_403 = args.__dict__.get("403_first", "false").lower() == "true"
+    
+    start_dt = None
+    end_dt = None
+    reverse_order = False
+    min_date = ""
+    max_date = ""
+
+    if args.date:
+        try:
+            from datetime import datetime
+            d_parts = [p.strip() for p in args.date.split("to")]
+            if len(d_parts) == 2:
+                start_dt = datetime.strptime(d_parts[0], "%Y-%m-%d")
+                end_dt = datetime.strptime(d_parts[1], "%Y-%m-%d")
+                reverse_order = start_dt > end_dt
+                min_date = min(start_dt, end_dt).strftime("%Y%m%d")
+                max_date = max(start_dt, end_dt).strftime("%Y%m%d")
+            else:
+                print("Invalid date format. Use 'YYYY-MM-DD to YYYY-MM-DD'")
+                return
+        except ValueError:
+            print("Invalid date format. Use 'YYYY-MM-DD to YYYY-MM-DD'")
+            return
 
     code_to_name = load_config()
     logs_dir = "logs"
@@ -75,14 +99,16 @@ def main():
         print(f"Logs directory '{logs_dir}' not found.")
         return
 
-    # Process all log files
+    # Collect logs matching the criteria
+    tasks = []
+    
     for filename in sorted(os.listdir(logs_dir)):
         if filename.endswith("_successful_parses.txt"):
             log_path = os.path.join(logs_dir, filename)
             with open(log_path, "r", encoding="utf-8") as f:
                 for line in f:
                     line = line.strip()
-                    if not line or not "|" in line or line.startswith("===") or line.startswith("文件名") or line.startswith("---"):
+                    if not line or "|" not in line or line.startswith("===") or line.startswith("文件名") or line.startswith("---"):
                         continue
                     
                     parts = line.split("|")
@@ -95,28 +121,50 @@ def main():
                         if only_403 and "403" not in status_part:
                             continue
 
-                        # Generate target path
-                        # file_name_part example: 466_20140922_1300.m4a
                         match = re.search(r'^(\d+)_(\d{4})(\d{2})(\d{2})_', file_name_part)
                         if match:
-                            code = match.group(1)
-                            year = match.group(2)
-                            month = match.group(3)
-                            day = match.group(4)
+                            date_str = match.group(2) + match.group(3) + match.group(4)
                             
-                            program_name = code_to_name.get(code, code)
-                            date_folder = f"{year}-{month}-{day}"
-                            extension = os.path.splitext(file_name_part)[1]
+                            if args.date:
+                                if not (min_date <= date_str <= max_date):
+                                    continue
                             
-                            target_filename = f"{program_name}{extension}"
-                            target_path = os.path.join(downloads_dir, date_folder, target_filename)
+                            tasks.append({
+                                'date_str': date_str,
+                                'file_name_part': file_name_part,
+                                'url_part': url_part,
+                                'header_part': header_part,
+                                'code': match.group(1),
+                                'year': match.group(2),
+                                'month': match.group(3),
+                                'day': match.group(4)
+                            })
 
-                            if os.path.exists(target_path):
-                                print(f"File already exists, skipping: {target_path}")
-                                continue
+    if not tasks:
+        if args.date:
+            print(f"在 {args.date} 区间内未找到符合条件的日志记录。(No logs found for the specified date range)")
+        else:
+            print("没有找到符合条件的日志记录。(No logs found)")
+        return
 
-                            headers = parse_headers_string(header_part)
-                            download_file(url_part, target_path, headers)
+    # Sort tasks according to date (forward or reverse)
+    tasks.sort(key=lambda x: x['date_str'], reverse=reverse_order)
+
+    # Process all matched logs
+    for task in tasks:
+        program_name = code_to_name.get(task['code'], task['code'])
+        date_folder = f"{task['year']}-{task['month']}-{task['day']}"
+        extension = os.path.splitext(task['file_name_part'])[1]
+        
+        target_filename = f"{program_name}{extension}"
+        target_path = os.path.join(downloads_dir, date_folder, target_filename)
+
+        if os.path.exists(target_path):
+            print(f"File already exists, skipping: {target_path}")
+            continue
+
+        headers = parse_headers_string(task['header_part'])
+        download_file(task['url_part'], target_path, headers)
 
 if __name__ == "__main__":
     main()
