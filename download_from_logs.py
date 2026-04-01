@@ -51,10 +51,10 @@ def download_file(url, target_path, headers):
             with open(target_path, "wb") as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
-            print(f"  Successfully saved to {target_path} /n成功保存到 {target_path}")
+            print(f"  Successfully saved to {target_path} \n成功保存到 {target_path}")
             return True
         except requests.RequestException as e:
-            print(f"  Request error: {e}. Retry {attempt+1}/{max_retries} /n请求错误: {e}. 重试 {attempt+1}/{max_retries}")
+            print(f"  Request error: {e}. Retry {attempt+1}/{max_retries} \n请求错误: {e}. 重试 {attempt+1}/{max_retries}")
             if attempt < max_retries:
                 time.sleep(1)
                 continue
@@ -62,7 +62,7 @@ def download_file(url, target_path, headers):
 
 def main():
     parser = argparse.ArgumentParser(description="Download from logs")
-    parser.add_argument("--403-first", type=str, default="false", help="Set to true to only download files marked as 403 in logs/n设置为true只下载日志中标记为403的文件")
+    parser.add_argument("--403-first", type=str, default="false", help="Set to true to only download files marked as 403 in logs\n设置为true只下载日志中标记为403的文件")
     parser.add_argument("-d", "--date", type=str, help="Date range, e.g. '2026-03-31 to 2010-01-01'")
     parser.add_argument("-o", "--output", type=str, default="downloads", help="Custom save directory / 自定义保存目录")
     args = parser.parse_args()
