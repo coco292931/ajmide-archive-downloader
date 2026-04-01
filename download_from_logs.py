@@ -64,6 +64,7 @@ def main():
     parser = argparse.ArgumentParser(description="Download from logs")
     parser.add_argument("--403-first", type=str, default="false", help="Set to true to only download files marked as 403 in logs/n设置为true只下载日志中标记为403的文件")
     parser.add_argument("-d", "--date", type=str, help="Date range, e.g. '2026-03-31 to 2010-01-01'")
+    parser.add_argument("-o", "--output", type=str, default="downloads", help="Custom save directory / 自定义保存目录")
     args = parser.parse_args()
 
     only_403 = args.__dict__.get("403_first", "false").lower() == "true"
@@ -93,7 +94,7 @@ def main():
 
     code_to_name = load_config()
     logs_dir = "logs"
-    downloads_dir = "downloads"
+    downloads_dir = args.output
 
     if not os.path.exists(logs_dir):
         print(f"Logs directory '{logs_dir}' not found.")
