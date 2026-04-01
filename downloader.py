@@ -33,16 +33,6 @@ _BASE_HEADERS = {
     "Host": "a.ajmide.com",
     "If-Modified-Since": "Sat, 28 Mar 2026 12:36:07 GMT",
 }
-'''
-Accept-Encoding:
-gzip
-Connection:
-Keep-Alive
-Host:
-ia-bk-i.ajmide.com
-User-Agent:
-Dalvik/2.1.0 (Linux; U; Android 10; HLK-AL00 Build/HONORHLK-AL00)
-'''
 
 _ROTATE_EVERY = 8
 _header_state = {
@@ -499,6 +489,7 @@ def download_by_date(date_str, base_downloads_dir="downloads",
         failed_items = []
         slot_total = {}
         slot_index = {}
+        base_path_exists_at_start = {}
         for p in program_list:
             st = p.get("startTime", 0)
             et = p.get("endTime", 0)
@@ -581,14 +572,25 @@ def download_by_date(date_str, base_downloads_dir="downloads",
             download_url = program.get("downloadUrl") or program.get("playUrlHigh")
 
             template_rendered = _render_filename_template(filename_template, format_values)
-            file_path = _build_output_file_path(
+            base_file_path = _build_output_file_path(
                 base_downloads_dir=base_downloads_dir,
                 template_rendered=template_rendered,
                 download_url=download_url or "",
                 fallback_date=program_date_str,
                 fallback_name=_sanitize_component_for_path(program_name),
             )
-            file_path = _resolve_nonconflicting_file_path(file_path)
+
+            if base_file_path not in base_path_exists_at_start:
+                base_path_exists_at_start[base_file_path] = os.path.exists(base_file_path)
+
+            if base_path_exists_at_start[base_file_path]:
+                print(f"文件 '{base_file_path}' 在任务开始前已存在，跳过下载。")
+                slot_success[slot_key] = slot_success.get(slot_key, 0) + 1
+                success_count += 1
+                skipped_existing_count += 1
+                continue
+
+            file_path = _resolve_nonconflicting_file_path(base_file_path)
             file_dir = os.path.dirname(file_path)
             if file_dir and not os.path.exists(file_dir):
                 os.makedirs(file_dir, exist_ok=True)
