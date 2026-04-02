@@ -85,26 +85,26 @@
 Clone 本项目后，运行以下命令，优先下载杭州地区已 403、其他地区可能仍有缓存的文件：
 
 ```bash
-python ./download_from_logs.py --403-first true
+python ./tools/download_from_logs.py --403-first true
 ```
 
 如遇 403，可启用内嵌 DNS 轮询（脚本内已预置一组 IP），如果不太懂，推荐直接使用下面这一条↓：
 
 ```bash
-python ./download_from_logs.py --403-first true --enable-resolve true
+python ./tools/download_from_logs.py --403-first true --enable-resolve true
 ```
 
 也可以手动追加解析地址（`host:port:ip`，可重复传入 `--resolve`）：
 
 ```bash
-python ./download_from_logs.py --403-first true --enable-resolve true --resolve ia-bk-i.ajmide.com:80:42.202.165.200
+python ./tools/download_from_logs.py --403-first true --enable-resolve true --resolve ia-bk-i.ajmide.com:80:42.202.165.200
 ```
 
 也可以增加 `-d` 参数指定时间范围（但是受logs范围限制），支持反向下载，如`2026-03-31 to 2016-03-31`优先从26年开始获取
 
 ```bash
 # 同时使用日期范围和 403优先 指定从2016-03-3向2026-03-31下载
-python ./download_from_logs.py --403-first true -d "2016-03-3 to 2026-03-31"
+python ./tools/download_from_logs.py --403-first true -d "2016-03-3 to 2026-03-31"
 ```
 
 > 杭州地区节点已近乎全部爬取完毕，请优先从**其他地区节点**尝试获取，任何地方都可以！
@@ -141,6 +141,8 @@ python ./download_from_logs.py --403-first true -d "2016-03-3 to 2026-03-31"
 │       # 本文件夹存放phid爆破的响应文件，方便后续再进行分析
 ├─images_all
 │       # 本文件夹存放节目图片 txt中是图片对应信息
+├─tools
+│       # 工具脚本目录（日志下载、统计分析、去重等）
 ```
 
 ## 原理

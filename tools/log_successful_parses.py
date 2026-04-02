@@ -1,10 +1,15 @@
 import os
+import sys
 import time
 from collections import defaultdict
 from datetime import datetime, timedelta
 from urllib.parse import urlparse, urlunparse
 
 import requests
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 from downloader import _build_ajmide_headers, _build_programs_for_date, _load_program_schedules
 
