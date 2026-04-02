@@ -1,0 +1,326 @@
+# 2014-10 成功解析记录
+
+=== 2014-10-01 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141001_0000.m4a | 2014-10-01 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141001/459_20141001_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 855f59d4-3956-4789-ac1e-e78ff5b3d604; ajmd; 855f59d4-3956-4789-ac1e-e78ff5b3d604)
+461_20141001_0700.m4a | 2014-10-01 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141001/461_20141001_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; c79ad523-4470-436d-9586-307cbd037d4f; ajmd; c79ad523-4470-436d-9586-307cbd037d4f)
+463_20141001_1000.m4a | 2014-10-01 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141001/463_20141001_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; c79ad523-4470-436d-9586-307cbd037d4f; ajmd; c79ad523-4470-436d-9586-307cbd037d4f)
+466_20141001_1300.m4a | 2014-10-01 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141001/466_20141001_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; c79ad523-4470-436d-9586-307cbd037d4f; ajmd; c79ad523-4470-436d-9586-307cbd037d4f)
+471_20141001_1600.m4a | 2014-10-01 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141001/471_20141001_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; c79ad523-4470-436d-9586-307cbd037d4f; ajmd; c79ad523-4470-436d-9586-307cbd037d4f)
+473_20141001_1900.m4a | 2014-10-01 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141001/473_20141001_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4; ajmd; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4)
+475_20141001_2200.m4a | 2014-10-01 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141001/475_20141001_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4; ajmd; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4)
+
+=== 2014-10-02 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141002_0000.m4a | 2014-10-02 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141002/459_20141002_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4; ajmd; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4)
+461_20141002_0700.m4a | 2014-10-02 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141002/461_20141002_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4; ajmd; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4)
+463_20141002_1000.m4a | 2014-10-02 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141002/463_20141002_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4; ajmd; 226ce6e6-4cc8-415c-b5f5-3ea6d30477c4)
+466_20141002_1300.m4a | 2014-10-02 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141002/466_20141002_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af; ajmd; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af)
+471_20141002_1600.m4a | 2014-10-02 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141002/471_20141002_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af; ajmd; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af)
+473_20141002_1900.m4a | 2014-10-02 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141002/473_20141002_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af; ajmd; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af)
+475_20141002_2200.m4a | 2014-10-02 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141002/475_20141002_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af; ajmd; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af)
+
+=== 2014-10-03 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141003_0000.m4a | 2014-10-03 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141003/459_20141003_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af; ajmd; 1f7c2ee1-926e-49e9-af19-a3a0cc00d9af)
+461_20141003_0700.m4a | 2014-10-03 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141003/461_20141003_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 7371f7d8-155a-469b-b5cd-ca44e38ad1db; ajmd; 7371f7d8-155a-469b-b5cd-ca44e38ad1db)
+463_20141003_1000.m4a | 2014-10-03 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141003/463_20141003_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 7371f7d8-155a-469b-b5cd-ca44e38ad1db; ajmd; 7371f7d8-155a-469b-b5cd-ca44e38ad1db)
+466_20141003_1300.m4a | 2014-10-03 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141003/466_20141003_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 7371f7d8-155a-469b-b5cd-ca44e38ad1db; ajmd; 7371f7d8-155a-469b-b5cd-ca44e38ad1db)
+471_20141003_1600.m4a | 2014-10-03 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141003/471_20141003_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 7371f7d8-155a-469b-b5cd-ca44e38ad1db; ajmd; 7371f7d8-155a-469b-b5cd-ca44e38ad1db)
+473_20141003_1900.m4a | 2014-10-03 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141003/473_20141003_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f; ajmd; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f)
+475_20141003_2200.m4a | 2014-10-03 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141003/475_20141003_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f; ajmd; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f)
+
+=== 2014-10-04 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141004_0000.m4a | 2014-10-04 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141004/459_20141004_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f; ajmd; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f)
+462_20141004_0800.m4a | 2014-10-04 08:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141004/462_20141004_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f; ajmd; a73f59c0-21c1-45f4-90ab-1bfbf18daf6f)
+468_20141004_1500.m4a | 2014-10-04 15:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_468/20141004/468_20141004_1500.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 79e809db-5d57-4c8d-aef4-8bd28e22a387; ajmd; 79e809db-5d57-4c8d-aef4-8bd28e22a387)
+469_20141004_1600.m4a | 2014-10-04 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_469/20141004/469_20141004_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 79e809db-5d57-4c8d-aef4-8bd28e22a387; ajmd; 79e809db-5d57-4c8d-aef4-8bd28e22a387)
+472_20141004_1800.m4a | 2014-10-04 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141004/472_20141004_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 79e809db-5d57-4c8d-aef4-8bd28e22a387; ajmd; 79e809db-5d57-4c8d-aef4-8bd28e22a387)
+474_20141004_2000.m4a | 2014-10-04 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_474/20141004/474_20141004_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 79e809db-5d57-4c8d-aef4-8bd28e22a387; ajmd; 79e809db-5d57-4c8d-aef4-8bd28e22a387)
+475_20141004_2200.m4a | 2014-10-04 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141004/475_20141004_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; c124825c-16cc-4635-bc6d-3ab4bae0c4d7; ajmd; c124825c-16cc-4635-bc6d-3ab4bae0c4d7)
+
+=== 2014-10-05 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141005_0000.m4a | 2014-10-05 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141005/459_20141005_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; c124825c-16cc-4635-bc6d-3ab4bae0c4d7; ajmd; c124825c-16cc-4635-bc6d-3ab4bae0c4d7)
+465_20141005_1200.m4a | 2014-10-05 12:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_465/20141005/465_20141005_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; c124825c-16cc-4635-bc6d-3ab4bae0c4d7; ajmd; c124825c-16cc-4635-bc6d-3ab4bae0c4d7)
+467_20141005_1400.m4a | 2014-10-05 14:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_467/20141005/467_20141005_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; c124825c-16cc-4635-bc6d-3ab4bae0c4d7; ajmd; c124825c-16cc-4635-bc6d-3ab4bae0c4d7)
+472_20141005_1800.m4a | 2014-10-05 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141005/472_20141005_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; ab463e9a-b495-49e0-8d93-d20edd00ab2e; ajmd; ab463e9a-b495-49e0-8d93-d20edd00ab2e)
+462_20141005_2000.m4a | 2014-10-05 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141005/462_20141005_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; ab463e9a-b495-49e0-8d93-d20edd00ab2e; ajmd; ab463e9a-b495-49e0-8d93-d20edd00ab2e)
+
+=== 2014-10-06 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141006_0000.m4a | 2014-10-06 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141006/459_20141006_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 249be852-482b-46a0-840d-c83ad15bcbb7; ajmd; 249be852-482b-46a0-840d-c83ad15bcbb7)
+461_20141006_0700.m4a | 2014-10-06 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141006/461_20141006_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 249be852-482b-46a0-840d-c83ad15bcbb7; ajmd; 249be852-482b-46a0-840d-c83ad15bcbb7)
+463_20141006_1000.m4a | 2014-10-06 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141006/463_20141006_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 249be852-482b-46a0-840d-c83ad15bcbb7; ajmd; 249be852-482b-46a0-840d-c83ad15bcbb7)
+466_20141006_1300.m4a | 2014-10-06 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141006/466_20141006_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 249be852-482b-46a0-840d-c83ad15bcbb7; ajmd; 249be852-482b-46a0-840d-c83ad15bcbb7)
+471_20141006_1600.m4a | 2014-10-06 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141006/471_20141006_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; b0aaf00f-29c0-433a-b132-4315273411c9; ajmd; b0aaf00f-29c0-433a-b132-4315273411c9)
+473_20141006_1900.m4a | 2014-10-06 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141006/473_20141006_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; b0aaf00f-29c0-433a-b132-4315273411c9; ajmd; b0aaf00f-29c0-433a-b132-4315273411c9)
+475_20141006_2200.m4a | 2014-10-06 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141006/475_20141006_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; b0aaf00f-29c0-433a-b132-4315273411c9; ajmd; b0aaf00f-29c0-433a-b132-4315273411c9)
+
+=== 2014-10-07 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141007_0000.m4a | 2014-10-07 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141007/459_20141007_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; b0aaf00f-29c0-433a-b132-4315273411c9; ajmd; b0aaf00f-29c0-433a-b132-4315273411c9)
+461_20141007_0700.m4a | 2014-10-07 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141007/461_20141007_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; b0aaf00f-29c0-433a-b132-4315273411c9; ajmd; b0aaf00f-29c0-433a-b132-4315273411c9)
+463_20141007_1000.m4a | 2014-10-07 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141007/463_20141007_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 92bdb861-6f85-42d1-aaf4-ec817e31a03d; ajmd; 92bdb861-6f85-42d1-aaf4-ec817e31a03d)
+466_20141007_1300.m4a | 2014-10-07 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141007/466_20141007_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 92bdb861-6f85-42d1-aaf4-ec817e31a03d; ajmd; 92bdb861-6f85-42d1-aaf4-ec817e31a03d)
+471_20141007_1600.m4a | 2014-10-07 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141007/471_20141007_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 92bdb861-6f85-42d1-aaf4-ec817e31a03d; ajmd; 92bdb861-6f85-42d1-aaf4-ec817e31a03d)
+473_20141007_1900.m4a | 2014-10-07 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141007/473_20141007_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 92bdb861-6f85-42d1-aaf4-ec817e31a03d; ajmd; 92bdb861-6f85-42d1-aaf4-ec817e31a03d)
+475_20141007_2200.m4a | 2014-10-07 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141007/475_20141007_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 92bdb861-6f85-42d1-aaf4-ec817e31a03d; ajmd; 92bdb861-6f85-42d1-aaf4-ec817e31a03d)
+
+=== 2014-10-08 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141008_0000.m4a | 2014-10-08 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141008/459_20141008_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 0d88d441-89b1-468a-887b-48cf0384134b; ajmd; 0d88d441-89b1-468a-887b-48cf0384134b)
+461_20141008_0700.m4a | 2014-10-08 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141008/461_20141008_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 0d88d441-89b1-468a-887b-48cf0384134b; ajmd; 0d88d441-89b1-468a-887b-48cf0384134b)
+463_20141008_1000.m4a | 2014-10-08 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141008/463_20141008_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 0d88d441-89b1-468a-887b-48cf0384134b; ajmd; 0d88d441-89b1-468a-887b-48cf0384134b)
+466_20141008_1300.m4a | 2014-10-08 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141008/466_20141008_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 0d88d441-89b1-468a-887b-48cf0384134b; ajmd; 0d88d441-89b1-468a-887b-48cf0384134b)
+471_20141008_1600.m4a | 2014-10-08 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141008/471_20141008_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cb72426c-0196-41a0-8d16-10627b322002; ajmd; cb72426c-0196-41a0-8d16-10627b322002)
+473_20141008_1900.m4a | 2014-10-08 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141008/473_20141008_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cb72426c-0196-41a0-8d16-10627b322002; ajmd; cb72426c-0196-41a0-8d16-10627b322002)
+475_20141008_2200.m4a | 2014-10-08 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141008/475_20141008_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cb72426c-0196-41a0-8d16-10627b322002; ajmd; cb72426c-0196-41a0-8d16-10627b322002)
+
+=== 2014-10-09 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141009_0000.m4a | 2014-10-09 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141009/459_20141009_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cb72426c-0196-41a0-8d16-10627b322002; ajmd; cb72426c-0196-41a0-8d16-10627b322002)
+461_20141009_0700.m4a | 2014-10-09 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141009/461_20141009_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cb72426c-0196-41a0-8d16-10627b322002; ajmd; cb72426c-0196-41a0-8d16-10627b322002)
+463_20141009_1000.m4a | 2014-10-09 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141009/463_20141009_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c8631f78-8c2d-4f89-bcfe-89df39ad8c05; ajmd; c8631f78-8c2d-4f89-bcfe-89df39ad8c05)
+466_20141009_1300.m4a | 2014-10-09 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141009/466_20141009_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c8631f78-8c2d-4f89-bcfe-89df39ad8c05; ajmd; c8631f78-8c2d-4f89-bcfe-89df39ad8c05)
+471_20141009_1600.m4a | 2014-10-09 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141009/471_20141009_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c8631f78-8c2d-4f89-bcfe-89df39ad8c05; ajmd; c8631f78-8c2d-4f89-bcfe-89df39ad8c05)
+473_20141009_1900.m4a | 2014-10-09 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141009/473_20141009_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c8631f78-8c2d-4f89-bcfe-89df39ad8c05; ajmd; c8631f78-8c2d-4f89-bcfe-89df39ad8c05)
+475_20141009_2200.m4a | 2014-10-09 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141009/475_20141009_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; c8631f78-8c2d-4f89-bcfe-89df39ad8c05; ajmd; c8631f78-8c2d-4f89-bcfe-89df39ad8c05)
+
+=== 2014-10-10 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141010_0000.m4a | 2014-10-10 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141010/459_20141010_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f; ajmd; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f)
+461_20141010_0700.m4a | 2014-10-10 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141010/461_20141010_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f; ajmd; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f)
+463_20141010_1000.m4a | 2014-10-10 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141010/463_20141010_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f; ajmd; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f)
+466_20141010_1300.m4a | 2014-10-10 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141010/466_20141010_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f; ajmd; 33d878ca-65d7-4fd6-9842-0bdad39e4a7f)
+471_20141010_1600.m4a | 2014-10-10 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141010/471_20141010_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c17f889e-db80-4677-a79c-e7be5a0c4b31; ajmd; c17f889e-db80-4677-a79c-e7be5a0c4b31)
+473_20141010_1900.m4a | 2014-10-10 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141010/473_20141010_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c17f889e-db80-4677-a79c-e7be5a0c4b31; ajmd; c17f889e-db80-4677-a79c-e7be5a0c4b31)
+475_20141010_2200.m4a | 2014-10-10 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141010/475_20141010_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c17f889e-db80-4677-a79c-e7be5a0c4b31; ajmd; c17f889e-db80-4677-a79c-e7be5a0c4b31)
+
+=== 2014-10-11 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141011_0000.m4a | 2014-10-11 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141011/459_20141011_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c17f889e-db80-4677-a79c-e7be5a0c4b31; ajmd; c17f889e-db80-4677-a79c-e7be5a0c4b31)
+462_20141011_0800.m4a | 2014-10-11 08:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141011/462_20141011_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; c17f889e-db80-4677-a79c-e7be5a0c4b31; ajmd; c17f889e-db80-4677-a79c-e7be5a0c4b31)
+468_20141011_1500.m4a | 2014-10-11 15:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_468/20141011/468_20141011_1500.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9aa227b3-a4e2-4193-ac59-5ac65749a0af; ajmd; 9aa227b3-a4e2-4193-ac59-5ac65749a0af)
+469_20141011_1600.m4a | 2014-10-11 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_469/20141011/469_20141011_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9aa227b3-a4e2-4193-ac59-5ac65749a0af; ajmd; 9aa227b3-a4e2-4193-ac59-5ac65749a0af)
+472_20141011_1800.m4a | 2014-10-11 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141011/472_20141011_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9aa227b3-a4e2-4193-ac59-5ac65749a0af; ajmd; 9aa227b3-a4e2-4193-ac59-5ac65749a0af)
+474_20141011_2000.m4a | 2014-10-11 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_474/20141011/474_20141011_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66; ajmd; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66)
+475_20141011_2200.m4a | 2014-10-11 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141011/475_20141011_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66; ajmd; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66)
+
+=== 2014-10-12 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141012_0000.m4a | 2014-10-12 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141012/459_20141012_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66; ajmd; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66)
+465_20141012_1200.m4a | 2014-10-12 12:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_465/20141012/465_20141012_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66; ajmd; 2a4dcde3-0e75-4d28-91de-c8e85ca0ac66)
+467_20141012_1400.m4a | 2014-10-12 14:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_467/20141012/467_20141012_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; ba245422-6f61-4cf1-9862-42e2dc442a0b; ajmd; ba245422-6f61-4cf1-9862-42e2dc442a0b)
+472_20141012_1800.m4a | 2014-10-12 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141012/472_20141012_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; ba245422-6f61-4cf1-9862-42e2dc442a0b; ajmd; ba245422-6f61-4cf1-9862-42e2dc442a0b)
+462_20141012_2000.m4a | 2014-10-12 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141012/462_20141012_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; ba245422-6f61-4cf1-9862-42e2dc442a0b; ajmd; ba245422-6f61-4cf1-9862-42e2dc442a0b)
+
+=== 2014-10-13 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141013_0000.m4a | 2014-10-13 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141013/459_20141013_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 32c92675-3b93-4313-9eae-1e72af60e726; ajmd; 32c92675-3b93-4313-9eae-1e72af60e726)
+461_20141013_0700.m4a | 2014-10-13 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141013/461_20141013_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 32c92675-3b93-4313-9eae-1e72af60e726; ajmd; 32c92675-3b93-4313-9eae-1e72af60e726)
+463_20141013_1000.m4a | 2014-10-13 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141013/463_20141013_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 32c92675-3b93-4313-9eae-1e72af60e726; ajmd; 32c92675-3b93-4313-9eae-1e72af60e726)
+466_20141013_1300.m4a | 2014-10-13 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141013/466_20141013_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NTH-AN00; 32c92675-3b93-4313-9eae-1e72af60e726; ajmd; 32c92675-3b93-4313-9eae-1e72af60e726)
+471_20141013_1600.m4a | 2014-10-13 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141013/471_20141013_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 94d904c6-a019-402b-a324-4b8fcf86c1ee; ajmd; 94d904c6-a019-402b-a324-4b8fcf86c1ee)
+473_20141013_1900.m4a | 2014-10-13 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141013/473_20141013_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 94d904c6-a019-402b-a324-4b8fcf86c1ee; ajmd; 94d904c6-a019-402b-a324-4b8fcf86c1ee)
+475_20141013_2200.m4a | 2014-10-13 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141013/475_20141013_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 94d904c6-a019-402b-a324-4b8fcf86c1ee; ajmd; 94d904c6-a019-402b-a324-4b8fcf86c1ee)
+
+=== 2014-10-14 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141014_0000.m4a | 2014-10-14 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141014/459_20141014_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 94d904c6-a019-402b-a324-4b8fcf86c1ee; ajmd; 94d904c6-a019-402b-a324-4b8fcf86c1ee)
+461_20141014_0700.m4a | 2014-10-14 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141014/461_20141014_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+463_20141014_1000.m4a | 2014-10-14 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141014/463_20141014_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+466_20141014_1300.m4a | 2014-10-14 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141014/466_20141014_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+471_20141014_1600.m4a | 2014-10-14 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141014/471_20141014_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+473_20141014_1900.m4a | 2014-10-14 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141014/473_20141014_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+475_20141014_2200.m4a | 2014-10-14 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141014/475_20141014_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; M2007J3SC; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9; ajmd; a6e7d33f-53bc-4cb8-91a2-c64c9cb438f9)
+
+=== 2014-10-15 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141015_0000.m4a | 2014-10-15 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141015/459_20141015_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; b92914ae-f148-4ae5-a96d-6557e528a7d6; ajmd; b92914ae-f148-4ae5-a96d-6557e528a7d6)
+461_20141015_0700.m4a | 2014-10-15 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141015/461_20141015_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; b92914ae-f148-4ae5-a96d-6557e528a7d6; ajmd; b92914ae-f148-4ae5-a96d-6557e528a7d6)
+463_20141015_1000.m4a | 2014-10-15 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141015/463_20141015_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; b92914ae-f148-4ae5-a96d-6557e528a7d6; ajmd; b92914ae-f148-4ae5-a96d-6557e528a7d6)
+466_20141015_1300.m4a | 2014-10-15 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141015/466_20141015_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; b92914ae-f148-4ae5-a96d-6557e528a7d6; ajmd; b92914ae-f148-4ae5-a96d-6557e528a7d6)
+471_20141015_1600.m4a | 2014-10-15 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141015/471_20141015_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af; ajmd; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af)
+473_20141015_1900.m4a | 2014-10-15 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141015/473_20141015_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af; ajmd; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af)
+475_20141015_2200.m4a | 2014-10-15 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141015/475_20141015_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af; ajmd; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af)
+
+=== 2014-10-16 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141016_0000.m4a | 2014-10-16 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141016/459_20141016_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af; ajmd; 4ad0d2bc-22c7-4922-bc4f-16f31ae231af)
+461_20141016_0700.m4a | 2014-10-16 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141016/461_20141016_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+463_20141016_1000.m4a | 2014-10-16 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141016/463_20141016_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+466_20141016_1300.m4a | 2014-10-16 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141016/466_20141016_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+471_20141016_1600.m4a | 2014-10-16 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141016/471_20141016_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+473_20141016_1900.m4a | 2014-10-16 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141016/473_20141016_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+475_20141016_2200.m4a | 2014-10-16 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141016/475_20141016_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; cac813f0-a5d7-4d8c-9d51-09848ce8a92f; ajmd; cac813f0-a5d7-4d8c-9d51-09848ce8a92f)
+
+=== 2014-10-17 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141017_0000.m4a | 2014-10-17 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141017/459_20141017_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50; ajmd; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50)
+461_20141017_0700.m4a | 2014-10-17 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141017/461_20141017_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50; ajmd; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50)
+463_20141017_1000.m4a | 2014-10-17 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141017/463_20141017_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50; ajmd; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50)
+466_20141017_1300.m4a | 2014-10-17 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141017/466_20141017_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50; ajmd; 49a3a102-8e38-4fde-abc4-7e7d9edf8a50)
+471_20141017_1600.m4a | 2014-10-17 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141017/471_20141017_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 3977a677-6442-4d38-8811-8900bb2946fe; ajmd; 3977a677-6442-4d38-8811-8900bb2946fe)
+473_20141017_1900.m4a | 2014-10-17 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141017/473_20141017_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 3977a677-6442-4d38-8811-8900bb2946fe; ajmd; 3977a677-6442-4d38-8811-8900bb2946fe)
+475_20141017_2200.m4a | 2014-10-17 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141017/475_20141017_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 3977a677-6442-4d38-8811-8900bb2946fe; ajmd; 3977a677-6442-4d38-8811-8900bb2946fe)
+
+=== 2014-10-18 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141018_0000.m4a | 2014-10-18 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141018/459_20141018_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 3977a677-6442-4d38-8811-8900bb2946fe; ajmd; 3977a677-6442-4d38-8811-8900bb2946fe)
+462_20141018_0800.m4a | 2014-10-18 08:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141018/462_20141018_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 3977a677-6442-4d38-8811-8900bb2946fe; ajmd; 3977a677-6442-4d38-8811-8900bb2946fe)
+468_20141018_1500.m4a | 2014-10-18 15:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_468/20141018/468_20141018_1500.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 28fc7a93-305c-4f12-ba2f-941566d4a9e6; ajmd; 28fc7a93-305c-4f12-ba2f-941566d4a9e6)
+469_20141018_1600.m4a | 2014-10-18 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_469/20141018/469_20141018_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 28fc7a93-305c-4f12-ba2f-941566d4a9e6; ajmd; 28fc7a93-305c-4f12-ba2f-941566d4a9e6)
+472_20141018_1800.m4a | 2014-10-18 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141018/472_20141018_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 28fc7a93-305c-4f12-ba2f-941566d4a9e6; ajmd; 28fc7a93-305c-4f12-ba2f-941566d4a9e6)
+474_20141018_2000.m4a | 2014-10-18 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_474/20141018/474_20141018_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 818d4f36-571f-459b-8c53-0748e64db5d5; ajmd; 818d4f36-571f-459b-8c53-0748e64db5d5)
+475_20141018_2200.m4a | 2014-10-18 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141018/475_20141018_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 818d4f36-571f-459b-8c53-0748e64db5d5; ajmd; 818d4f36-571f-459b-8c53-0748e64db5d5)
+
+=== 2014-10-19 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141019_0000.m4a | 2014-10-19 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141019/459_20141019_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 818d4f36-571f-459b-8c53-0748e64db5d5; ajmd; 818d4f36-571f-459b-8c53-0748e64db5d5)
+465_20141019_1200.m4a | 2014-10-19 12:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_465/20141019/465_20141019_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELE-AL00; 818d4f36-571f-459b-8c53-0748e64db5d5; ajmd; 818d4f36-571f-459b-8c53-0748e64db5d5)
+467_20141019_1400.m4a | 2014-10-19 14:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_467/20141019/467_20141019_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8; ajmd; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8)
+472_20141019_1800.m4a | 2014-10-19 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141019/472_20141019_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8; ajmd; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8)
+462_20141019_2000.m4a | 2014-10-19 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141019/462_20141019_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8; ajmd; 2f8f6c60-aeaa-44f6-94ef-37495c7a7dc8)
+
+=== 2014-10-20 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141020_0000.m4a | 2014-10-20 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141020/459_20141020_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; fce41a67-b0a1-456e-817a-99161378c4de; ajmd; fce41a67-b0a1-456e-817a-99161378c4de)
+461_20141020_0700.m4a | 2014-10-20 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141020/461_20141020_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; fce41a67-b0a1-456e-817a-99161378c4de; ajmd; fce41a67-b0a1-456e-817a-99161378c4de)
+463_20141020_1000.m4a | 2014-10-20 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141020/463_20141020_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; fce41a67-b0a1-456e-817a-99161378c4de; ajmd; fce41a67-b0a1-456e-817a-99161378c4de)
+466_20141020_1300.m4a | 2014-10-20 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141020/466_20141020_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; edd10163-78d3-4df4-88f5-0ad29387c445; ajmd; edd10163-78d3-4df4-88f5-0ad29387c445)
+471_20141020_1600.m4a | 2014-10-20 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141020/471_20141020_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; edd10163-78d3-4df4-88f5-0ad29387c445; ajmd; edd10163-78d3-4df4-88f5-0ad29387c445)
+473_20141020_1900.m4a | 2014-10-20 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141020/473_20141020_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; edd10163-78d3-4df4-88f5-0ad29387c445; ajmd; edd10163-78d3-4df4-88f5-0ad29387c445)
+475_20141020_2200.m4a | 2014-10-20 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141020/475_20141020_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; edd10163-78d3-4df4-88f5-0ad29387c445; ajmd; edd10163-78d3-4df4-88f5-0ad29387c445)
+
+=== 2014-10-21 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141021_0000.m4a | 2014-10-21 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141021/459_20141021_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; edd10163-78d3-4df4-88f5-0ad29387c445; ajmd; edd10163-78d3-4df4-88f5-0ad29387c445)
+461_20141021_0700.m4a | 2014-10-21 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141021/461_20141021_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f; ajmd; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f)
+463_20141021_1000.m4a | 2014-10-21 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141021/463_20141021_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f; ajmd; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f)
+466_20141021_1300.m4a | 2014-10-21 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141021/466_20141021_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f; ajmd; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f)
+471_20141021_1600.m4a | 2014-10-21 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141021/471_20141021_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f; ajmd; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f)
+473_20141021_1900.m4a | 2014-10-21 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141021/473_20141021_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f; ajmd; fcdcc3fd-7fbb-40a3-b67f-6829967ac84f)
+475_20141021_2200.m4a | 2014-10-21 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141021/475_20141021_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 3594642b-1921-46a7-a6bd-d52da98764cc; ajmd; 3594642b-1921-46a7-a6bd-d52da98764cc)
+
+=== 2014-10-22 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+459_20141022_0000.m4a | 2014-10-22 00:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_459/20141022/459_20141022_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 3594642b-1921-46a7-a6bd-d52da98764cc; ajmd; 3594642b-1921-46a7-a6bd-d52da98764cc)
+461_20141022_0700.m4a | 2014-10-22 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141022/461_20141022_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 3594642b-1921-46a7-a6bd-d52da98764cc; ajmd; 3594642b-1921-46a7-a6bd-d52da98764cc)
+463_20141022_1000.m4a | 2014-10-22 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141022/463_20141022_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 3594642b-1921-46a7-a6bd-d52da98764cc; ajmd; 3594642b-1921-46a7-a6bd-d52da98764cc)
+466_20141022_1300.m4a | 2014-10-22 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141022/466_20141022_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; df0a2949-38b3-44b7-be43-a3d9f9ae0327; ajmd; df0a2949-38b3-44b7-be43-a3d9f9ae0327)
+471_20141022_1600.m4a | 2014-10-22 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141022/471_20141022_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; df0a2949-38b3-44b7-be43-a3d9f9ae0327; ajmd; df0a2949-38b3-44b7-be43-a3d9f9ae0327)
+473_20141022_1900.m4a | 2014-10-22 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141022/473_20141022_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; df0a2949-38b3-44b7-be43-a3d9f9ae0327; ajmd; df0a2949-38b3-44b7-be43-a3d9f9ae0327)
+475_20141022_2200.m4a | 2014-10-22 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141022/475_20141022_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; df0a2949-38b3-44b7-be43-a3d9f9ae0327; ajmd; df0a2949-38b3-44b7-be43-a3d9f9ae0327)
+
+=== 2014-10-23 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141023_0700.m4a | 2014-10-23 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141023/461_20141023_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0; ajmd; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0)
+463_20141023_1000.m4a | 2014-10-23 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141023/463_20141023_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0; ajmd; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0)
+466_20141023_1300.m4a | 2014-10-23 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141023/466_20141023_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0; ajmd; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0)
+471_20141023_1600.m4a | 2014-10-23 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141023/471_20141023_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0; ajmd; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0)
+473_20141023_1900.m4a | 2014-10-23 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141023/473_20141023_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0; ajmd; b7a5544d-67b7-4289-93a2-2e7a5d1d74d0)
+475_20141023_2200.m4a | 2014-10-23 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141023/475_20141023_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9; ajmd; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9)
+
+=== 2014-10-24 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141024_0700.m4a | 2014-10-24 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141024/461_20141024_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9; ajmd; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9)
+463_20141024_1000.m4a | 2014-10-24 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141024/463_20141024_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; ELS-AN00; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9; ajmd; 3d977ed3-910d-4558-8bf5-7fbaa41bd7a9)
+466_20141024_1300.m4a | 2014-10-24 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141024/466_20141024_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 14f56223-7466-42f4-92a3-011d61de2110; ajmd; 14f56223-7466-42f4-92a3-011d61de2110)
+471_20141024_1600.m4a | 2014-10-24 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141024/471_20141024_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 14f56223-7466-42f4-92a3-011d61de2110; ajmd; 14f56223-7466-42f4-92a3-011d61de2110)
+473_20141024_1900.m4a | 2014-10-24 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141024/473_20141024_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 14f56223-7466-42f4-92a3-011d61de2110; ajmd; 14f56223-7466-42f4-92a3-011d61de2110)
+475_20141024_2200.m4a | 2014-10-24 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141024/475_20141024_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; VOG-AL00; 14f56223-7466-42f4-92a3-011d61de2110; ajmd; 14f56223-7466-42f4-92a3-011d61de2110)
+
+=== 2014-10-25 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+462_20141025_0800.m4a | 2014-10-25 08:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141025/462_20141025_0800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5; ajmd; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5)
+468_20141025_1500.m4a | 2014-10-25 15:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_468/20141025/468_20141025_1500.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5; ajmd; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5)
+469_20141025_1600.m4a | 2014-10-25 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_469/20141025/469_20141025_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5; ajmd; 646a46e1-e858-4cd2-a943-c1f6d8cd69c5)
+472_20141025_1800.m4a | 2014-10-25 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141025/472_20141025_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 238102c5-b2ac-40f4-bedb-39dbe4f54799; ajmd; 238102c5-b2ac-40f4-bedb-39dbe4f54799)
+474_20141025_2000.m4a | 2014-10-25 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_474/20141025/474_20141025_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 238102c5-b2ac-40f4-bedb-39dbe4f54799; ajmd; 238102c5-b2ac-40f4-bedb-39dbe4f54799)
+475_20141025_2200.m4a | 2014-10-25 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141025/475_20141025_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 238102c5-b2ac-40f4-bedb-39dbe4f54799; ajmd; 238102c5-b2ac-40f4-bedb-39dbe4f54799)
+
+=== 2014-10-26 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+465_20141026_1200.m4a | 2014-10-26 12:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_465/20141026/465_20141026_1200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 0e09cde7-bba0-4496-a55a-497ed292c53d; ajmd; 0e09cde7-bba0-4496-a55a-497ed292c53d)
+467_20141026_1400.m4a | 2014-10-26 14:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_467/20141026/467_20141026_1400.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 0e09cde7-bba0-4496-a55a-497ed292c53d; ajmd; 0e09cde7-bba0-4496-a55a-497ed292c53d)
+472_20141026_1800.m4a | 2014-10-26 18:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_472/20141026/472_20141026_1800.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 0e09cde7-bba0-4496-a55a-497ed292c53d; ajmd; 0e09cde7-bba0-4496-a55a-497ed292c53d)
+462_20141026_2000.m4a | 2014-10-26 20:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_462/20141026/462_20141026_2000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 85476a2f-c890-45ae-b7a1-19c522ad05b7; ajmd; 85476a2f-c890-45ae-b7a1-19c522ad05b7)
+
+=== 2014-10-27 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141027_0700.m4a | 2014-10-27 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141027/461_20141027_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 85476a2f-c890-45ae-b7a1-19c522ad05b7; ajmd; 85476a2f-c890-45ae-b7a1-19c522ad05b7)
+463_20141027_1000.m4a | 2014-10-27 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141027/463_20141027_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 85476a2f-c890-45ae-b7a1-19c522ad05b7; ajmd; 85476a2f-c890-45ae-b7a1-19c522ad05b7)
+466_20141027_1300.m4a | 2014-10-27 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141027/466_20141027_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; fafcc89e-a33b-4bff-a378-f608594df072; ajmd; fafcc89e-a33b-4bff-a378-f608594df072)
+471_20141027_1600.m4a | 2014-10-27 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141027/471_20141027_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; fafcc89e-a33b-4bff-a378-f608594df072; ajmd; fafcc89e-a33b-4bff-a378-f608594df072)
+473_20141027_1900.m4a | 2014-10-27 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141027/473_20141027_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; fafcc89e-a33b-4bff-a378-f608594df072; ajmd; fafcc89e-a33b-4bff-a378-f608594df072)
+475_20141027_2200.m4a | 2014-10-27 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141027/475_20141027_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; fafcc89e-a33b-4bff-a378-f608594df072; ajmd; fafcc89e-a33b-4bff-a378-f608594df072)
+
+=== 2014-10-28 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141028_0700.m4a | 2014-10-28 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141028/461_20141028_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9d692235-151b-4358-93e0-6b3ce77241b2; ajmd; 9d692235-151b-4358-93e0-6b3ce77241b2)
+463_20141028_1000.m4a | 2014-10-28 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141028/463_20141028_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9d692235-151b-4358-93e0-6b3ce77241b2; ajmd; 9d692235-151b-4358-93e0-6b3ce77241b2)
+466_20141028_1300.m4a | 2014-10-28 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141028/466_20141028_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9d692235-151b-4358-93e0-6b3ce77241b2; ajmd; 9d692235-151b-4358-93e0-6b3ce77241b2)
+471_20141028_1600.m4a | 2014-10-28 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141028/471_20141028_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; 9d692235-151b-4358-93e0-6b3ce77241b2; ajmd; 9d692235-151b-4358-93e0-6b3ce77241b2)
+473_20141028_1900.m4a | 2014-10-28 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141028/473_20141028_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6; ajmd; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6)
+475_20141028_2200.m4a | 2014-10-28 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141028/475_20141028_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6; ajmd; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6)
+
+=== 2014-10-29 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141029_0700.m4a | 2014-10-29 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141029/461_20141029_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6; ajmd; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6)
+463_20141029_1000.m4a | 2014-10-29 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141029/463_20141029_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6; ajmd; 13cc81b3-9551-4b4d-93ab-1ef7ce25def6)
+466_20141029_1300.m4a | 2014-10-29 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141029/466_20141029_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9; ajmd; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9)
+471_20141029_1600.m4a | 2014-10-29 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141029/471_20141029_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9; ajmd; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9)
+473_20141029_1900.m4a | 2014-10-29 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141029/473_20141029_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9; ajmd; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9)
+475_20141029_2200.m4a | 2014-10-29 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141029/475_20141029_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; PCT-AL10; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9; ajmd; cfa09fa8-5ae7-4877-9a0a-5cdae599fad9)
+
+=== 2014-10-30 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141030_0700.m4a | 2014-10-30 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141030/461_20141030_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d5192029-a695-4b99-877a-3a4677805b93; ajmd; d5192029-a695-4b99-877a-3a4677805b93)
+463_20141030_1000.m4a | 2014-10-30 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141030/463_20141030_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d5192029-a695-4b99-877a-3a4677805b93; ajmd; d5192029-a695-4b99-877a-3a4677805b93)
+466_20141030_1300.m4a | 2014-10-30 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141030/466_20141030_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d5192029-a695-4b99-877a-3a4677805b93; ajmd; d5192029-a695-4b99-877a-3a4677805b93)
+471_20141030_1600.m4a | 2014-10-30 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141030/471_20141030_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; NOH-AN00; d5192029-a695-4b99-877a-3a4677805b93; ajmd; d5192029-a695-4b99-877a-3a4677805b93)
+473_20141030_1900.m4a | 2014-10-30 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141030/473_20141030_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 9e9b461c-0522-489f-8b91-464120071773; ajmd; 9e9b461c-0522-489f-8b91-464120071773)
+475_20141030_2200.m4a | 2014-10-30 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141030/475_20141030_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 9e9b461c-0522-489f-8b91-464120071773; ajmd; 9e9b461c-0522-489f-8b91-464120071773)
+
+=== 2014-10-31 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+461_20141031_0700.m4a | 2014-10-31 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_461/20141031/461_20141031_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 9e9b461c-0522-489f-8b91-464120071773; ajmd; 9e9b461c-0522-489f-8b91-464120071773)
+463_20141031_1000.m4a | 2014-10-31 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_463/20141031/463_20141031_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-A100; 9e9b461c-0522-489f-8b91-464120071773; ajmd; 9e9b461c-0522-489f-8b91-464120071773)
+466_20141031_1300.m4a | 2014-10-31 13:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_466/20141031/466_20141031_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 176eef94-61de-430d-a483-2620396e7464; ajmd; 176eef94-61de-430d-a483-2620396e7464)
+471_20141031_1600.m4a | 2014-10-31 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20141031/471_20141031_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 176eef94-61de-430d-a483-2620396e7464; ajmd; 176eef94-61de-430d-a483-2620396e7464)
+473_20141031_1900.m4a | 2014-10-31 19:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_473/20141031/473_20141031_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 176eef94-61de-430d-a483-2620396e7464; ajmd; 176eef94-61de-430d-a483-2620396e7464)
+475_20141031_2200.m4a | 2014-10-31 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20141031/475_20141031_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; YAL-AL00; 176eef94-61de-430d-a483-2620396e7464; ajmd; 176eef94-61de-430d-a483-2620396e7464)
+

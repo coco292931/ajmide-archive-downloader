@@ -1,0 +1,14 @@
+# 2022-07 成功解析记录
+
+=== 2022-07-01 ===
+文件名 | 节目时间 | 解析状态 | 对应下载连接 | 请求头
+------------------------------------------------------------------------------------------------------------------------
+32864_20220701_0000.m4a | 2022-07-01 00:00:00 | 失败(403-禁止访问) | http://ia-bk-i.ajmide.com/c_32864/20220701/32864_20220701_0000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 678dda83-eafa-4468-83fe-5e1bec0dfba4; ajmd; 678dda83-eafa-4468-83fe-5e1bec0dfba4)
+20276_20220701_0600.m4a | 2022-07-01 06:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_20276/20220701/20276_20220701_0600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 678dda83-eafa-4468-83fe-5e1bec0dfba4; ajmd; 678dda83-eafa-4468-83fe-5e1bec0dfba4)
+460_20220701_0700.m4a | 2022-07-01 07:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_460/20220701/460_20220701_0700.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 678dda83-eafa-4468-83fe-5e1bec0dfba4; ajmd; 678dda83-eafa-4468-83fe-5e1bec0dfba4)
+20279_20220701_1000.m4a | 2022-07-01 10:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_20279/20220701/20279_20220701_1000.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; 2201123C; 678dda83-eafa-4468-83fe-5e1bec0dfba4; ajmd; 678dda83-eafa-4468-83fe-5e1bec0dfba4)
+20280_20220701_1300.m4a | 2022-07-01 13:00:00 | 失败(403-禁止访问) | http://ia-bk-i.ajmide.com/c_20280/20220701/20280_20220701_1300.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 7edf1214-794a-4815-9cd6-97ab14a0db8c; ajmd; 7edf1214-794a-4815-9cd6-97ab14a0db8c)
+471_20220701_1600.m4a | 2022-07-01 16:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_471/20220701/471_20220701_1600.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 7edf1214-794a-4815-9cd6-97ab14a0db8c; ajmd; 7edf1214-794a-4815-9cd6-97ab14a0db8c)
+473_20220701_1900.m4a | 2022-07-01 19:00:00 | 成功(200,[58.42.59.184,123.54.203.56,113.142.216.120,113.142.216.125,113.142.215.168,1.81.2.203,36.99.200.7,42.202.165.210,1.62.64.108,117.162.10.168,117.162.11.24,117.163.57.175,117.163.57.178,117.163.57.248,123.12.235.104,123.12.235.56,123.12.235.57,123.6.104.170,180.129.181.100,222.138.7.59,223.109.219.175,36.151.204.170,42.225.102.124,42.225.102.95,61.161.1.110]) | http://ia-bk-i.ajmide.com/c_473/20220701/473_20220701_1900.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 7edf1214-794a-4815-9cd6-97ab14a0db8c; ajmd; 7edf1214-794a-4815-9cd6-97ab14a0db8c)
+475_20220701_2200.m4a | 2022-07-01 22:00:00 | 成功(主链路200) | http://ia-bk-i.ajmide.com/c_475/20220701/475_20220701_2200.m4a | Host=ia-bk-i.ajmide.com; Authorization=uauth; User-Agent=ajmd/4.0.2 (Android 10; HLK-AL00; 7edf1214-794a-4815-9cd6-97ab14a0db8c; ajmd; 7edf1214-794a-4815-9cd6-97ab14a0db8c)
+
