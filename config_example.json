@@ -27,7 +27,7 @@
             {"days": [7], "start": "14:00", "end": "16:00"}
         ]},
         {"name": "hitfm live", "code": "468", "slots": [{"days": [6], "start": "15:00", "end": "16:00"}]},
-        {"name": "hitfm live+嘻哈公园", "code": "469", "slots": [{"days": [6], "start": "16:00", "end": "18:00"}]},
+        {"name": "嘻哈公园", "code": "469", "slots": [{"days": [6], "start": "16:00", "end": "18:00"}]},
         {"name": "Rock DJ摇滚DJ", "code": "470", "slots": [{"days": [6], "start": "16:00", "end": "18:00"}]},
         {"name": "Big Drive Home开车现场秀", "code": "471", "slots": [{"days": [1, 2, 3, 4, 5], "start": "16:00", "end": "19:00"}]},
         {"name": "Top 20 Countdown顶尖20排行榜", "code": "472", "slots": [{"days": [6, 7], "start": "18:00", "end": "20:00"}]},
