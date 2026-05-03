@@ -118,7 +118,7 @@ python ./tools/download_from_logs.py --403-first true -d "2016-03-3 to 2026-03-3
 
 **方法二：联系平台方（关键）**
 
-如果你——或者你认识的人——能够联系到**阿基米德平台对应的技术或运营负责人**，请求其将 HitFM 相关文件[**临时取消 DeepColdArchive 状态**](https://help.aliyun.com/zh/oss/user-guide/restore-objects-for-access)，哪怕只有3天，也足以完整保存全部历史节目。
+如果你——或者你认识的人——能够联系到**阿基米德平台对应的技术或运营负责人**，请求其将 HitFM 相关文件[**临时取消 DeepColdArchive 状态**](https://help.aliyun.com/zh/oss/user-guide/restore-objects-for-access)，哪怕只有5天，也足以完整保存全部历史节目。
 
 这是目前唯一能够彻底解决问题的途径。
 
